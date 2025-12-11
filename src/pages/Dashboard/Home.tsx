@@ -6,7 +6,7 @@ export default function Home() {
         <>
             <PageMeta
                 title="CrimeDash - Dashboard Criminal"
-                description="Dashboard para gestão de gabinete com foco em matéria criminal"
+                description="Dashboard para gestão de gabinete"
             />
             <div className="space-y-6">
                 <div className="rounded-lg border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -14,8 +14,7 @@ export default function Home() {
                         Bem-vindo ao CrimeDash
                     </h2>
                     <p className="text-body">
-                        Hub de gestão para gabinete com foco em matéria
-                        criminal.
+                        Hub de gestão - Gabinete do Desembargador Alexandre Morais da Rosa - Tribunal de Justiça de Santa Catarina
                     </p>
                 </div>
 
