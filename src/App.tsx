@@ -18,6 +18,8 @@ import Blank from "./pages/Blank";
 import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
+import AdminLogin from "./pages/Admin/AdminLogin";
+import LinksManager from "./pages/Admin/LinksManager";
 
 export default function App() {
   return (
@@ -51,11 +53,17 @@ export default function App() {
             {/* Charts */}
             <Route path="/line-chart" element={<LineChart />} />
             <Route path="/bar-chart" element={<BarChart />} />
+
+            {/* Admin */}
+            <Route path="/admin/links" element={<LinksManager />} />
           </Route>
 
           {/* Auth Layout */}
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+
+          {/* Admin Login (sem layout) */}
+          <Route path="/admin" element={<AdminLogin />} />
 
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />

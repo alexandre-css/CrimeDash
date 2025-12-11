@@ -1,41 +1,26 @@
-import EcommerceMetrics from "../../components/ecommerce/EcommerceMetrics";
-import MonthlySalesChart from "../../components/ecommerce/MonthlySalesChart";
-import StatisticsChart from "../../components/ecommerce/StatisticsChart";
-import MonthlyTarget from "../../components/ecommerce/MonthlyTarget";
-import RecentOrders from "../../components/ecommerce/RecentOrders";
-import DemographicCard from "../../components/ecommerce/DemographicCard";
 import PageMeta from "../../components/common/PageMeta";
+import UsefulLinks from "../../components/criminal/UsefulLinks";
 
 export default function Home() {
-  return (
-    <>
-      <PageMeta
-        title="React.js Ecommerce Dashboard | TailAdmin - React.js Admin Dashboard Template"
-        description="This is React.js Ecommerce Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
-      />
-      <div className="grid grid-cols-12 gap-4 md:gap-6">
-        <div className="col-span-12 space-y-6 xl:col-span-7">
-          <EcommerceMetrics />
+    return (
+        <>
+            <PageMeta
+                title="CrimeDash - Dashboard Criminal"
+                description="Dashboard para gestão de gabinete com foco em matéria criminal"
+            />
+            <div className="space-y-6">
+                <div className="rounded-lg border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
+                    <h2 className="text-title-md2 font-semibold text-black dark:text-white mb-4">
+                        Bem-vindo ao CrimeDash
+                    </h2>
+                    <p className="text-body">
+                        Hub de gestão para gabinete com foco em matéria
+                        criminal.
+                    </p>
+                </div>
 
-          <MonthlySalesChart />
-        </div>
-
-        <div className="col-span-12 xl:col-span-5">
-          <MonthlyTarget />
-        </div>
-
-        <div className="col-span-12">
-          <StatisticsChart />
-        </div>
-
-        <div className="col-span-12 xl:col-span-5">
-          <DemographicCard />
-        </div>
-
-        <div className="col-span-12 xl:col-span-7">
-          <RecentOrders />
-        </div>
-      </div>
-    </>
-  );
+                <UsefulLinks />
+            </div>
+        </>
+    );
 }

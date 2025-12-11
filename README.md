@@ -1,52 +1,82 @@
-# TailAdmin React - Free React Tailwind Admin Dashboard Template
+# CrimeDash 🔴
 
-TailAdmin is a free and open-source admin dashboard template built on **React and Tailwind CSS**, providing developers
-with everything they need to create a comprehensive, data-driven back-end,
-dashboard, or admin panel solution for upcoming web projects.
+Dashboard personalizado para gestão de gabinete com foco em matéria criminal.
 
-With TailAdmin, you get access to all the necessary dashboard UI components, elements, and pages required to build a
-feature-rich and complete dashboard or admin panel. Whether you're building dashboard or admin panel for a complex web
-application or a simple website, TailAdmin is the perfect solution to help you get up and running quickly.
+## 🎯 Sobre
 
-![TailAdmin React.js Dashboard Preview](./banner.png)
+CrimeDash é um hub centralizado para compartilhamento de links úteis e informações com membros da equipe, servindo como referência para diversas áreas da gestão de um gabinete de desembargador focado em direito criminal.
 
-## Overview
+## ✨ Funcionalidades
 
-TailAdmin provides essential UI components and layouts for building feature-rich, data-driven admin dashboards and
-control panels. It's built on:
+- 🔗 **Links Úteis Organizados por Categoria**
+  - Legislação Criminal (Código Penal, CPP, LEP, Lei de Drogas)
+  - Sistemas Judiciais (TJSC, SEEU, BNMP, CNJ)
+  - Jurisprudência (STF, STJ, TJSC)
 
-- React 19
-- TypeScript
-- Tailwind CSS v4
+- ⚙️ **Área Administrativa**
+  - Adicionar, editar e excluir links
+  - Organização por categorias
+  - Protegido por senha
 
-### Quick Links
+- 🌙 **Modo Escuro/Claro**
+- 📱 **Design Responsivo**
+- 📅 **Calendário** (em desenvolvimento)
 
-- [✨ Visit Website](https://tailadmin.com)
-- [📄 Documentation](https://tailadmin.com/docs)
-- [⬇️ Download](https://tailadmin.com/download)
-- [🖌️ Figma Design File (Community Edition)](https://www.figma.com/community/file/1214477970819985778)
-- [⚡ Get PRO Version](https://tailadmin.com/pricing)
+## 🚀 Tecnologias
 
-### Demos
+- **React 19** - Framework JavaScript
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS v4** - Estilização
+- **Vite** - Build tool
+- **React Router** - Roteamento
+- **Lucide React** - Ícones
+- **LocalStorage** - Persistência de dados
 
-- [Free Version](https://free-react-demo.tailadmin.com/)
-- [Pro Version](https://react-demo.tailadmin.com)
+## 📦 Instalação
 
-### Other Versions
+```bash
+# Clone o repositório
+git clone https://github.com/SEU_USUARIO/CrimeDash.git
 
-- [HTML Version](https://github.com/TailAdmin/tailadmin-free-tailwind-dashboard-template)
-- [Next.js Version](https://github.com/TailAdmin/free-nextjs-admin-dashboard)
-- [Vue.js Version](https://github.com/TailAdmin/vue-tailwind-admin-dashboard)
-- [Angular Version](https://github.com/TailAdmin/free-angular-tailwind-dashboard)
-- [Laravel Version](https://github.com/TailAdmin/tailadmin-laravel)
+# Entre na pasta
+cd CrimeDash
 
-## Installation
+# Instale as dependências
+npm install
 
-### Prerequisites
+# Execute o projeto
+npm run dev
+```
 
-To get started with TailAdmin, ensure you have the following prerequisites installed and set up:
+O projeto estará disponível em `http://localhost:5173/`
 
-- Node.js 18.x or later (recommended to use Node.js 20.x or later)
+## 🔐 Área Administrativa
+
+Acesse `/admin` e use a senha para gerenciar os links.
+
+## 🏗️ Build para Produção
+
+```bash
+npm run build
+```
+
+## 📝 Deploy no Vercel
+
+Este projeto está configurado para deploy fácil no Vercel:
+
+1. Faça push para o GitHub
+2. Conecte o repositório no Vercel
+3. Deploy automático! ✨
+
+## 📄 Licença
+
+Este projeto é de uso interno.
+
+## 👨‍💻 Desenvolvimento
+
+- **Framework Base**: TailAdmin React Template
+- **Personalização**: Focado em matéria criminal
+- **Cor Principal**: #760014 (vermelho escuro)
 
 ### Cloning the Repository
 
