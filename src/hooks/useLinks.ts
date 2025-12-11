@@ -249,7 +249,7 @@ const DEFAULT_LINKS: LinkCard[] = [
     id: '35',
     title: "TJSC - Jurisprudência",
     description: "Consulta de Acórdãos",
-    url: "https://busca.tjsc.jus.br/jurisprudencia/",
+    url: "https://eproc1g.tjsc.jus.br/eproc/externo_controlador.php?acao=jurisprudencia@jurisprudencia/pesquisar",
     category: "Jurisprudência",
   },
 
