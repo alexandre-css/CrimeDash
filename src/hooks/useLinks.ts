@@ -314,7 +314,7 @@ const DEFAULT_LINKS: LinkCard[] = [
 
 const STORAGE_KEY = 'crimedash_links';
 const VERSION_KEY = 'crimedash_links_version';
-const CURRENT_VERSION = '3.0'; // Atualizado para incluir NotebookLM
+const CURRENT_VERSION = '3.1'; // Atualizado link TJSC e favicon
 
 export function useLinks() {
   const [links, setLinks] = useState<LinkCard[]>(() => {
