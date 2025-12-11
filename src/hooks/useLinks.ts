@@ -212,7 +212,7 @@ const DEFAULT_LINKS: LinkCard[] = [
     id: '29',
     title: "Google Drive",
     description: "Armazenamento em nuvem",
-    url: "https://drive.google.com/",
+    url: "https://drive.google.com/drive/folders/1kJ0XDQC8IP6WTvOFAQT4-iXRp308wLhc?usp=sharing",
     category: "Sistemas",
   },
   {
@@ -227,13 +227,6 @@ const DEFAULT_LINKS: LinkCard[] = [
     title: "Power BI",
     description: "Análise de dados e relatórios",
     url: "https://app.powerbi.com/",
-    category: "Sistemas",
-  },
-  {
-    id: '32',
-    title: "NotebookLM",
-    description: "IA para pesquisa e anotações",
-    url: "https://notebooklm.google.com/",
     category: "Sistemas",
   },
 
@@ -259,13 +252,81 @@ const DEFAULT_LINKS: LinkCard[] = [
     url: "https://busca.tjsc.jus.br/jurisprudencia/",
     category: "Jurisprudência",
   },
+
+  // NotebookLM
+  {
+    id: '36',
+    title: "NotebookLM - Home",
+    description: "Página inicial do NotebookLM",
+    url: "https://notebooklm.google.com/",
+    category: "NotebookLM",
+  },
+  {
+    id: '37',
+    title: "Processo Civil",
+    description: "Notebook de Processo Civil",
+    url: "https://notebooklm.google.com/notebook/5fae7baf-a50e-4be5-8b9c-2a8f5e6181cf",
+    category: "NotebookLM",
+  },
+  {
+    id: '38',
+    title: "Direito Civil",
+    description: "Notebook de Direito Civil",
+    url: "https://notebooklm.google.com/notebook/8527ca64-c61c-402e-b804-58d4468f6974",
+    category: "NotebookLM",
+  },
+  {
+    id: '39',
+    title: "Direito Administrativo",
+    description: "Notebook de Direito Administrativo",
+    url: "https://notebooklm.google.com/notebook/43e629a7-2f1a-4058-8e71-47ad5129ef18",
+    category: "NotebookLM",
+  },
+  {
+    id: '40',
+    title: "Direito Tributário",
+    description: "Notebook de Direito Tributário",
+    url: "https://notebooklm.google.com/notebook/aeca2048-2dbc-4e47-819b-bafb182d70d7",
+    category: "NotebookLM",
+  },
+  {
+    id: '41',
+    title: "Direito Constitucional",
+    description: "Notebook de Direito Constitucional",
+    url: "https://notebooklm.google.com/notebook/288ca77b-3e21-4d63-85de-1ed78e422c9b",
+    category: "NotebookLM",
+  },
+  {
+    id: '42',
+    title: "Processo Penal",
+    description: "Notebook de Processo Penal",
+    url: "https://notebooklm.google.com/notebook/00fdb4ad-f24e-4cd6-892b-915847244aa5",
+    category: "NotebookLM",
+  },
+  {
+    id: '43',
+    title: "Regimento Interno TJSC",
+    description: "Notebook do Regimento Interno do TJSC",
+    url: "https://notebooklm.google.com/notebook/a26c0b65-4812-4211-bb5f-e5e6b7f02067",
+    category: "NotebookLM",
+  },
 ];
 
 const STORAGE_KEY = 'crimedash_links';
+const VERSION_KEY = 'crimedash_links_version';
+const CURRENT_VERSION = '3.0'; // Atualizado para incluir NotebookLM
 
 export function useLinks() {
   const [links, setLinks] = useState<LinkCard[]>(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
+    const version = localStorage.getItem(VERSION_KEY);
+    
+    // Se a versão mudou, usa os links padrão novos
+    if (version !== CURRENT_VERSION) {
+      localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
+      return DEFAULT_LINKS;
+    }
+    
     return stored ? JSON.parse(stored) : DEFAULT_LINKS;
   });
 
