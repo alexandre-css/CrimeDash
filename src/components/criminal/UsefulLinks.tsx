@@ -20,7 +20,7 @@ export default function UsefulLinks() {
                         {category}
                     </h3>
 
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
                         {links
                             .filter((link) => link.category === category)
                             .map((link, index) => (
@@ -29,18 +29,18 @@ export default function UsefulLinks() {
                                     href={link.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative overflow-hidden rounded-lg border border-stroke bg-white p-6 shadow-default transition-all hover:shadow-lg hover:border-primary dark:border-strokedark dark:bg-boxdark dark:hover:border-primary"
+                                    className="group relative overflow-hidden rounded-lg border border-stroke bg-white p-3 shadow-default transition-all hover:shadow-lg hover:border-primary dark:border-strokedark dark:bg-boxdark dark:hover:border-primary"
                                 >
                                     <div className="flex items-start justify-between">
                                         <div className="flex-1">
-                                            <h4 className="text-lg font-semibold text-black dark:text-white mb-2 group-hover:text-primary transition-colors">
+                                            <h4 className="text-sm font-semibold text-black dark:text-white mb-1 group-hover:text-primary transition-colors">
                                                 {link.title}
                                             </h4>
-                                            <p className="text-sm text-body">
+                                            <p className="text-xs text-body line-clamp-2">
                                                 {link.description}
                                             </p>
                                         </div>
-                                        <ExternalLink className="h-5 w-5 text-body group-hover:text-primary transition-colors flex-shrink-0 ml-2" />
+                                        <ExternalLink className="h-4 w-4 text-body group-hover:text-primary transition-colors flex-shrink-0 ml-2" />
                                     </div>
                                 </a>
                             ))}
