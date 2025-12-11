@@ -319,6 +319,20 @@ const DEFAULT_LINKS: LinkCard[] = [
   },
   {
     id: '45',
+    title: "Tribunal do Júri",
+    description: "Notebook de Tribunal do Júri",
+    url: "https://notebooklm.google.com/notebook/33fc9449-ea17-4670-92cc-4810c48f8f1f",
+    category: "NotebookLM",
+  },
+  {
+    id: '46',
+    title: "Dign. Sexual / Violência Doméstica",
+    description: "Notebook de Crimes Contra a Dignidade Sexual e Violência Doméstica",
+    url: "https://notebooklm.google.com/notebook/59a739c1-f64f-4903-985a-dac3187acb5c",
+    category: "NotebookLM",
+  },
+  {
+    id: '47',
     title: "Regimento Interno TJSC",
     description: "Notebook do Regimento Interno do TJSC",
     url: "https://notebooklm.google.com/notebook/a26c0b65-4812-4211-bb5f-e5e6b7f02067",
