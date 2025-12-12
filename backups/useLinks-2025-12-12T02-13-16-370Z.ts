@@ -365,20 +365,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://criminalplayer.com.br/ia-legislacao-estatuto-do-desarmamento/",
         category: "IAs Criminal Player",
         id: "1765505477886"
-    },
-    {
-        title: "STJ - Min. Rogerio Schietti",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministro-rogerio-schietti-acesso/",
-        category: "IAs Criminal Player",
-        id: "1765505596367"
-    },
-    {
-        title: "STJ - Min. Daniela Teixeira",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministra-daniela-teixeira-acesso/",
-        category: "IAs Criminal Player",
-        id: "1765505640220"
     }
 ];
 

@@ -337,48 +337,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://criminalplayer.com.br/ia-yuri-felix/",
         category: "IAs Criminal Player",
         id: "1765505223671"
-    },
-    {
-        title: "Legislação - CP, CPP e Correlatos",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-legislacao-codigo-processo-penal-acesso/",
-        category: "IAs Criminal Player",
-        id: "1765505367020"
-    },
-    {
-        title: "Legislação - Maria da Penha",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-legislacao-lei-maria-da-penha-acesso/",
-        category: "IAs Criminal Player",
-        id: "1765505387930"
-    },
-    {
-        title: "Legislação - Lei de Drogas",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-legislacao-lei-antidrogas/",
-        category: "Legislação Penal",
-        id: "1765505419536"
-    },
-    {
-        title: "Legislação - Estatuto do Desarmamento",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-legislacao-estatuto-do-desarmamento/",
-        category: "IAs Criminal Player",
-        id: "1765505477886"
-    },
-    {
-        title: "STJ - Min. Rogerio Schietti",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministro-rogerio-schietti-acesso/",
-        category: "IAs Criminal Player",
-        id: "1765505596367"
-    },
-    {
-        title: "STJ - Min. Daniela Teixeira",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministra-daniela-teixeira-acesso/",
-        category: "IAs Criminal Player",
-        id: "1765505640220"
     }
 ];
 
