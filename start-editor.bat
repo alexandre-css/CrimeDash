@@ -13,7 +13,7 @@ start "CrimeDash Vite" /MIN cmd /c start-server-auto.bat
 
 REM Iniciar API em segundo plano
 echo [2/3] Iniciando servidor API...
-start "CrimeDash API" /MIN cmd /c "npm run dev:api"
+start "CrimeDash API" /MIN cmd /c "set PATH=%PATH%;C:\Program Files\nodejs;%USERPROFILE%\AppData\Roaming\npm && cd /d %~dp0 && npm run dev:api"
 
 REM Aguardar servidores inicializarem
 echo [3/3] Aguardando inicialização...

@@ -87,6 +87,7 @@ start-editor.bat
 ```
 
 Este script:
+
 1. Inicia o servidor em segundo plano
 2. Aguarda 5 segundos
 3. Abre automaticamente o editor de links no navegador
