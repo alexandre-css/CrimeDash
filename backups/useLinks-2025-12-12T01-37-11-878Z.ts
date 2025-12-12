@@ -255,17 +255,10 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "NotebookLM"
     },
     {
-        id: "45",
-        title: "Tribunal do Júri",
-        description: "Notebook de Tribunal do Júri",
-        url: "https://notebooklm.google.com/notebook/33fc9449-ea17-4670-92cc-4810c48f8f1f",
-        category: "NotebookLM"
-    },
-    {
-        id: "46",
-        title: "Dign. Sexual / Violência Doméstica",
-        description: "Notebook de Crimes Contra a Dignidade Sexual e Violência Doméstica",
-        url: "https://notebooklm.google.com/notebook/59a739c1-f64f-4903-985a-dac3187acb5c",
+        id: "41",
+        title: "Direito Administrativo",
+        description: "Notebook de Direito Administrativo",
+        url: "https://notebooklm.google.com/notebook/43e629a7-2f1a-4058-8e71-47ad5129ef18",
         category: "NotebookLM"
     },
     {
@@ -283,13 +276,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "NotebookLM"
     },
     {
-        id: "40",
-        title: "Direito Civil",
-        description: "Notebook de Direito Civil",
-        url: "https://notebooklm.google.com/notebook/8527ca64-c61c-402e-b804-58d4468f6974",
-        category: "NotebookLM"
-    },
-    {
         id: "39",
         title: "Processo Civil",
         description: "Notebook de Processo Civil",
@@ -297,10 +283,24 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "NotebookLM"
     },
     {
-        id: "41",
-        title: "Direito Administrativo",
-        description: "Notebook de Direito Administrativo",
-        url: "https://notebooklm.google.com/notebook/43e629a7-2f1a-4058-8e71-47ad5129ef18",
+        id: "45",
+        title: "Tribunal do Júri",
+        description: "Notebook de Tribunal do Júri",
+        url: "https://notebooklm.google.com/notebook/33fc9449-ea17-4670-92cc-4810c48f8f1f",
+        category: "NotebookLM"
+    },
+    {
+        id: "40",
+        title: "Direito Civil",
+        description: "Notebook de Direito Civil",
+        url: "https://notebooklm.google.com/notebook/8527ca64-c61c-402e-b804-58d4468f6974",
+        category: "NotebookLM"
+    },
+    {
+        id: "46",
+        title: "Dign. Sexual / Violência Doméstica",
+        description: "Notebook de Crimes Contra a Dignidade Sexual e Violência Doméstica",
+        url: "https://notebooklm.google.com/notebook/59a739c1-f64f-4903-985a-dac3187acb5c",
         category: "NotebookLM"
     },
     {

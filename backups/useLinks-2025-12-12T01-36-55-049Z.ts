@@ -255,41 +255,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "NotebookLM"
     },
     {
-        id: "45",
-        title: "Tribunal do Júri",
-        description: "Notebook de Tribunal do Júri",
-        url: "https://notebooklm.google.com/notebook/33fc9449-ea17-4670-92cc-4810c48f8f1f",
-        category: "NotebookLM"
-    },
-    {
-        id: "46",
-        title: "Dign. Sexual / Violência Doméstica",
-        description: "Notebook de Crimes Contra a Dignidade Sexual e Violência Doméstica",
-        url: "https://notebooklm.google.com/notebook/59a739c1-f64f-4903-985a-dac3187acb5c",
-        category: "NotebookLM"
-    },
-    {
-        id: "43",
-        title: "Direito Constitucional",
-        description: "Notebook de Direito Constitucional",
-        url: "https://notebooklm.google.com/notebook/288ca77b-3e21-4d63-85de-1ed78e422c9b",
-        category: "NotebookLM"
-    },
-    {
-        id: "42",
-        title: "Direito Tributário",
-        description: "Notebook de Direito Tributário",
-        url: "https://notebooklm.google.com/notebook/aeca2048-2dbc-4e47-819b-bafb182d70d7",
-        category: "NotebookLM"
-    },
-    {
-        id: "40",
-        title: "Direito Civil",
-        description: "Notebook de Direito Civil",
-        url: "https://notebooklm.google.com/notebook/8527ca64-c61c-402e-b804-58d4468f6974",
-        category: "NotebookLM"
-    },
-    {
         id: "39",
         title: "Processo Civil",
         description: "Notebook de Processo Civil",
@@ -301,6 +266,41 @@ const DEFAULT_LINKS: LinkCard[] = [
         title: "Direito Administrativo",
         description: "Notebook de Direito Administrativo",
         url: "https://notebooklm.google.com/notebook/43e629a7-2f1a-4058-8e71-47ad5129ef18",
+        category: "NotebookLM"
+    },
+    {
+        id: "42",
+        title: "Direito Tributário",
+        description: "Notebook de Direito Tributário",
+        url: "https://notebooklm.google.com/notebook/aeca2048-2dbc-4e47-819b-bafb182d70d7",
+        category: "NotebookLM"
+    },
+    {
+        id: "43",
+        title: "Direito Constitucional",
+        description: "Notebook de Direito Constitucional",
+        url: "https://notebooklm.google.com/notebook/288ca77b-3e21-4d63-85de-1ed78e422c9b",
+        category: "NotebookLM"
+    },
+    {
+        id: "40",
+        title: "Direito Civil",
+        description: "Notebook de Direito Civil",
+        url: "https://notebooklm.google.com/notebook/8527ca64-c61c-402e-b804-58d4468f6974",
+        category: "NotebookLM"
+    },
+    {
+        id: "45",
+        title: "Tribunal do Júri",
+        description: "Notebook de Tribunal do Júri",
+        url: "https://notebooklm.google.com/notebook/33fc9449-ea17-4670-92cc-4810c48f8f1f",
+        category: "NotebookLM"
+    },
+    {
+        id: "46",
+        title: "Dign. Sexual / Violência Doméstica",
+        description: "Notebook de Crimes Contra a Dignidade Sexual e Violência Doméstica",
+        url: "https://notebooklm.google.com/notebook/59a739c1-f64f-4903-985a-dac3187acb5c",
         category: "NotebookLM"
     },
     {

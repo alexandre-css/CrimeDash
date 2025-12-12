@@ -283,10 +283,10 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "NotebookLM"
     },
     {
-        id: "40",
-        title: "Direito Civil",
-        description: "Notebook de Direito Civil",
-        url: "https://notebooklm.google.com/notebook/8527ca64-c61c-402e-b804-58d4468f6974",
+        id: "41",
+        title: "Direito Administrativo",
+        description: "Notebook de Direito Administrativo",
+        url: "https://notebooklm.google.com/notebook/43e629a7-2f1a-4058-8e71-47ad5129ef18",
         category: "NotebookLM"
     },
     {
@@ -297,10 +297,10 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "NotebookLM"
     },
     {
-        id: "41",
-        title: "Direito Administrativo",
-        description: "Notebook de Direito Administrativo",
-        url: "https://notebooklm.google.com/notebook/43e629a7-2f1a-4058-8e71-47ad5129ef18",
+        id: "40",
+        title: "Direito Civil",
+        description: "Notebook de Direito Civil",
+        url: "https://notebooklm.google.com/notebook/8527ca64-c61c-402e-b804-58d4468f6974",
         category: "NotebookLM"
     },
     {

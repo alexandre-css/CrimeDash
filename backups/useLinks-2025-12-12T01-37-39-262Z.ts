@@ -283,17 +283,17 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "NotebookLM"
     },
     {
-        id: "40",
-        title: "Direito Civil",
-        description: "Notebook de Direito Civil",
-        url: "https://notebooklm.google.com/notebook/8527ca64-c61c-402e-b804-58d4468f6974",
-        category: "NotebookLM"
-    },
-    {
         id: "39",
         title: "Processo Civil",
         description: "Notebook de Processo Civil",
         url: "https://notebooklm.google.com/notebook/5fae7baf-a50e-4be5-8b9c-2a8f5e6181cf",
+        category: "NotebookLM"
+    },
+    {
+        id: "40",
+        title: "Direito Civil",
+        description: "Notebook de Direito Civil",
+        url: "https://notebooklm.google.com/notebook/8527ca64-c61c-402e-b804-58d4468f6974",
         category: "NotebookLM"
     },
     {
