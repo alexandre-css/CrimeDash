@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export interface LinkCard {
     id: string;
@@ -178,13 +178,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "Legislação Penal"
     },
     {
-        id: "25",
-        title: "TJSC",
-        description: "Tribunal de Justiça de Santa Catarina",
-        url: "https://www.tjsc.jus.br/",
-        category: "Sistemas"
-    },
-    {
         title: "SEEU",
         description: "Sistema Eletrônico de Execução Unificado",
         url: "https://seeu.pje.jus.br/seeu/",
@@ -227,60 +220,25 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "Jurisprudência"
     },
     {
-        id: "35",
-        title: "TJSC - Jurisprudência",
-        description: "Consulta de Acórdãos",
+        title: "TJSC",
+        description: "Tribunal de Justiça de Santa Catarina",
         url: "https://eproc1g.tjsc.jus.br/eproc/externo_controlador.php?acao=jurisprudencia@jurisprudencia/pesquisar",
-        category: "Jurisprudência"
+        category: "Jurisprudência",
+        id: "35"
     },
     {
-        id: "36",
-        title: "Temas de Direito",
-        description: "Resumos por tema jurídico",
+        title: "Temas STJ e STF",
+        description: "Temas de Recursos Repetitivos e Repercussão Geral",
         url: "https://resumos-direito.vercel.app/temas.html",
-        category: "Jurisprudência"
+        category: "Jurisprudência",
+        id: "36"
     },
     {
-        id: "37",
-        title: "Súmulas",
-        description: "Compilação de súmulas",
+        title: "Súmulas STJ e STF",
+        description: "Súmulas do STJ e do STF em matéria penal",
         url: "https://resumos-direito.vercel.app/sumulas.html",
-        category: "Jurisprudência"
-    },
-    {
-        id: "39",
-        title: "Processo Civil",
-        description: "Notebook de Processo Civil",
-        url: "https://notebooklm.google.com/notebook/5fae7baf-a50e-4be5-8b9c-2a8f5e6181cf",
-        category: "NotebookLM"
-    },
-    {
-        id: "40",
-        title: "Direito Civil",
-        description: "Notebook de Direito Civil",
-        url: "https://notebooklm.google.com/notebook/8527ca64-c61c-402e-b804-58d4468f6974",
-        category: "NotebookLM"
-    },
-    {
-        id: "41",
-        title: "Direito Administrativo",
-        description: "Notebook de Direito Administrativo",
-        url: "https://notebooklm.google.com/notebook/43e629a7-2f1a-4058-8e71-47ad5129ef18",
-        category: "NotebookLM"
-    },
-    {
-        id: "42",
-        title: "Direito Tributário",
-        description: "Notebook de Direito Tributário",
-        url: "https://notebooklm.google.com/notebook/aeca2048-2dbc-4e47-819b-bafb182d70d7",
-        category: "NotebookLM"
-    },
-    {
-        id: "43",
-        title: "Direito Constitucional",
-        description: "Notebook de Direito Constitucional",
-        url: "https://notebooklm.google.com/notebook/288ca77b-3e21-4d63-85de-1ed78e422c9b",
-        category: "NotebookLM"
+        category: "Jurisprudência",
+        id: "37"
     },
     {
         id: "44",
@@ -304,6 +262,41 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "NotebookLM"
     },
     {
+        id: "43",
+        title: "Direito Constitucional",
+        description: "Notebook de Direito Constitucional",
+        url: "https://notebooklm.google.com/notebook/288ca77b-3e21-4d63-85de-1ed78e422c9b",
+        category: "NotebookLM"
+    },
+    {
+        id: "42",
+        title: "Direito Tributário",
+        description: "Notebook de Direito Tributário",
+        url: "https://notebooklm.google.com/notebook/aeca2048-2dbc-4e47-819b-bafb182d70d7",
+        category: "NotebookLM"
+    },
+    {
+        id: "40",
+        title: "Direito Civil",
+        description: "Notebook de Direito Civil",
+        url: "https://notebooklm.google.com/notebook/8527ca64-c61c-402e-b804-58d4468f6974",
+        category: "NotebookLM"
+    },
+    {
+        id: "39",
+        title: "Processo Civil",
+        description: "Notebook de Processo Civil",
+        url: "https://notebooklm.google.com/notebook/5fae7baf-a50e-4be5-8b9c-2a8f5e6181cf",
+        category: "NotebookLM"
+    },
+    {
+        id: "41",
+        title: "Direito Administrativo",
+        description: "Notebook de Direito Administrativo",
+        url: "https://notebooklm.google.com/notebook/43e629a7-2f1a-4058-8e71-47ad5129ef18",
+        category: "NotebookLM"
+    },
+    {
         id: "47",
         title: "Regimento Interno TJSC",
         description: "Notebook do Regimento Interno do TJSC",
@@ -312,41 +305,99 @@ const DEFAULT_LINKS: LinkCard[] = [
     },
     {
         title: "Jurisprudência STJ",
-        description: "Julgados com base em dados coletados do site do STJ",
+        description: " Julgados com base em dados coletados do site do STJ",
         url: "https://criminalplayer.com.br/ia-juris-stj-base-acordao-acesso/",
         category: "IAs Criminal Player",
-        id: "48"
+        id: "1765503768550"
+    },
+    {
+        title: "Jurisprudência por Assunto",
+        description: "IAs de julgados do STJ divididas por temas",
+        url: "https://criminalplayer.com.br/ia-juris-assunto/",
+        category: "IAs Criminal Player",
+        id: "1765529072751"
+    },
+    {
+        title: "STJ - Min. Rogerio Schietti",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministro-rogerio-schietti-acesso/",
+        category: "IAs Criminal Player",
+        id: "1765505596367"
+    },
+    {
+        title: "Alexandre Morais da Rosa",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-alexandre-morais-da-rosa-acesso/",
+        category: "IAs Criminal Player",
+        id: "1765505156568"
+    },
+    {
+        title: "STJ - Min. Daniela Teixeira",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministra-daniela-teixeira-acesso/",
+        category: "IAs Criminal Player",
+        id: "1765505640220"
+    },
+    {
+        title: "Rodrigo Faucz",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-rodrigo-faucz/",
+        category: "IAs Criminal Player",
+        id: "1765505179705"
+    },
+    {
+        title: "Denis Sampaio",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-denis-sampaio/",
+        category: "IAs Criminal Player",
+        id: "1765505203863"
+    },
+    {
+        title: "Legislação - Lei de Drogas",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-legislacao-lei-antidrogas/",
+        category: "Legislação Penal",
+        id: "1765505419536"
+    },
+    {
+        title: "Yuri Felix",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-yuri-felix/",
+        category: "IAs Criminal Player",
+        id: "1765505223671"
+    },
+    {
+        title: "Legislação - CP, CPP e Correlatos",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-legislacao-codigo-processo-penal-acesso/",
+        category: "IAs Criminal Player",
+        id: "1765505367020"
+    },
+    {
+        title: "Legislação - Maria da Penha",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-legislacao-lei-maria-da-penha-acesso/",
+        category: "IAs Criminal Player",
+        id: "1765505387930"
+    },
+    {
+        title: "Legislação - Estatuto do Desarmamento",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-legislacao-estatuto-do-desarmamento/",
+        category: "IAs Criminal Player",
+        id: "1765505477886"
     }
 ];
 
-const STORAGE_KEY = "crimedash_links";
-const VERSION_KEY = "crimedash_links_version";
-const CURRENT_VERSION = "3.3"; // Adiciona novos notebooks (Júri e Dignidade Sexual)
-
 export function useLinks() {
-    const [links, setLinks] = useState<LinkCard[]>(() => {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        const version = localStorage.getItem(VERSION_KEY);
+    const [links, setLinks] = useState<LinkCard[]>(DEFAULT_LINKS);
 
-        // Se a versão mudou, usa os links padrão novos
-        if (version !== CURRENT_VERSION) {
-            localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
-            return DEFAULT_LINKS;
-        }
-
-        return stored ? JSON.parse(stored) : DEFAULT_LINKS;
-    });
-
-    useEffect(() => {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(links));
-    }, [links]);
-
-    const addLink = (link: Omit<LinkCard, "id">) => {
-        const newLink = {
-            ...link,
+    const addLink = (newLink: Omit<LinkCard, "id">) => {
+        const link = {
+            ...newLink,
             id: Date.now().toString(),
         };
-        setLinks((prev) => [...prev, newLink]);
+        setLinks((prev) => [...prev, link]);
     };
 
     const updateLink = (id: string, updatedLink: Omit<LinkCard, "id">) => {

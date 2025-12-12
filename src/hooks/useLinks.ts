@@ -311,6 +311,27 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765503768550"
     },
     {
+        title: "Jurisprudência por Assunto",
+        description: "IAs de julgados do STJ divididas por temas",
+        url: "https://criminalplayer.com.br/ia-juris-assunto/",
+        category: "IAs Criminal Player",
+        id: "1765529072751"
+    },
+    {
+        title: "STJ - Min. Rogerio Schietti",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministro-rogerio-schietti-acesso/",
+        category: "IAs Criminal Player",
+        id: "1765505596367"
+    },
+    {
+        title: "STJ - Min. Daniela Teixeira",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministra-daniela-teixeira-acesso/",
+        category: "IAs Criminal Player",
+        id: "1765505640220"
+    },
+    {
         title: "Alexandre Morais da Rosa",
         description: "",
         url: "https://criminalplayer.com.br/ia-alexandre-morais-da-rosa-acesso/",
@@ -330,6 +351,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://criminalplayer.com.br/ia-denis-sampaio/",
         category: "IAs Criminal Player",
         id: "1765505203863"
+    },
+    {
+        title: "Legislação - Lei de Drogas",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-legislacao-lei-antidrogas/",
+        category: "Legislação Penal",
+        id: "1765505419536"
     },
     {
         title: "Yuri Felix",
@@ -353,32 +381,11 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765505387930"
     },
     {
-        title: "Legislação - Lei de Drogas",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-legislacao-lei-antidrogas/",
-        category: "Legislação Penal",
-        id: "1765505419536"
-    },
-    {
         title: "Legislação - Estatuto do Desarmamento",
         description: "",
         url: "https://criminalplayer.com.br/ia-legislacao-estatuto-do-desarmamento/",
         category: "IAs Criminal Player",
         id: "1765505477886"
-    },
-    {
-        title: "STJ - Min. Rogerio Schietti",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministro-rogerio-schietti-acesso/",
-        category: "IAs Criminal Player",
-        id: "1765505596367"
-    },
-    {
-        title: "STJ - Min. Daniela Teixeira",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministra-daniela-teixeira-acesso/",
-        category: "IAs Criminal Player",
-        id: "1765505640220"
     }
 ];
 
