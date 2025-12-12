@@ -11,6 +11,8 @@ import {
     CheckCircle,
     ArrowUp,
     ArrowDown,
+    Edit2,
+    Check,
 } from "lucide-react";
 
 const API_URL = "http://localhost:3001/api";
@@ -25,6 +27,8 @@ export default function LinksEditor() {
     const [searchText, setSearchText] = useState("");
     const [categoryFilter, setCategoryFilter] = useState("todos");
     const [showCategoryManager, setShowCategoryManager] = useState(false);
+    const [editingCategory, setEditingCategory] = useState<string | null>(null);
+    const [newCategoryName, setNewCategoryName] = useState("");
     const [message, setMessage] = useState<{
         type: "success" | "error";
         text: string;
@@ -106,6 +110,14 @@ export default function LinksEditor() {
         "todos",
         ...new Set(links.map((link) => link.category)),
     ];
+
+    // Obter categorias reais (sem "todos")
+    const realCategories = Array.from(new Set(links.map((link) => link.category)));
+    
+    // Se categoryOrder está vazio ou desatualizado, usar as categorias dos links
+    const displayOrder = categoryOrder.length > 0 
+        ? categoryOrder 
+        : realCategories;
 
     // Categorias disponíveis para o select (inclui a categoria atual do form se for nova)
     const availableCategories = [
@@ -241,16 +253,64 @@ export default function LinksEditor() {
     };
 
     const moveCategory = (index: number, direction: "up" | "down") => {
+        // Usar displayOrder ao invés de categoryOrder
+        const currentOrder = displayOrder.length > 0 ? displayOrder : realCategories;
         const newIndex = direction === "up" ? index - 1 : index + 1;
-        if (newIndex < 0 || newIndex >= categoryOrder.length) return;
+        if (newIndex < 0 || newIndex >= currentOrder.length) return;
 
-        const newOrder = [...categoryOrder];
+        const newOrder = [...currentOrder];
         [newOrder[index], newOrder[newIndex]] = [
             newOrder[newIndex],
             newOrder[index],
         ];
 
         saveCategoryOrder(newOrder);
+    };
+
+    const startEditCategory = (category: string) => {
+        setEditingCategory(category);
+        setNewCategoryName(category);
+    };
+
+    const cancelEditCategory = () => {
+        setEditingCategory(null);
+        setNewCategoryName("");
+    };
+
+    const renameCategory = async (oldName: string, newName: string) => {
+        if (!newName.trim() || oldName === newName) {
+            cancelEditCategory();
+            return;
+        }
+
+        try {
+            setSaving(true);
+
+            // Atualizar todos os links com a categoria antiga
+            const updatedLinks = links.map((link) =>
+                link.category === oldName
+                    ? { ...link, category: newName.trim() }
+                    : link
+            );
+
+            // Atualizar ordem das categorias
+            const updatedOrder = displayOrder.map((cat) =>
+                cat === oldName ? newName.trim() : cat
+            );
+
+            // Salvar links
+            await saveAllLinks(updatedLinks);
+
+            // Salvar ordem
+            await saveCategoryOrder(updatedOrder);
+
+            showMessage("success", `✓ Categoria renomeada: "${oldName}" → "${newName}"`);
+            cancelEditCategory();
+        } catch {
+            showMessage("error", "Erro ao renomear categoria!");
+        } finally {
+            setSaving(false);
+        }
     };
 
     if (loading) {
@@ -405,42 +465,96 @@ export default function LinksEditor() {
                         </button>
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                        Use os botões ↑↓ para reorganizar a ordem de exibição das categorias na página principal.
+                        Use os botões ↑↓ para reorganizar e ✏️ para renomear as categorias na página principal.
                     </p>
                     <div className="space-y-2">
-                        {categoryOrder.map((cat, index) => (
-                            <div
-                                key={cat}
-                                className="flex items-center gap-3 p-3 border border-stroke dark:border-strokedark rounded-lg bg-gray-50 dark:bg-meta-4"
-                            >
-                                <div className="flex flex-col gap-1">
-                                    <button
-                                        onClick={() => moveCategory(index, "up")}
-                                        disabled={index === 0 || saving}
-                                        className="p-1 hover:bg-gray-200 dark:hover:bg-boxdark rounded disabled:opacity-30"
-                                        title="Mover para cima"
-                                    >
-                                        <ArrowUp className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                                    </button>
-                                    <button
-                                        onClick={() => moveCategory(index, "down")}
-                                        disabled={index === categoryOrder.length - 1 || saving}
-                                        className="p-1 hover:bg-gray-200 dark:hover:bg-boxdark rounded disabled:opacity-30"
-                                        title="Mover para baixo"
-                                    >
-                                        <ArrowDown className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                                    </button>
+                        {displayOrder.length === 0 ? (
+                            <p className="text-center text-gray-500 dark:text-gray-400 py-4">
+                                Nenhuma categoria encontrada. Crie links primeiro.
+                            </p>
+                        ) : (
+                            displayOrder.map((cat, index) => (
+                                <div
+                                    key={cat}
+                                    className="flex items-center gap-3 p-3 border border-stroke dark:border-strokedark rounded-lg bg-gray-50 dark:bg-meta-4"
+                                >
+                                    <div className="flex flex-col gap-1">
+                                        <button
+                                            onClick={() => moveCategory(index, "up")}
+                                            disabled={index === 0 || saving || editingCategory !== null}
+                                            className="p-1 hover:bg-gray-200 dark:hover:bg-boxdark rounded disabled:opacity-30"
+                                            title="Mover para cima"
+                                        >
+                                            <ArrowUp className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                                        </button>
+                                        <button
+                                            onClick={() => moveCategory(index, "down")}
+                                            disabled={index === displayOrder.length - 1 || saving || editingCategory !== null}
+                                            className="p-1 hover:bg-gray-200 dark:hover:bg-boxdark rounded disabled:opacity-30"
+                                            title="Mover para baixo"
+                                        >
+                                            <ArrowDown className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                                        </button>
+                                    </div>
+                                    <div className="flex-1">
+                                        {editingCategory === cat ? (
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-gray-600 dark:text-gray-400">{index + 1}.</span>
+                                                <input
+                                                    type="text"
+                                                    value={newCategoryName}
+                                                    onChange={(e) => setNewCategoryName(e.target.value)}
+                                                    onKeyDown={(e) => {
+                                                        if (e.key === "Enter") {
+                                                            renameCategory(cat, newCategoryName);
+                                                        } else if (e.key === "Escape") {
+                                                            cancelEditCategory();
+                                                        }
+                                                    }}
+                                                    className="flex-1 px-3 py-1.5 border border-stroke dark:border-strokedark rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-boxdark dark:text-white"
+                                                    autoFocus
+                                                />
+                                                <button
+                                                    onClick={() => renameCategory(cat, newCategoryName)}
+                                                    disabled={saving}
+                                                    className="p-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
+                                                    title="Salvar"
+                                                >
+                                                    <Check className="h-4 w-4" />
+                                                </button>
+                                                <button
+                                                    onClick={cancelEditCategory}
+                                                    disabled={saving}
+                                                    className="p-1.5 bg-gray-400 text-white rounded-lg hover:bg-gray-500 disabled:opacity-50"
+                                                    title="Cancelar"
+                                                >
+                                                    <X className="h-4 w-4" />
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <div className="flex items-center justify-between">
+                                                <div>
+                                                    <span className="font-semibold text-gray-800 dark:text-white">
+                                                        {index + 1}. {cat}
+                                                    </span>
+                                                    <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">
+                                                        ({links.filter((l) => l.category === cat).length} links)
+                                                    </span>
+                                                </div>
+                                                <button
+                                                    onClick={() => startEditCategory(cat)}
+                                                    disabled={saving || editingCategory !== null}
+                                                    className="p-1.5 hover:bg-gray-200 dark:hover:bg-boxdark rounded-lg disabled:opacity-30"
+                                                    title="Renomear categoria"
+                                                >
+                                                    <Edit2 className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                                                </button>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-                                <div className="flex-1">
-                                    <span className="font-semibold text-gray-800 dark:text-white">
-                                        {index + 1}. {cat}
-                                    </span>
-                                    <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">
-                                        ({links.filter((l) => l.category === cat).length} links)
-                                    </span>
-                                </div>
-                            </div>
-                        ))}
+                            ))
+                        )}
                     </div>
                 </div>
             )}
