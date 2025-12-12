@@ -308,15 +308,15 @@ const DEFAULT_LINKS: LinkCard[] = [
         title: "Regimento Interno TJSC",
         description: "Notebook do Regimento Interno do TJSC",
         url: "https://notebooklm.google.com/notebook/a26c0b65-4812-4211-bb5f-e5e6b7f02067",
-        category: "NotebookLM"
+        category: "NotebookLM",
     },
     {
+        id: "48",
         title: "Jurisprudência STJ",
         description: "Julgados com base em dados coletados do site do STJ",
         url: "https://criminalplayer.com.br/ia-juris-stj-base-acordao-acesso/",
         category: "IAs Criminal Player",
-        id: "1765501994867"
-    }
+    },
 ];
 
 const STORAGE_KEY = "crimedash_links";
