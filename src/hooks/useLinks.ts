@@ -389,6 +389,15 @@ const DEFAULT_LINKS: LinkCard[] = [
     }
 ];
 
+// Ordem de exibição das categorias
+export const CATEGORY_ORDER = [
+    "Legislação Penal",
+    "Sistemas",
+    "Jurisprudência",
+    "NotebookLM",
+    "IAs Criminal Player",
+];
+
 export function useLinks() {
     const [links, setLinks] = useState<LinkCard[]>(DEFAULT_LINKS);
 

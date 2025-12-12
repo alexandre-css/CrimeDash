@@ -1,23 +1,17 @@
 import { ExternalLink, Link as LinkIcon } from "lucide-react";
-import { useLinks } from "../../hooks/useLinks";
+import { useLinks, CATEGORY_ORDER } from "../../hooks/useLinks";
 
 export default function UsefulLinks() {
     const { links } = useLinks();
-    const categories = Array.from(new Set(links.map((link) => link.category)));
-
-    // Debug detalhado
-    console.log("🔍 BUILD:", new Date().toISOString());
-    console.log("📊 Categorias encontradas:", categories);
-    console.log("📊 Total de links:", links.length);
-    console.log("🔗 Todos os links:", links);
-
-    // Verificar links sem categoria ou com categoria vazia
-    const linksWithoutCategory = links.filter(
-        (l) => !l.category || l.category.trim() === ""
-    );
-    if (linksWithoutCategory.length > 0) {
-        console.error("❌ Links sem categoria:", linksWithoutCategory);
-    }
+    
+    // Obter todas as categorias dos links
+    const allCategories = Array.from(new Set(links.map((link) => link.category)));
+    
+    // Ordenar categorias: primeiro as definidas em CATEGORY_ORDER, depois as novas
+    const categories = [
+        ...CATEGORY_ORDER.filter(cat => allCategories.includes(cat)),
+        ...allCategories.filter(cat => !CATEGORY_ORDER.includes(cat))
+    ];
 
     return (
         <div className="space-y-6">
