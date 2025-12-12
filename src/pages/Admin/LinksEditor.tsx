@@ -265,26 +265,25 @@ export default function LinksEditor() {
                 <div className="flex items-start gap-3">
                     <AlertCircle className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                     <div className="text-sm text-blue-800 dark:text-blue-300">
-                        <p className="font-semibold mb-1">
+                        <p className="font-semibold mb-2">
                             📡 Servidor API necessário
                         </p>
-                        <p>
+                        <p className="mb-2">
                             Execute{" "}
                             <code className="bg-blue-100 dark:bg-blue-900/50 px-2 py-0.5 rounded">
                                 npm run dev:api
                             </code>{" "}
                             em outro terminal.
-                            <br />
-                            Após salvar, faça{" "}
-                            <code className="bg-blue-100 dark:bg-blue-900/50 px-2 py-0.5 rounded">
-                                git commit
-                            </code>{" "}
-                            e{" "}
-                            <code className="bg-blue-100 dark:bg-blue-900/50 px-2 py-0.5 rounded">
-                                git push
-                            </code>
-                            .
                         </p>
+                        <p className="font-semibold mb-1">
+                            ✅ Para publicar mudanças:
+                        </p>
+                        <ol className="list-decimal ml-4 space-y-1">
+                            <li>Salve os links no editor</li>
+                            <li>Execute: <code className="bg-blue-100 dark:bg-blue-900/50 px-2 py-0.5 rounded">git add . && git commit -m "Atualiza links" && git push</code></li>
+                            <li>Vercel faz deploy automático (~2 min)</li>
+                            <li><strong>Novas categorias aparecerão como seções na página principal</strong></li>
+                        </ol>
                     </div>
                 </div>
             </div>
