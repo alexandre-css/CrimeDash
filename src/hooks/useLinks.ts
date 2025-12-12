@@ -319,29 +319,10 @@ const DEFAULT_LINKS: LinkCard[] = [
     }
 ];
 
-const STORAGE_KEY = "crimedash_links";
-const VERSION_KEY = "crimedash_links_version";
-const CURRENT_VERSION = "3.4"; // Adiciona categoria IAs Criminal Player
-
 export function useLinks() {
-    const [links, setLinks] = useState<LinkCard[]>(() => {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        const version = localStorage.getItem(VERSION_KEY);
+    const [links, setLinks] = useState<LinkCard[]>(DEFAULT_LINKS);
 
-        // Se a versão mudou, usa os links padrão novos
-        if (version !== CURRENT_VERSION) {
-            localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
-            return DEFAULT_LINKS;
-        }
-
-        return stored ? JSON.parse(stored) : DEFAULT_LINKS;
-    });
-
-    useEffect(() => {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(links));
-    }, [links]);
-
-    const addLink = (link: Omit<LinkCard, "id">) => {
+    const addLink = (newLink: Omit<LinkCard, "id">) => {
         const newLink = {
             ...link,
             id: Date.now().toString(),
