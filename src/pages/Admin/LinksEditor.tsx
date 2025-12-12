@@ -50,7 +50,7 @@ export default function LinksEditor() {
                 fetch(`${API_URL}/links`),
                 fetch(`${API_URL}/category-order`),
             ]);
-            
+
             const linksData = await linksRes.json();
             const orderData = await orderRes.json();
 
@@ -112,12 +112,13 @@ export default function LinksEditor() {
     ];
 
     // Obter categorias reais (sem "todos")
-    const realCategories = Array.from(new Set(links.map((link) => link.category)));
-    
+    const realCategories = Array.from(
+        new Set(links.map((link) => link.category))
+    );
+
     // Se categoryOrder está vazio ou desatualizado, usar as categorias dos links
-    const displayOrder = categoryOrder.length > 0 
-        ? categoryOrder 
-        : realCategories;
+    const displayOrder =
+        categoryOrder.length > 0 ? categoryOrder : realCategories;
 
     // Categorias disponíveis para o select (inclui a categoria atual do form se for nova)
     const availableCategories = [
@@ -254,7 +255,8 @@ export default function LinksEditor() {
 
     const moveCategory = (index: number, direction: "up" | "down") => {
         // Usar displayOrder ao invés de categoryOrder
-        const currentOrder = displayOrder.length > 0 ? displayOrder : realCategories;
+        const currentOrder =
+            displayOrder.length > 0 ? displayOrder : realCategories;
         const newIndex = direction === "up" ? index - 1 : index + 1;
         if (newIndex < 0 || newIndex >= currentOrder.length) return;
 
@@ -304,7 +306,10 @@ export default function LinksEditor() {
             // Salvar ordem
             await saveCategoryOrder(updatedOrder);
 
-            showMessage("success", `✓ Categoria renomeada: "${oldName}" → "${newName}"`);
+            showMessage(
+                "success",
+                `✓ Categoria renomeada: "${oldName}" → "${newName}"`
+            );
             cancelEditCategory();
         } catch {
             showMessage("error", "Erro ao renomear categoria!");
@@ -440,7 +445,9 @@ export default function LinksEditor() {
                         Novo Link
                     </button>
                     <button
-                        onClick={() => setShowCategoryManager(!showCategoryManager)}
+                        onClick={() =>
+                            setShowCategoryManager(!showCategoryManager)
+                        }
                         disabled={saving}
                         className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-semibold disabled:opacity-50 flex items-center gap-2"
                     >
@@ -465,12 +472,14 @@ export default function LinksEditor() {
                         </button>
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                        Use os botões ↑↓ para reorganizar e ✏️ para renomear as categorias na página principal.
+                        Use os botões ↑↓ para reorganizar e ✏️ para renomear as
+                        categorias na página principal.
                     </p>
                     <div className="space-y-2">
                         {displayOrder.length === 0 ? (
                             <p className="text-center text-gray-500 dark:text-gray-400 py-4">
-                                Nenhuma categoria encontrada. Crie links primeiro.
+                                Nenhuma categoria encontrada. Crie links
+                                primeiro.
                             </p>
                         ) : (
                             displayOrder.map((cat, index) => (
@@ -480,16 +489,29 @@ export default function LinksEditor() {
                                 >
                                     <div className="flex flex-col gap-1">
                                         <button
-                                            onClick={() => moveCategory(index, "up")}
-                                            disabled={index === 0 || saving || editingCategory !== null}
+                                            onClick={() =>
+                                                moveCategory(index, "up")
+                                            }
+                                            disabled={
+                                                index === 0 ||
+                                                saving ||
+                                                editingCategory !== null
+                                            }
                                             className="p-1 hover:bg-gray-200 dark:hover:bg-boxdark rounded disabled:opacity-30"
                                             title="Mover para cima"
                                         >
                                             <ArrowUp className="h-4 w-4 text-gray-600 dark:text-gray-400" />
                                         </button>
                                         <button
-                                            onClick={() => moveCategory(index, "down")}
-                                            disabled={index === displayOrder.length - 1 || saving || editingCategory !== null}
+                                            onClick={() =>
+                                                moveCategory(index, "down")
+                                            }
+                                            disabled={
+                                                index ===
+                                                    displayOrder.length - 1 ||
+                                                saving ||
+                                                editingCategory !== null
+                                            }
                                             className="p-1 hover:bg-gray-200 dark:hover:bg-boxdark rounded disabled:opacity-30"
                                             title="Mover para baixo"
                                         >
@@ -499,15 +521,26 @@ export default function LinksEditor() {
                                     <div className="flex-1">
                                         {editingCategory === cat ? (
                                             <div className="flex items-center gap-2">
-                                                <span className="text-gray-600 dark:text-gray-400">{index + 1}.</span>
+                                                <span className="text-gray-600 dark:text-gray-400">
+                                                    {index + 1}.
+                                                </span>
                                                 <input
                                                     type="text"
                                                     value={newCategoryName}
-                                                    onChange={(e) => setNewCategoryName(e.target.value)}
+                                                    onChange={(e) =>
+                                                        setNewCategoryName(
+                                                            e.target.value
+                                                        )
+                                                    }
                                                     onKeyDown={(e) => {
                                                         if (e.key === "Enter") {
-                                                            renameCategory(cat, newCategoryName);
-                                                        } else if (e.key === "Escape") {
+                                                            renameCategory(
+                                                                cat,
+                                                                newCategoryName
+                                                            );
+                                                        } else if (
+                                                            e.key === "Escape"
+                                                        ) {
                                                             cancelEditCategory();
                                                         }
                                                     }}
@@ -515,7 +548,12 @@ export default function LinksEditor() {
                                                     autoFocus
                                                 />
                                                 <button
-                                                    onClick={() => renameCategory(cat, newCategoryName)}
+                                                    onClick={() =>
+                                                        renameCategory(
+                                                            cat,
+                                                            newCategoryName
+                                                        )
+                                                    }
                                                     disabled={saving}
                                                     className="p-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
                                                     title="Salvar"
@@ -538,12 +576,25 @@ export default function LinksEditor() {
                                                         {index + 1}. {cat}
                                                     </span>
                                                     <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">
-                                                        ({links.filter((l) => l.category === cat).length} links)
+                                                        (
+                                                        {
+                                                            links.filter(
+                                                                (l) =>
+                                                                    l.category ===
+                                                                    cat
+                                                            ).length
+                                                        }{" "}
+                                                        links)
                                                     </span>
                                                 </div>
                                                 <button
-                                                    onClick={() => startEditCategory(cat)}
-                                                    disabled={saving || editingCategory !== null}
+                                                    onClick={() =>
+                                                        startEditCategory(cat)
+                                                    }
+                                                    disabled={
+                                                        saving ||
+                                                        editingCategory !== null
+                                                    }
                                                     className="p-1.5 hover:bg-gray-200 dark:hover:bg-boxdark rounded-lg disabled:opacity-30"
                                                     title="Renomear categoria"
                                                 >

@@ -435,20 +435,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://m365.cloud.microsoft:443/chat/?titleId=T_ee3c4689-b3a5-44c8-c371-c702d18a8d29&source=embedded-builder",
         category: "Copilot",
         id: "1765531103305"
-    },
-    {
-        title: "Resumir Recurso",
-        description: "Cria relatório a partir das razões recursais",
-        url: "https://m365.cloud.microsoft:443/chat/?titleId=T_73187cd2-6da7-4e13-e0df-43b1222fae31&source=embedded-builder",
-        category: "Copilot",
-        id: "1765531157762"
-    },
-    {
-        title: "Gerador de Minutas de ED",
-        description: "Cria minutas de embargos de declaração a partir da leitura do acórdão e da petição dos embargos",
-        url: "https://m365.cloud.microsoft:443/chat/?titleId=T_5c3c0c1a-2cdb-8fc4-7b65-b1f2b13df5eb&source=embedded-builder",
-        category: "Copilot",
-        id: "1765531212672"
     }
 ];
 

@@ -307,50 +307,50 @@ const DEFAULT_LINKS: LinkCard[] = [
         title: "Jurisprudência STJ",
         description: " Julgados com base em dados coletados do site do STJ",
         url: "https://criminalplayer.com.br/ia-juris-stj-base-acordao-acesso/",
-        category: "IAs Criminal Player",
+        category: "Criminal Player",
         id: "1765503768550"
     },
     {
         title: "Jurisprudência por Assunto",
         description: "IAs de julgados do STJ divididas por temas",
         url: "https://criminalplayer.com.br/ia-juris-assunto/",
-        category: "IAs Criminal Player",
+        category: "Criminal Player",
         id: "1765529072751"
     },
     {
         title: "STJ - Min. Rogerio Schietti",
         description: "",
         url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministro-rogerio-schietti-acesso/",
-        category: "IAs Criminal Player",
+        category: "Criminal Player",
         id: "1765505596367"
+    },
+    {
+        title: "STJ - Min. Daniela Teixeira",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministra-daniela-teixeira-acesso/",
+        category: "Criminal Player",
+        id: "1765505640220"
     },
     {
         title: "Alexandre Morais da Rosa",
         description: "",
         url: "https://criminalplayer.com.br/ia-alexandre-morais-da-rosa-acesso/",
-        category: "IAs Criminal Player",
+        category: "Criminal Player",
         id: "1765505156568"
     },
     {
         title: "Rodrigo Faucz",
         description: "",
         url: "https://criminalplayer.com.br/ia-rodrigo-faucz/",
-        category: "IAs Criminal Player",
+        category: "Criminal Player",
         id: "1765505179705"
     },
     {
         title: "Denis Sampaio",
         description: "",
         url: "https://criminalplayer.com.br/ia-denis-sampaio/",
-        category: "IAs Criminal Player",
+        category: "Criminal Player",
         id: "1765505203863"
-    },
-    {
-        title: "Yuri Felix",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-yuri-felix/",
-        category: "IAs Criminal Player",
-        id: "1765505223671"
     },
     {
         title: "Legislação - Lei de Drogas",
@@ -360,33 +360,99 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765505419536"
     },
     {
+        title: "Yuri Felix",
+        description: "",
+        url: "https://criminalplayer.com.br/ia-yuri-felix/",
+        category: "Criminal Player",
+        id: "1765505223671"
+    },
+    {
         title: "Legislação - CP, CPP e Correlatos",
         description: "",
         url: "https://criminalplayer.com.br/ia-legislacao-codigo-processo-penal-acesso/",
-        category: "IAs Criminal Player",
+        category: "Criminal Player",
         id: "1765505367020"
-    },
-    {
-        title: "STJ - Min. Daniela Teixeira",
-        description: "",
-        url: "https://criminalplayer.com.br/ia-juris-stj-relator-ministra-daniela-teixeira-acesso/",
-        category: "IAs Criminal Player",
-        id: "1765505640220"
     },
     {
         title: "Legislação - Maria da Penha",
         description: "",
         url: "https://criminalplayer.com.br/ia-legislacao-lei-maria-da-penha-acesso/",
-        category: "IAs Criminal Player",
+        category: "Criminal Player",
         id: "1765505387930"
     },
     {
         title: "Legislação - Estatuto do Desarmamento",
         description: "",
         url: "https://criminalplayer.com.br/ia-legislacao-estatuto-do-desarmamento/",
-        category: "IAs Criminal Player",
+        category: "Criminal Player",
         id: "1765505477886"
+    },
+    {
+        title: "ADMRH",
+        description: "Gestão de Recursos Humanos",
+        url: "https://tjsc.thema.inf.br/rhsysweb-portal/secure/XcpHome.xhtml",
+        category: "TJSC",
+        id: "1765530667948"
+    },
+    {
+        title: "Biblioteca RT",
+        description: "Biblioteca Digital da editora Revista dos Tribunais",
+        url: "https://signon.thomsonreuters.com/?productid=EREAD&viewproductid=EREAD&returnto=https%3A%2F%2Fproview.thomsonreuters.com%2Flogin&lr=0&bhcp=1",
+        category: "TJSC",
+        id: "1765530754574"
+    },
+    {
+        title: "Central de Atendimento Eletrônico do Segundo Grau",
+        description: "Atendimento de advogados",
+        url: "https://cgjweb.tjsc.jus.br/painelatendimentosg/login.action",
+        category: "TJSC",
+        id: "1765530804359"
+    },
+    {
+        title: "Abertura de Chamados",
+        description: "Abrir chamados diversos para serviços internos",
+        url: "https://portaltjsc.certsys.com.br/portal/default/self-service/#/home",
+        category: "TJSC",
+        id: "1765530898756"
+    },
+    {
+        title: "Telefones dos Gabinetes",
+        description: "Contatos dos gabinetes de segundo grau",
+        url: "https://www.tjsc.jus.br/web/judicial/secretarios-juridicos-e-oficiais-de-gabinete",
+        category: "TJSC",
+        id: "1765530973006"
+    },
+    {
+        title: "Corretor de Texto",
+        description: "Correção de texto conforme os padrões do gabinete",
+        url: "https://m365.cloud.microsoft:443/chat/?titleId=T_d4ac0ecb-3e48-d371-2fa2-a7b89ff2ec5d&source=embedded-builder",
+        category: "Copilot",
+        id: "1765531058439"
+    },
+    {
+        title: "Gerador de Ementas",
+        description: "Gera ementas a partir do conteúdo do voto",
+        url: "https://m365.cloud.microsoft:443/chat/?titleId=T_ee3c4689-b3a5-44c8-c371-c702d18a8d29&source=embedded-builder",
+        category: "Copilot",
+        id: "1765531103305"
+    },
+    {
+        title: "Resumir Recurso",
+        description: "Cria relatório a partir das razões recursais",
+        url: "https://m365.cloud.microsoft:443/chat/?titleId=T_73187cd2-6da7-4e13-e0df-43b1222fae31&source=embedded-builder",
+        category: "Copilot",
+        id: "1765531157762"
     }
+];
+
+// Ordem de exibição das categorias
+export const CATEGORY_ORDER = [
+    "Legislação Penal",
+    "TJSC",
+    "Sistemas",
+    "Jurisprudência",
+    "NotebookLM",
+    "Criminal Player"
 ];
 
 export function useLinks() {

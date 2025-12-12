@@ -3,14 +3,16 @@ import { useLinks, CATEGORY_ORDER } from "../../hooks/useLinks";
 
 export default function UsefulLinks() {
     const { links } = useLinks();
-    
+
     // Obter todas as categorias dos links
-    const allCategories = Array.from(new Set(links.map((link) => link.category)));
-    
+    const allCategories = Array.from(
+        new Set(links.map((link) => link.category))
+    );
+
     // Ordenar categorias: primeiro as definidas em CATEGORY_ORDER, depois as novas
     const categories = [
-        ...CATEGORY_ORDER.filter(cat => allCategories.includes(cat)),
-        ...allCategories.filter(cat => !CATEGORY_ORDER.includes(cat))
+        ...CATEGORY_ORDER.filter((cat) => allCategories.includes(cat)),
+        ...allCategories.filter((cat) => !CATEGORY_ORDER.includes(cat)),
     ];
 
     return (

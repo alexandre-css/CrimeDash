@@ -104,10 +104,7 @@ async function saveCategoryOrder(categoryOrder) {
     await fs.writeFile(backupFile, currentContent, "utf-8");
 
     // Gerar código do array
-    const orderCode = JSON.stringify(categoryOrder, null, 4).replace(
-        /"/g,
-        '"'
-    );
+    const orderCode = JSON.stringify(categoryOrder, null, 4).replace(/"/g, '"');
 
     // Substituir CATEGORY_ORDER no arquivo
     const newContent = currentContent.replace(
@@ -190,12 +187,10 @@ app.post("/api/category-order", async (req, res) => {
         const { order } = req.body;
 
         if (!Array.isArray(order)) {
-            return res
-                .status(400)
-                .json({
-                    success: false,
-                    error: "Order deve ser um array de strings",
-                });
+            return res.status(400).json({
+                success: false,
+                error: "Order deve ser um array de strings",
+            });
         }
 
         const result = await saveCategoryOrder(order);
