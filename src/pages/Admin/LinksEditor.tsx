@@ -116,9 +116,11 @@ export default function LinksEditor() {
         new Set(links.map((link) => link.category))
     );
 
-    // Se categoryOrder está vazio ou desatualizado, usar as categorias dos links
-    const displayOrder =
-        categoryOrder.length > 0 ? categoryOrder : realCategories;
+    // Combinar categoryOrder com novas categorias que não estão na ordem ainda
+    const displayOrder = [
+        ...categoryOrder.filter(cat => realCategories.includes(cat)), // Manter ordem das existentes
+        ...realCategories.filter(cat => !categoryOrder.includes(cat))  // Adicionar novas no final
+    ];
 
     // Categorias disponíveis para o select (inclui a categoria atual do form se for nova)
     const availableCategories = [

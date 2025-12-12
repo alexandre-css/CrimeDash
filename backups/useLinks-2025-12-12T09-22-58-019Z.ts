@@ -356,7 +356,7 @@ const DEFAULT_LINKS: LinkCard[] = [
         title: "Legislação - Lei de Drogas",
         description: "",
         url: "https://criminalplayer.com.br/ia-legislacao-lei-antidrogas/",
-        category: "Criminal Player",
+        category: "Legislação Penal",
         id: "1765505419536"
     },
     {
