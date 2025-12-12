@@ -323,11 +323,11 @@ export function useLinks() {
     const [links, setLinks] = useState<LinkCard[]>(DEFAULT_LINKS);
 
     const addLink = (newLink: Omit<LinkCard, "id">) => {
-        const newLink = {
-            ...link,
+        const link = {
+            ...newLink,
             id: Date.now().toString(),
         };
-        setLinks((prev) => [...prev, newLink]);
+        setLinks((prev) => [...prev, link]);
     };
 
     const updateLink = (id: string, updatedLink: Omit<LinkCard, "id">) => {
