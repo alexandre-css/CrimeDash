@@ -356,7 +356,7 @@ const DEFAULT_LINKS: LinkCard[] = [
         title: "Legislação - Lei de Drogas",
         description: "",
         url: "https://criminalplayer.com.br/ia-legislacao-lei-antidrogas/",
-        category: "Legislação Penal",
+        category: "Criminal Player",
         id: "1765505419536"
     },
     {
@@ -449,6 +449,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://m365.cloud.microsoft:443/chat/?titleId=T_5c3c0c1a-2cdb-8fc4-7b65-b1f2b13df5eb&source=embedded-builder",
         category: "Copilot",
         id: "1765531212672"
+    },
+    {
+        title: "Gabinete AMR",
+        description: "Pasta principal do drive",
+        url: "https://drive.google.com/drive/folders/1kJ0XDQC8IP6WTvOFAQT4-iXRp308wLhc?usp=sharing",
+        category: "Google Drive",
+        id: "1765531696153"
     }
 ];
 
@@ -459,6 +466,7 @@ export const CATEGORY_ORDER = [
     "Sistemas",
     "Jurisprudência",
     "NotebookLM",
+    "Copilot",
     "Criminal Player"
 ];
 

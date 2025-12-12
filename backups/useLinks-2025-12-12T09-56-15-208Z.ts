@@ -356,7 +356,7 @@ const DEFAULT_LINKS: LinkCard[] = [
         title: "Legislação - Lei de Drogas",
         description: "",
         url: "https://criminalplayer.com.br/ia-legislacao-lei-antidrogas/",
-        category: "Legislação Penal",
+        category: "Criminal Player",
         id: "1765505419536"
     },
     {
@@ -442,6 +442,48 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://m365.cloud.microsoft:443/chat/?titleId=T_73187cd2-6da7-4e13-e0df-43b1222fae31&source=embedded-builder",
         category: "Copilot",
         id: "1765531157762"
+    },
+    {
+        title: "Gerador de Minutas de ED",
+        description: "Cria minutas de embargos de declaração a partir da leitura do acórdão e da petição dos embargos",
+        url: "https://m365.cloud.microsoft:443/chat/?titleId=T_5c3c0c1a-2cdb-8fc4-7b65-b1f2b13df5eb&source=embedded-builder",
+        category: "Copilot",
+        id: "1765531212672"
+    },
+    {
+        title: "Gabinete AMR",
+        description: "Pasta principal do drive",
+        url: "https://drive.google.com/drive/folders/1kJ0XDQC8IP6WTvOFAQT4-iXRp308wLhc?usp=sharing",
+        category: "Google Drive",
+        id: "1765531696153"
+    },
+    {
+        title: "Livros de Direito Penal",
+        description: "Pasta principal com os livros de Direito Penal e Processual Penal",
+        url: "https://drive.google.com/drive/folders/18j-Z56KKOCD1XBDYUYp-9k-P3fUBZiag?usp=drive_link",
+        category: "Google Drive",
+        id: "1765531777822"
+    },
+    {
+        title: "Tutorial de Configuração do Eproc",
+        description: "Passo-a-passo para configurar o eproc de forma otimizada",
+        url: "https://docs.google.com/document/d/1LitMtOgR479CESsNihGPsesZSDsG8Cj9BIqS0m-S5Pk/edit?usp=drive_link",
+        category: "Google Drive",
+        id: "1765531880709"
+    },
+    {
+        title: "Manual de Redação",
+        description: "Padrões de redação e formatação do gabinete",
+        url: "https://docs.google.com/document/d/18Jx1wRLo4PLD66iyFG4cXyrAhq6IQWzlsu2SmkoTg_s/edit?usp=drive_link",
+        category: "Google Drive",
+        id: "1765531919012"
+    },
+    {
+        title: "Tutorial - Transcrição de Vídeos no Word",
+        description: "Passo-a-passo para transcrever o áudio de vídeos no Word on-line",
+        url: "https://docs.google.com/document/d/1WZsteKIY3843Oc8PnCqVOwzQj0gKESgdKMpmQZYzfEg/edit?usp=drive_link",
+        category: "Google Drive",
+        id: "1765533198142"
     }
 ];
 
@@ -452,6 +494,7 @@ export const CATEGORY_ORDER = [
     "Sistemas",
     "Jurisprudência",
     "NotebookLM",
+    "Copilot",
     "Criminal Player"
 ];
 
