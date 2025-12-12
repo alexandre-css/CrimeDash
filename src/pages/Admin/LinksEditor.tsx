@@ -17,12 +17,14 @@ const API_URL = "http://localhost:3001/api";
 
 export default function LinksEditor() {
     const [links, setLinks] = useState<LinkCard[]>([]);
+    const [categoryOrder, setCategoryOrder] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [selectedLink, setSelectedLink] = useState<LinkCard | null>(null);
     const [isEditing, setIsEditing] = useState(false);
     const [searchText, setSearchText] = useState("");
     const [categoryFilter, setCategoryFilter] = useState("todos");
+    const [showCategoryManager, setShowCategoryManager] = useState(false);
     const [message, setMessage] = useState<{
         type: "success" | "error";
         text: string;
@@ -40,13 +42,22 @@ export default function LinksEditor() {
     const loadLinks = async () => {
         try {
             setLoading(true);
-            const response = await fetch(`${API_URL}/links`);
-            const data = await response.json();
+            const [linksRes, orderRes] = await Promise.all([
+                fetch(`${API_URL}/links`),
+                fetch(`${API_URL}/category-order`),
+            ]);
+            
+            const linksData = await linksRes.json();
+            const orderData = await orderRes.json();
 
-            if (data.success) {
-                setLinks(data.links);
+            if (linksData.success) {
+                setLinks(linksData.links);
             } else {
-                showMessage("error", "Erro: " + data.error);
+                showMessage("error", "Erro: " + linksData.error);
+            }
+
+            if (orderData.success) {
+                setCategoryOrder(orderData.order);
             }
         } catch {
             showMessage(
@@ -205,6 +216,43 @@ export default function LinksEditor() {
         saveAllLinks(allLinks);
     };
 
+    const saveCategoryOrder = async (newOrder: string[]) => {
+        try {
+            setSaving(true);
+            const response = await fetch(`${API_URL}/category-order`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ order: newOrder }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                showMessage("success", `✓ Ordem salva! Backup: ${data.backup}`);
+                setCategoryOrder(newOrder);
+            } else {
+                showMessage("error", "Erro: " + data.error);
+            }
+        } catch {
+            showMessage("error", "Erro ao salvar ordem!");
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const moveCategory = (index: number, direction: "up" | "down") => {
+        const newIndex = direction === "up" ? index - 1 : index + 1;
+        if (newIndex < 0 || newIndex >= categoryOrder.length) return;
+
+        const newOrder = [...categoryOrder];
+        [newOrder[index], newOrder[newIndex]] = [
+            newOrder[newIndex],
+            newOrder[index],
+        ];
+
+        saveCategoryOrder(newOrder);
+    };
+
     if (loading) {
         return (
             <div className="flex items-center justify-center min-h-screen">
@@ -322,15 +370,80 @@ export default function LinksEditor() {
                     ))}
                 </div>
 
-                <button
-                    onClick={handleNew}
-                    disabled={saving}
-                    className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold disabled:opacity-50 flex items-center gap-2"
-                >
-                    <Plus className="h-5 w-5" />
-                    Novo Link
-                </button>
+                <div className="flex gap-3">
+                    <button
+                        onClick={handleNew}
+                        disabled={saving}
+                        className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold disabled:opacity-50 flex items-center gap-2"
+                    >
+                        <Plus className="h-5 w-5" />
+                        Novo Link
+                    </button>
+                    <button
+                        onClick={() => setShowCategoryManager(!showCategoryManager)}
+                        disabled={saving}
+                        className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-semibold disabled:opacity-50 flex items-center gap-2"
+                    >
+                        <ArrowUp className="h-5 w-5" />
+                        <ArrowDown className="h-5 w-5 -ml-3" />
+                        Ordenar Categorias
+                    </button>
+                </div>
             </div>
+
+            {showCategoryManager && (
+                <div className="bg-white dark:bg-boxdark rounded-lg shadow-md p-6 mb-6">
+                    <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+                            🔀 Ordenar Categorias
+                        </h2>
+                        <button
+                            onClick={() => setShowCategoryManager(false)}
+                            className="p-2 hover:bg-gray-100 dark:hover:bg-meta-4 rounded-lg"
+                        >
+                            <X className="h-5 w-5" />
+                        </button>
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                        Use os botões ↑↓ para reorganizar a ordem de exibição das categorias na página principal.
+                    </p>
+                    <div className="space-y-2">
+                        {categoryOrder.map((cat, index) => (
+                            <div
+                                key={cat}
+                                className="flex items-center gap-3 p-3 border border-stroke dark:border-strokedark rounded-lg bg-gray-50 dark:bg-meta-4"
+                            >
+                                <div className="flex flex-col gap-1">
+                                    <button
+                                        onClick={() => moveCategory(index, "up")}
+                                        disabled={index === 0 || saving}
+                                        className="p-1 hover:bg-gray-200 dark:hover:bg-boxdark rounded disabled:opacity-30"
+                                        title="Mover para cima"
+                                    >
+                                        <ArrowUp className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                                    </button>
+                                    <button
+                                        onClick={() => moveCategory(index, "down")}
+                                        disabled={index === categoryOrder.length - 1 || saving}
+                                        className="p-1 hover:bg-gray-200 dark:hover:bg-boxdark rounded disabled:opacity-30"
+                                        title="Mover para baixo"
+                                    >
+                                        <ArrowDown className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                                    </button>
+                                </div>
+                                <div className="flex-1">
+                                    <span className="font-semibold text-gray-800 dark:text-white">
+                                        {index + 1}. {cat}
+                                    </span>
+                                    <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">
+                                        ({links.filter((l) => l.category === cat).length} links)
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="lg:col-span-1 bg-white dark:bg-boxdark rounded-lg shadow-md p-6">

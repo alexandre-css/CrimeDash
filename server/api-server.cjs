@@ -95,6 +95,55 @@ async function saveLinks(links) {
     return { success: true, backup: path.basename(backupFile) };
 }
 
+// Salvar ordem das categorias
+async function saveCategoryOrder(categoryOrder) {
+    await ensureBackupDir();
+    const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+    const backupFile = path.join(BACKUP_DIR, `useLinks-${timestamp}.ts`);
+    const currentContent = await fs.readFile(LINKS_FILE, "utf-8");
+    await fs.writeFile(backupFile, currentContent, "utf-8");
+
+    // Gerar código do array
+    const orderCode = JSON.stringify(categoryOrder, null, 4).replace(
+        /"/g,
+        '"'
+    );
+
+    // Substituir CATEGORY_ORDER no arquivo
+    const newContent = currentContent.replace(
+        /export const CATEGORY_ORDER = \[[\s\S]*?\];/,
+        `export const CATEGORY_ORDER = ${orderCode};`
+    );
+
+    await fs.writeFile(LINKS_FILE, newContent, "utf-8");
+
+    console.log(
+        `✓ Ordem de categorias salva! Backup: ${path.basename(backupFile)}`
+    );
+    return { success: true, backup: path.basename(backupFile) };
+}
+
+// Ler ordem das categorias
+async function readCategoryOrder() {
+    const content = await fs.readFile(LINKS_FILE, "utf-8");
+    const match = content.match(
+        /export const CATEGORY_ORDER = \[([\s\S]*?)\];/
+    );
+
+    if (!match) {
+        return [];
+    }
+
+    try {
+        const orderStr = "[" + match[1] + "]";
+        const normalized = orderStr.replace(/"/g, '"');
+        return JSON.parse(normalized);
+    } catch (error) {
+        console.error("Erro ao ler ordem das categorias:", error.message);
+        return [];
+    }
+}
+
 // Rotas da API
 app.get("/api/links", async (req, res) => {
     try {
@@ -120,6 +169,39 @@ app.post("/api/links", async (req, res) => {
         res.json({ success: true, ...result });
     } catch (error) {
         console.error("Erro ao salvar links:", error);
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// Obter ordem das categorias
+app.get("/api/category-order", async (req, res) => {
+    try {
+        const order = await readCategoryOrder();
+        res.json({ success: true, order });
+    } catch (error) {
+        console.error("Erro ao ler ordem das categorias:", error);
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// Salvar ordem das categorias
+app.post("/api/category-order", async (req, res) => {
+    try {
+        const { order } = req.body;
+
+        if (!Array.isArray(order)) {
+            return res
+                .status(400)
+                .json({
+                    success: false,
+                    error: "Order deve ser um array de strings",
+                });
+        }
+
+        const result = await saveCategoryOrder(order);
+        res.json({ success: true, ...result });
+    } catch (error) {
+        console.error("Erro ao salvar ordem das categorias:", error);
         res.status(500).json({ success: false, error: error.message });
     }
 });
