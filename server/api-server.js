@@ -25,40 +25,53 @@ async function ensureBackupDir() {
 async function readLinks() {
     const content = await fs.readFile(LINKS_FILE, 'utf-8');
     
-    // Extrair o array DEFAULT_LINKS
-    const match = content.match(/const DEFAULT_LINKS: LinkCard\[\] = (\[[\s\S]*?\]);/);
+    // Extrair o array DEFAULT_LINKS (mais flexível)
+    const match = content.match(/const DEFAULT_LINKS:\s*LinkCard\[\]\s*=\s*(\[[\s\S]*?\n\];)/);
     if (!match) {
         throw new Error('Não foi possível encontrar DEFAULT_LINKS no arquivo');
     }
     
-    // Converter para JSON válido (remover trailing commas, etc)
-    const linksStr = match[1]
-        .replace(/(\w+):/g, '"$1":')  // Adicionar aspas nas chaves
-        .replace(/,(\s*[}\]])/g, '$1'); // Remover trailing commas
+    // Pegar apenas o conteúdo do array
+    let linksStr = match[1];
     
-    return JSON.parse(linksStr);
+    // Remover o ]; final
+    linksStr = linksStr.replace(/\];$/, ']');
+    
+    // Converter TypeScript para JSON válido
+    linksStr = linksStr
+        .replace(/(\w+):/g, '"$1":')  // Adicionar aspas nas chaves
+        .replace(/,(\s*[}\]])/g, '$1') // Remover trailing commas
+        .replace(/"/g, '"');           // Normalizar aspas
+    
+    try {
+        return JSON.parse(linksStr);
+    } catch (error) {
+        console.error('Erro ao fazer parse dos links:', error.message);
+        console.error('String problemática:', linksStr.substring(0, 500));
+        throw new Error('Erro ao fazer parse dos links: ' + error.message);
+    }
 }
 
 // Salvar links no arquivo TypeScript
 async function saveLinks(links) {
     // Fazer backup
+    await ensureBackupDir();
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
     const backupFile = path.join(BACKUP_DIR, `useLinks-${timestamp}.ts`);
     const currentContent = await fs.readFile(LINKS_FILE, 'utf-8');
     await fs.writeFile(backupFile, currentContent, 'utf-8');
     
-    // Gerar código TypeScript
+    // Gerar código TypeScript formatado
     const linksCode = JSON.stringify(links, null, 4)
         .replace(/"(\w+)":/g, '$1:')  // Remover aspas das chaves
-        .replace(/"/g, '"')  // Usar aspas duplas
-        .replace(/\n/g, '\n    ');
+        .replace(/"/g, '"');           // Usar aspas duplas
     
     // Ler arquivo atual
     let content = await fs.readFile(LINKS_FILE, 'utf-8');
     
     // Substituir apenas o array DEFAULT_LINKS
     const newContent = content.replace(
-        /const DEFAULT_LINKS: LinkCard\[\] = \[[\s\S]*?\];/,
+        /const DEFAULT_LINKS:\s*LinkCard\[\]\s*=\s*\[[\s\S]*?\n\];/,
         `const DEFAULT_LINKS: LinkCard[] = ${linksCode};`
     );
     
