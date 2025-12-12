@@ -10,9 +10,11 @@ export default function UsefulLinks() {
     console.log("📊 Categorias encontradas:", categories);
     console.log("📊 Total de links:", links.length);
     console.log("🔗 Todos os links:", links);
-    
+
     // Verificar links sem categoria ou com categoria vazia
-    const linksWithoutCategory = links.filter(l => !l.category || l.category.trim() === "");
+    const linksWithoutCategory = links.filter(
+        (l) => !l.category || l.category.trim() === ""
+    );
     if (linksWithoutCategory.length > 0) {
         console.error("❌ Links sem categoria:", linksWithoutCategory);
     }
