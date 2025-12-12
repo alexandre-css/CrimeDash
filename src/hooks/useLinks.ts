@@ -342,7 +342,7 @@ const DEFAULT_LINKS: LinkCard[] = [
 
 const STORAGE_KEY = 'crimedash_links';
 const VERSION_KEY = 'crimedash_links_version';
-const CURRENT_VERSION = '3.2'; // Adiciona Temas e Súmulas
+const CURRENT_VERSION = '3.3'; // Adiciona novos notebooks (Júri e Dignidade Sexual)
 
 export function useLinks() {
   const [links, setLinks] = useState<LinkCard[]>(() => {
