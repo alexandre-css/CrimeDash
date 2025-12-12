@@ -192,13 +192,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "Sistemas"
     },
     {
-        id: "29",
-        title: "Google Drive",
-        description: "Armazenamento em nuvem",
-        url: "https://drive.google.com/drive/folders/1kJ0XDQC8IP6WTvOFAQT4-iXRp308wLhc?usp=sharing",
-        category: "Sistemas"
-    },
-    {
         id: "31",
         title: "Power BI",
         description: "Análise de dados e relatórios",
@@ -470,6 +463,48 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://docs.google.com/document/d/1LitMtOgR479CESsNihGPsesZSDsG8Cj9BIqS0m-S5Pk/edit?usp=drive_link",
         category: "Google Drive",
         id: "1765531880709"
+    },
+    {
+        title: "Manual de Redação",
+        description: "Padrões de redação e formatação do gabinete",
+        url: "https://docs.google.com/document/d/18Jx1wRLo4PLD66iyFG4cXyrAhq6IQWzlsu2SmkoTg_s/edit?usp=drive_link",
+        category: "Google Drive",
+        id: "1765531919012"
+    },
+    {
+        title: "Tutorial - Transcrição de Vídeos no Word",
+        description: "Passo-a-passo para transcrever o áudio de vídeos no Word on-line",
+        url: "https://docs.google.com/document/d/1WZsteKIY3843Oc8PnCqVOwzQj0gKESgdKMpmQZYzfEg/edit?usp=drive_link",
+        category: "Google Drive",
+        id: "1765533198142"
+    },
+    {
+        title: "Quadro de Destino de Remessas",
+        description: "Setores responsáveis por cada tipo de remessa (Secretaria, DCDP, DRI)",
+        url: "https://drive.google.com/file/d/1rb_rYfRgFcjYl1l88LyS33lMxCSB5jHE/view?usp=drive_link",
+        category: "Google Drive",
+        id: "1765533375206"
+    },
+    {
+        title: "Jusbrasil",
+        description: "Pesquisa de Jurisprudência",
+        url: "https://www.jusbrasil.com.br/jurisprudencia/",
+        category: "Jurisprudência",
+        id: "1765534869363"
+    },
+    {
+        title: "Calculadora Penal FEU",
+        description: "Calculadora para aplicação da pena",
+        url: "https://calculadora.feu.com.br/download",
+        category: "Ferramentas",
+        id: "1765535000259"
+    },
+    {
+        title: "Lightshot",
+        description: "Ferramenta para captura de tela",
+        url: "https://app.prntscr.com/pt-br/download.html",
+        category: "Ferramentas",
+        id: "1765535064888"
     }
 ];
 
@@ -477,6 +512,7 @@ const DEFAULT_LINKS: LinkCard[] = [
 export const CATEGORY_ORDER = [
     "Legislação Penal",
     "TJSC",
+    "Google Drive",
     "Sistemas",
     "Jurisprudência",
     "NotebookLM",
