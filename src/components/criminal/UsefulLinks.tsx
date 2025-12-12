@@ -5,6 +5,10 @@ export default function UsefulLinks() {
     const { links } = useLinks();
     const categories = Array.from(new Set(links.map((link) => link.category)));
 
+    // Debug: Log das categorias encontradas
+    console.log('📊 UsefulLinks - Categorias encontradas:', categories);
+    console.log('📊 UsefulLinks - Total de links:', links.length);
+
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
