@@ -37,6 +37,11 @@ async function readLinks() {
     // Remover o ]; final
     linksStr = linksStr.replace(/\];$/, ']');
     
+    // Remover comentários (// e /* */)
+    linksStr = linksStr
+        .replace(/\/\/.*$/gm, '')  // Remove comentários de linha
+        .replace(/\/\*[\s\S]*?\*\//g, '');  // Remove comentários de bloco
+    
     // Converter TypeScript para JSON válido
     linksStr = linksStr
         .replace(/(\w+):/g, '"$1":')  // Adicionar aspas nas chaves
@@ -47,7 +52,7 @@ async function readLinks() {
         return JSON.parse(linksStr);
     } catch (error) {
         console.error('Erro ao fazer parse dos links:', error.message);
-        console.error('String problemática:', linksStr.substring(0, 500));
+        console.error('String problemática (primeiros 500 chars):', linksStr.substring(0, 500));
         throw new Error('Erro ao fazer parse dos links: ' + error.message);
     }
 }
