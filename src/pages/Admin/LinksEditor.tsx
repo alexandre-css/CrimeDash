@@ -100,10 +100,11 @@ export default function LinksEditor() {
     const availableCategories = [
         ...new Set([
             ...links.map((l) => l.category),
-            ...(formData.category && !links.some(l => l.category === formData.category) 
-                ? [formData.category] 
-                : [])
-        ])
+            ...(formData.category &&
+            !links.some((l) => l.category === formData.category)
+                ? [formData.category]
+                : []),
+        ]),
     ].sort();
 
     const filteredLinks = links.filter((link) => {
@@ -280,9 +281,20 @@ export default function LinksEditor() {
                         </p>
                         <ol className="list-decimal ml-4 space-y-1">
                             <li>Salve os links no editor</li>
-                            <li>Execute: <code className="bg-blue-100 dark:bg-blue-900/50 px-2 py-0.5 rounded">git add . && git commit -m "Atualiza links" && git push</code></li>
+                            <li>
+                                Execute:{" "}
+                                <code className="bg-blue-100 dark:bg-blue-900/50 px-2 py-0.5 rounded">
+                                    git add . && git commit -m "Atualiza links"
+                                    && git push
+                                </code>
+                            </li>
                             <li>Vercel faz deploy automático (~2 min)</li>
-                            <li><strong>Novas categorias aparecerão como seções na página principal</strong></li>
+                            <li>
+                                <strong>
+                                    Novas categorias aparecerão como seções na
+                                    página principal
+                                </strong>
+                            </li>
                         </ol>
                     </div>
                 </div>
@@ -503,13 +515,17 @@ export default function LinksEditor() {
                                         type="button"
                                         onClick={() => {
                                             if (newCategory.trim()) {
-                                                const trimmedCategory = newCategory.trim();
+                                                const trimmedCategory =
+                                                    newCategory.trim();
                                                 setFormData({
                                                     ...formData,
                                                     category: trimmedCategory,
                                                 });
                                                 setNewCategory("");
-                                                showMessage("success", `Categoria "${trimmedCategory}" adicionada! Será visível após salvar o link.`);
+                                                showMessage(
+                                                    "success",
+                                                    `Categoria "${trimmedCategory}" adicionada! Será visível após salvar o link.`
+                                                );
                                             }
                                         }}
                                         disabled={!newCategory.trim() || saving}
