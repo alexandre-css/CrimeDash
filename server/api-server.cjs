@@ -38,15 +38,19 @@ async function readLinks() {
     linksStr = linksStr.replace(/\];$/, ']');
     
     // Remover comentários (// e /* */)
+    // Mas preservar :// nas URLs
     linksStr = linksStr
-        .replace(/\/\/.*$/gm, '')  // Remove comentários de linha
+        .replace(/([^:]|^)\/\/.*$/gm, '$1')  // Remove comentários de linha (mas não ://)
         .replace(/\/\*[\s\S]*?\*\//g, '');  // Remove comentários de bloco
     
     // Converter TypeScript para JSON válido
+    // IMPORTANTE: Fazer replace de chaves ANTES de normalizar aspas
     linksStr = linksStr
         .replace(/(\w+):/g, '"$1":')  // Adicionar aspas nas chaves
-        .replace(/,(\s*[}\]])/g, '$1') // Remover trailing commas
-        .replace(/"/g, '"');           // Normalizar aspas
+        .replace(/,(\s*[}\]])/g, '$1'); // Remover trailing commas
+    
+    // Agora normalizar aspas (de " para ")
+    linksStr = linksStr.replace(/"/g, '"');
     
     try {
         return JSON.parse(linksStr);
