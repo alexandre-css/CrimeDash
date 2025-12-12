@@ -23,11 +23,6 @@ const navItems: NavItem[] = [
         name: "Dashboard",
         path: "/",
     },
-    {
-        icon: <CalenderIcon />,
-        name: "Calendário",
-        path: "/calendar",
-    },
 ];
 
 const othersItems: NavItem[] = [];

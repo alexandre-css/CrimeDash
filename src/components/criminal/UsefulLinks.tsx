@@ -19,14 +19,14 @@ export default function UsefulLinks() {
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <h2 className="text-title-md2 font-semibold text-black dark:text-white flex items-center gap-2">
-                    <LinkIcon className="h-6 w-6" />
+                    <LinkIcon className="h-5 w-5" />
                     Links Úteis
                 </h2>
             </div>
 
             {categories.map((category) => (
                 <div key={category} className="space-y-4">
-                    <h3 className="text-title-sm font-semibold text-black dark:text-white border-b border-stroke dark:border-strokedark pb-2">
+                    <h3 className="text-title-sm font-semibold border-b border-stroke dark:border-strokedark pb-2" style={{ color: '#660005' }}>
                         {category}
                     </h3>
 
