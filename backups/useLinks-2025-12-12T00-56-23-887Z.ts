@@ -206,6 +206,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "Sistemas"
     },
     {
+        id: "30",
+        title: "Google Calendar",
+        description: "Agenda e eventos",
+        url: "https://calendar.google.com/",
+        category: "Sistemas"
+    },
+    {
         id: "31",
         title: "Power BI",
         description: "Análise de dados e relatórios",
@@ -246,6 +253,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         description: "Compilação de súmulas",
         url: "https://resumos-direito.vercel.app/sumulas.html",
         category: "Jurisprudência"
+    },
+    {
+        id: "38",
+        title: "NotebookLM - Home",
+        description: "Página inicial do NotebookLM",
+        url: "https://notebooklm.google.com/",
+        category: "NotebookLM"
     },
     {
         id: "39",

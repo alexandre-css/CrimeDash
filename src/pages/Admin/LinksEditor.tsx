@@ -9,6 +9,8 @@ import {
     RefreshCw,
     AlertCircle,
     CheckCircle,
+    ArrowUp,
+    ArrowDown,
 } from "lucide-react";
 
 const API_URL = "http://localhost:3001/api";
@@ -32,6 +34,8 @@ export default function LinksEditor() {
         url: "",
         category: "Legislação Penal",
     });
+
+    const [newCategory, setNewCategory] = useState("");
 
     useEffect(() => {
         loadLinks();
@@ -91,6 +95,16 @@ export default function LinksEditor() {
         "todos",
         ...new Set(links.map((link) => link.category)),
     ];
+
+    // Categorias disponíveis para o select (inclui a categoria atual do form se for nova)
+    const availableCategories = [
+        ...new Set([
+            ...links.map((l) => l.category),
+            ...(formData.category && !links.some(l => l.category === formData.category) 
+                ? [formData.category] 
+                : [])
+        ])
+    ].sort();
 
     const filteredLinks = links.filter((link) => {
         const matchesSearch =
@@ -165,6 +179,29 @@ export default function LinksEditor() {
     const handleCancel = () => {
         setIsEditing(false);
         setSelectedLink(null);
+    };
+
+    const moveLink = (index: number, direction: "up" | "down") => {
+        const newIndex = direction === "up" ? index - 1 : index + 1;
+        if (newIndex < 0 || newIndex >= filteredLinks.length) return;
+
+        const allLinks = [...links];
+        const currentLink = filteredLinks[index];
+        const targetLink = filteredLinks[newIndex];
+
+        const currentIndexInAll = allLinks.findIndex(
+            (l) => l.id === currentLink.id
+        );
+        const targetIndexInAll = allLinks.findIndex(
+            (l) => l.id === targetLink.id
+        );
+
+        [allLinks[currentIndexInAll], allLinks[targetIndexInAll]] = [
+            allLinks[targetIndexInAll],
+            allLinks[currentIndexInAll],
+        ];
+
+        saveAllLinks(allLinks);
     };
 
     if (loading) {
@@ -299,18 +336,48 @@ export default function LinksEditor() {
                     />
 
                     <div className="space-y-2 max-h-[600px] overflow-y-auto">
-                        {filteredLinks.map((link) => (
+                        {filteredLinks.map((link, index) => (
                             <div
                                 key={link.id}
-                                onClick={() => handleEdit(link)}
-                                className={`p-3 border rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-meta-4 transition ${
+                                className={`p-3 border rounded-lg transition ${
                                     selectedLink?.id === link.id
                                         ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
                                         : "border-stroke dark:border-strokedark"
                                 }`}
                             >
-                                <div className="flex items-center justify-between">
-                                    <div className="flex-1">
+                                <div className="flex items-center gap-2">
+                                    <div className="flex flex-col gap-1">
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                moveLink(index, "up");
+                                            }}
+                                            disabled={index === 0 || saving}
+                                            className="p-1 hover:bg-gray-200 dark:hover:bg-meta-4 rounded disabled:opacity-30"
+                                            title="Mover para cima"
+                                        >
+                                            <ArrowUp className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                                        </button>
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                moveLink(index, "down");
+                                            }}
+                                            disabled={
+                                                index ===
+                                                    filteredLinks.length - 1 ||
+                                                saving
+                                            }
+                                            className="p-1 hover:bg-gray-200 dark:hover:bg-meta-4 rounded disabled:opacity-30"
+                                            title="Mover para baixo"
+                                        >
+                                            <ArrowDown className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                                        </button>
+                                    </div>
+                                    <div
+                                        onClick={() => handleEdit(link)}
+                                        className="flex-1 cursor-pointer"
+                                    >
                                         <div className="font-semibold text-gray-900 dark:text-white">
                                             {link.title}
                                         </div>
@@ -403,22 +470,55 @@ export default function LinksEditor() {
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                     Categoria
                                 </label>
-                                <select
-                                    value={formData.category}
-                                    onChange={(e) =>
-                                        setFormData({
-                                            ...formData,
-                                            category: e.target.value,
-                                        })
-                                    }
-                                    disabled={saving}
-                                    className="w-full px-4 py-2 border border-stroke dark:border-strokedark rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-meta-4 dark:text-white disabled:opacity-50"
-                                >
-                                    <option>Legislação Penal</option>
-                                    <option>Sistemas</option>
-                                    <option>Jurisprudência</option>
-                                    <option>NotebookLM</option>
-                                </select>
+                                <div className="flex gap-2">
+                                    <select
+                                        value={formData.category}
+                                        onChange={(e) =>
+                                            setFormData({
+                                                ...formData,
+                                                category: e.target.value,
+                                            })
+                                        }
+                                        disabled={saving}
+                                        className="flex-1 px-4 py-2 border border-stroke dark:border-strokedark rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-meta-4 dark:text-white disabled:opacity-50"
+                                    >
+                                        {availableCategories.map((cat) => (
+                                            <option key={cat} value={cat}>
+                                                {cat}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="mt-2 flex gap-2">
+                                    <input
+                                        type="text"
+                                        value={newCategory}
+                                        onChange={(e) =>
+                                            setNewCategory(e.target.value)
+                                        }
+                                        placeholder="Nova categoria..."
+                                        disabled={saving}
+                                        className="flex-1 px-4 py-2 border border-stroke dark:border-strokedark rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-meta-4 dark:text-white disabled:opacity-50"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            if (newCategory.trim()) {
+                                                const trimmedCategory = newCategory.trim();
+                                                setFormData({
+                                                    ...formData,
+                                                    category: trimmedCategory,
+                                                });
+                                                setNewCategory("");
+                                                showMessage("success", `Categoria "${trimmedCategory}" adicionada! Será visível após salvar o link.`);
+                                            }
+                                        }}
+                                        disabled={!newCategory.trim() || saving}
+                                        className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 whitespace-nowrap"
+                                    >
+                                        ➕ Adicionar
+                                    </button>
+                                </div>
                             </div>
 
                             <div className="flex gap-4 pt-4">

@@ -199,10 +199,24 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "Sistemas"
     },
     {
+        id: "28",
+        title: "CNJ",
+        description: "Conselho Nacional de Justiça",
+        url: "https://www.cnj.jus.br/",
+        category: "Sistemas"
+    },
+    {
         id: "29",
         title: "Google Drive",
         description: "Armazenamento em nuvem",
         url: "https://drive.google.com/drive/folders/1kJ0XDQC8IP6WTvOFAQT4-iXRp308wLhc?usp=sharing",
+        category: "Sistemas"
+    },
+    {
+        id: "30",
+        title: "Google Calendar",
+        description: "Agenda e eventos",
+        url: "https://calendar.google.com/",
         category: "Sistemas"
     },
     {
@@ -246,6 +260,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         description: "Compilação de súmulas",
         url: "https://resumos-direito.vercel.app/sumulas.html",
         category: "Jurisprudência"
+    },
+    {
+        id: "38",
+        title: "NotebookLM - Home",
+        description: "Página inicial do NotebookLM",
+        url: "https://notebooklm.google.com/",
+        category: "NotebookLM"
     },
     {
         id: "39",

@@ -248,6 +248,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "Jurisprudência"
     },
     {
+        id: "38",
+        title: "NotebookLM - Home",
+        description: "Página inicial do NotebookLM",
+        url: "https://notebooklm.google.com/",
+        category: "NotebookLM"
+    },
+    {
         id: "39",
         title: "Processo Civil",
         description: "Notebook de Processo Civil",
