@@ -49,8 +49,9 @@ async function readLinks() {
     linksStr = linksStr.replace(/[""]/g, '"');
 
     // DEPOIS converter TypeScript para JSON válido
+    // Adicionar aspas apenas em chaves de objetos (no início da linha, após espaços)
     linksStr = linksStr
-        .replace(/(\w+):/g, '"$1":') // Adicionar aspas nas chaves
+        .replace(/(\s+)(\w+):/g, '$1"$2":') // Adicionar aspas nas chaves (com espaço antes)
         .replace(/,(\s*[}\]])/g, "$1"); // Remover trailing commas
 
     try {

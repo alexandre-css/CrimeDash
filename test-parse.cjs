@@ -20,11 +20,16 @@ console.log('3. After removing // comments');
 s = s.replace(/\/\*[\s\S]*?\*\//g, '');
 console.log('4. After removing /* */ comments');
 
-s = s.replace(/(\w+):/g, '"$1":');
-console.log('5. After adding quotes to keys');
+// PRIMEIRO normalizar aspas
+s = s.replace(/[""]/g, '"');
+console.log('5. After normalizing quotes');
+
+// DEPOIS adicionar aspas nas chaves (apenas se tiver espaço antes)
+s = s.replace(/(\s+)(\w+):/g, '$1"$2":');
+console.log('6. After adding quotes to keys');
 
 s = s.replace(/,(\s*[}\]])/g, '$1');
-console.log('6. After removing trailing commas');
+console.log('7. After removing trailing commas');
 
 console.log('\nFirst 500 chars:');
 console.log(s.substring(0, 500));
