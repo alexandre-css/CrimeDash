@@ -178,6 +178,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "Legislação Penal"
     },
     {
+        id: "25",
+        title: "TJSC",
+        description: "Tribunal de Justiça de Santa Catarina",
+        url: "https://www.tjsc.jus.br/",
+        category: "Sistemas"
+    },
+    {
         title: "SEEU",
         description: "Sistema Eletrônico de Execução Unificado",
         url: "https://seeu.pje.jus.br/seeu/",
@@ -220,25 +227,25 @@ const DEFAULT_LINKS: LinkCard[] = [
         category: "Jurisprudência"
     },
     {
-        title: "TJSC",
-        description: "Tribunal de Justiça de Santa Catarina",
+        id: "35",
+        title: "TJSC - Jurisprudência",
+        description: "Consulta de Acórdãos",
         url: "https://eproc1g.tjsc.jus.br/eproc/externo_controlador.php?acao=jurisprudencia@jurisprudencia/pesquisar",
-        category: "Jurisprudência",
-        id: "35"
+        category: "Jurisprudência"
     },
     {
-        title: "Temas STJ e STF",
-        description: "Temas de Recursos Repetitivos e Repercussão Geral",
+        id: "36",
+        title: "Temas de Direito",
+        description: "Resumos por tema jurídico",
         url: "https://resumos-direito.vercel.app/temas.html",
-        category: "Jurisprudência",
-        id: "36"
+        category: "Jurisprudência"
     },
     {
-        title: "Súmulas STJ e STF",
-        description: "Súmulas do STJ e do STF em matéria penal",
+        id: "37",
+        title: "Súmulas",
+        description: "Compilação de súmulas",
         url: "https://resumos-direito.vercel.app/sumulas.html",
-        category: "Jurisprudência",
-        id: "37"
+        category: "Jurisprudência"
     },
     {
         id: "44",

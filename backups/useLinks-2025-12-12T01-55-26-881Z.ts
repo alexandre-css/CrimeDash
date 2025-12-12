@@ -227,18 +227,18 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "35"
     },
     {
-        title: "Temas STJ e STF",
-        description: "Temas de Recursos Repetitivos e Repercussão Geral",
+        id: "36",
+        title: "Temas de Direito",
+        description: "Resumos por tema jurídico",
         url: "https://resumos-direito.vercel.app/temas.html",
-        category: "Jurisprudência",
-        id: "36"
+        category: "Jurisprudência"
     },
     {
-        title: "Súmulas STJ e STF",
-        description: "Súmulas do STJ e do STF em matéria penal",
+        id: "37",
+        title: "Súmulas",
+        description: "Compilação de súmulas",
         url: "https://resumos-direito.vercel.app/sumulas.html",
-        category: "Jurisprudência",
-        id: "37"
+        category: "Jurisprudência"
     },
     {
         id: "44",

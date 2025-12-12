@@ -234,11 +234,11 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "36"
     },
     {
-        title: "Súmulas STJ e STF",
-        description: "Súmulas do STJ e do STF em matéria penal",
+        id: "37",
+        title: "Súmulas",
+        description: "Compilação de súmulas",
         url: "https://resumos-direito.vercel.app/sumulas.html",
-        category: "Jurisprudência",
-        id: "37"
+        category: "Jurisprudência"
     },
     {
         id: "44",
