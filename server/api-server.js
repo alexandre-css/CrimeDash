@@ -137,10 +137,10 @@ async function start() {
         console.log(`  Arquivo: ${path.relative(process.cwd(), LINKS_FILE)}`);
         console.log(`  Backups: ${path.relative(process.cwd(), BACKUP_DIR)}`);
         console.log('');
-        console.log('  Rotas disponíveis:`);
-        console.log(`    GET  /api/links     - Listar links`);
-        console.log(`    POST /api/links     - Salvar links`);
-        console.log(`    GET  /api/backups   - Listar backups`);
+        console.log('  Rotas disponíveis:');
+        console.log('    GET  /api/links     - Listar links');
+        console.log('    POST /api/links     - Salvar links');
+        console.log('    GET  /api/backups   - Listar backups');
         console.log('');
         console.log('  Pressione Ctrl+C para parar');
         console.log('========================================');
