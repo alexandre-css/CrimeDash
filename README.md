@@ -69,14 +69,27 @@ npm run dev
 
 ## 🔧 Arquivos .bat Disponíveis
 
-- **`start-server.bat`** - Inicia o servidor com verificações de segurança
-- **`start-server-auto.bat`** - Inicia com reinício automático (recomendado para desenvolvimento)
+-   **`start-server.bat`** - Inicia o servidor com verificações de segurança
+-   **`start-server-auto.bat`** - Inicia com reinício automático (recomendado para desenvolvimento)
+-   **`start-editor.bat`** - Inicia servidor + abre editor de links automaticamente ⭐
 
 Ambos incluem:
-- ✅ Verificação de Node.js/npm
-- ✅ Instalação automática de dependências
-- ✅ Mensagens claras de status
-- ✅ Opção de reiniciar ao parar
+
+-   ✅ Verificação de Node.js/npm
+-   ✅ Instalação automática de dependências
+-   ✅ Mensagens claras de status
+-   ✅ Opção de reiniciar ao parar
+
+### 🚀 Atalho Rápido para Editar Links:
+
+```bash
+start-editor.bat
+```
+
+Este script:
+1. Inicia o servidor em segundo plano
+2. Aguarda 5 segundos
+3. Abre automaticamente o editor de links no navegador
 
 O projeto estará disponível em `http://localhost:5173/`
 
