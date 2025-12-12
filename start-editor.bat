@@ -1,19 +1,23 @@
 @echo off
-title CrimeDash - Servidor + Editor
+title CrimeDash - Servidor + API + Editor
 color 0B
 
 echo ========================================
-echo  CrimeDash - Iniciando Servidor + Editor
+echo  CrimeDash - Sistema Completo
 echo ========================================
 echo.
 
-REM Iniciar servidor em segundo plano
-echo [1/2] Iniciando servidor...
-start "CrimeDash Server" /MIN cmd /c start-server-auto.bat
+REM Iniciar servidor Vite em segundo plano
+echo [1/3] Iniciando servidor Vite...
+start "CrimeDash Vite" /MIN cmd /c start-server-auto.bat
 
-REM Aguardar servidor inicializar (ajuste se necessário)
-echo [2/2] Aguardando servidor inicializar...
-timeout /t 5 /nobreak >nul
+REM Iniciar API em segundo plano
+echo [2/3] Iniciando servidor API...
+start "CrimeDash API" /MIN cmd /c "npm run dev:api"
+
+REM Aguardar servidores inicializarem
+echo [3/3] Aguardando inicialização...
+timeout /t 8 /nobreak >nul
 
 REM Abrir navegador no editor
 echo.
@@ -25,11 +29,15 @@ echo ========================================
 echo  PRONTO!
 echo ========================================
 echo.
-echo  Servidor: http://localhost:5173
-echo  Editor:   http://localhost:5173/admin/links-editor
+echo  Vite:   http://localhost:5173
+echo  API:    http://localhost:3001
+echo  Editor: http://localhost:5173/admin/links-editor
 echo.
-echo  O servidor esta rodando em segundo plano
-echo  Feche a janela "CrimeDash Server" para parar
+echo  Servidores rodando em segundo plano:
+echo  - CrimeDash Vite
+echo  - CrimeDash API
+echo.
+echo  Feche as janelas para parar
 echo ========================================
 echo.
 
