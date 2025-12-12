@@ -37,10 +37,6 @@ export default function LinksEditor() {
 
     const [newCategory, setNewCategory] = useState("");
 
-    useEffect(() => {
-        loadLinks();
-    }, []);
-
     const loadLinks = async () => {
         try {
             setLoading(true);
@@ -52,7 +48,7 @@ export default function LinksEditor() {
             } else {
                 showMessage("error", "Erro: " + data.error);
             }
-        } catch (error) {
+        } catch {
             showMessage(
                 "error",
                 "Servidor API não está rodando! Execute: npm run dev:api"
@@ -61,6 +57,10 @@ export default function LinksEditor() {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        loadLinks();
+    }, []);
 
     const saveAllLinks = async (updatedLinks: LinkCard[]) => {
         try {
@@ -79,7 +79,7 @@ export default function LinksEditor() {
             } else {
                 showMessage("error", "Erro: " + data.error);
             }
-        } catch (error) {
+        } catch {
             showMessage("error", "Erro ao salvar!");
         } finally {
             setSaving(false);
