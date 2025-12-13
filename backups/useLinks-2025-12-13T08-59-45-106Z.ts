@@ -568,41 +568,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://tjscjusbr0.sharepoint.com/sites/EprocConhecimento",
         category: "TJSC",
         id: "1765616330353"
-    },
-    {
-        title: "Servidor de Relatórios",
-        description: "Geração de relatórios processuais (acesso restrito)",
-        url: "https://app.tjsc.jus.br/servidorrelatorios/#/listar",
-        category: "TJSC",
-        id: "1765616385104"
-    },
-    {
-        title: "Código de Divisão e Organização Judiciárias",
-        description: "Código de Divisão e Organização Judiciárias do Estado de Santa Catarina",
-        url: "https://www.tjsc.jus.br/documents/10181/16140/C%C3%B3digo+de+Divis%C3%A3o+e+Organiza%C3%A7%C3%A3o+Judici%C3%A1rias+do+Estado+de+SC/0ccbb8eb-fb2d-402a-b7ed-e1bf3d4e1857",
-        category: "TJSC",
-        id: "1765616564845"
-    },
-    {
-        title: "Código de Normas da CGJ",
-        description: "Código de Normas da Corregedoria-Geral da Justiça",
-        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/codigo-de-normas-da-cgj",
-        category: "TJSC",
-        id: "1765616617706"
-    },
-    {
-        title: "Regimento de Custas",
-        description: "Regras sobre custas no PJSC",
-        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/regimento-de-custas",
-        category: "TJSC",
-        id: "1765616757718"
-    },
-    {
-        title: "Regimento de Emolumentos",
-        description: "Regras sobre emolumentos no PJSC",
-        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/emolumentos",
-        category: "TJSC",
-        id: "1765616811434"
     }
 ];
 

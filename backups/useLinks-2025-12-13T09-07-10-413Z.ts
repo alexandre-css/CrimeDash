@@ -496,7 +496,7 @@ const DEFAULT_LINKS: LinkCard[] = [
         title: "Calculadora Penal FEU",
         description: "Calculadora para aplicação da pena",
         url: "https://calculadora.feu.com.br/download",
-        category: "Legislação Penal",
+        category: "Ferramentas",
         id: "1765535000259"
     },
     {
@@ -505,6 +505,104 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://app.prntscr.com/pt-br/download.html",
         category: "Ferramentas",
         id: "1765535064888"
+    },
+    {
+        title: "PDF24",
+        description: "Várias ferramentas para arquivos PDF",
+        url: "https://tools.pdf24.org/pt/",
+        category: "Ferramentas",
+        id: "1765535310328"
+    },
+    {
+        title: "Tabela de Nomeação de Dativos",
+        description: "Tabela de controle de nomeação de defensores dativos",
+        url: "https://tjscjusbr0-my.sharepoint.com/:x:/g/personal/alexandress_tjsc_jus_br/IQCMbx03FxTWQJWd4yg6fukTATAFCQGEPqhsAN6eJQ5ZtHs?e=SHCMSi&nav=MTVfezAwMDAwMDAwLTAwMDEtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMH0",
+        category: "Ferramentas",
+        id: "1765615840097"
+    },
+    {
+        title: "NUGPNAC",
+        description: "Núcleo de Gerenciamento de Precedentes e Ações Coletivas",
+        url: "https://www.tjsc.jus.br/web/nucleo-de-gerenciamento-de-precedentes-e-acoes-coletivas",
+        category: "TJSC",
+        id: "1765616026894"
+    },
+    {
+        title: "Incidentes de Resolução de Demandas Repetitivas",
+        description: "Tabela de IRDRs do TJSC",
+        url: "https://www.tjsc.jus.br/documents/3133632/3200197/IRDR-COMPLETA/7ab8e228-b5c3-a8ee-8654-2f18a6e23141",
+        category: "TJSC",
+        id: "1765616081539"
+    },
+    {
+        title: "Assistência Judiciária Gratuita",
+        description: "Informações sobre AJG no PJSC",
+        url: "https://www.tjsc.jus.br/web/orcamento-e-financas/assistencia-judiciaria-gratuita",
+        category: "TJSC",
+        id: "1765616126105"
+    },
+    {
+        title: "ERP",
+        description: "Sistema de gestão de pessoas",
+        url: "https://www.tjsc.jus.br/erp",
+        category: "TJSC",
+        id: "1765616164454"
+    },
+    {
+        title: "Regimento Interno",
+        description: "Regimento Interno do Tribunal de Justiça de Santa Catarina",
+        url: "https://www.tjsc.jus.br/documents/10181/1068287/NOVO+Regimento+Interno+do+TJSC/6eca2286-50ff-427e-993f-0eadb7656f99",
+        category: "TJSC",
+        id: "1765616264519"
+    },
+    {
+        title: "Ordem Cronológica de Julgamento",
+        description: "Lista de Processos por Ordem Cronológica de Julgamento",
+        url: "https://eprocwebcon.tjsc.jus.br/consulta2g/externo_controlador.php?acao=relatorios/processosOrdemCronologicaJulgamento",
+        category: "TJSC",
+        id: "1765616304380"
+    },
+    {
+        title: "Eproc Conhecimento",
+        description: "Portal do Conhecimento do sistema eproc",
+        url: "https://tjscjusbr0.sharepoint.com/sites/EprocConhecimento",
+        category: "TJSC",
+        id: "1765616330353"
+    },
+    {
+        title: "Servidor de Relatórios",
+        description: "Geração de relatórios processuais (acesso restrito)",
+        url: "https://app.tjsc.jus.br/servidorrelatorios/#/listar",
+        category: "TJSC",
+        id: "1765616385104"
+    },
+    {
+        title: "Código de Divisão e Organização Judiciárias",
+        description: "Código de Divisão e Organização Judiciárias do Estado de Santa Catarina",
+        url: "https://www.tjsc.jus.br/documents/10181/16140/C%C3%B3digo+de+Divis%C3%A3o+e+Organiza%C3%A7%C3%A3o+Judici%C3%A1rias+do+Estado+de+SC/0ccbb8eb-fb2d-402a-b7ed-e1bf3d4e1857",
+        category: "TJSC",
+        id: "1765616564845"
+    },
+    {
+        title: "Código de Normas da CGJ",
+        description: "Código de Normas da Corregedoria-Geral da Justiça",
+        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/codigo-de-normas-da-cgj",
+        category: "TJSC",
+        id: "1765616617706"
+    },
+    {
+        title: "Regimento de Custas",
+        description: "Regras sobre custas no PJSC",
+        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/regimento-de-custas",
+        category: "TJSC",
+        id: "1765616757718"
+    },
+    {
+        title: "Regimento de Emolumentos",
+        description: "",
+        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/emolumentos",
+        category: "TJSC",
+        id: "1765616811434"
     }
 ];
 

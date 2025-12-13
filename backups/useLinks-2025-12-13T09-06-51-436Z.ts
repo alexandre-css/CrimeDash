@@ -596,13 +596,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/regimento-de-custas",
         category: "TJSC",
         id: "1765616757718"
-    },
-    {
-        title: "Regimento de Emolumentos",
-        description: "Regras sobre emolumentos no PJSC",
-        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/emolumentos",
-        category: "TJSC",
-        id: "1765616811434"
     }
 ];
 
