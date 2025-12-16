@@ -389,10 +389,17 @@ const DEFAULT_LINKS: LinkCard[] = [
     },
     {
         title: "Biblioteca RT",
-        description: "Biblioteca Digital da editora Revista dos Tribunais",
-        url: "https://signon.thomsonreuters.com/?productid=EREAD&viewproductid=EREAD&returnto=https%3A%2F%2Fproview.thomsonreuters.com%2Flogin&lr=0&bhcp=1",
+        description: "Biblioteca digital da editora Revista dos Tribunais",
+        url: "https://www.tjsc.jus.br/web/biblioteca/revista-dos-tribunais-acesso",
         category: "TJSC",
         id: "1765530754574"
+    },
+    {
+        title: "Minha Biblioteca",
+        description: "Biblioteca digital ",
+        url: "https://www.tjsc.jus.br/web/biblioteca/minha-biblioteca-acesso",
+        category: "TJSC",
+        id: "1765876085214"
     },
     {
         title: "Central de Atendimento Eletrônico do Segundo Grau",
@@ -407,13 +414,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://portaltjsc.certsys.com.br/portal/default/self-service/#/home",
         category: "TJSC",
         id: "1765530898756"
-    },
-    {
-        title: "Telefones dos Gabinetes",
-        description: "Contatos dos gabinetes de segundo grau",
-        url: "https://www.tjsc.jus.br/web/judicial/secretarios-juridicos-e-oficiais-de-gabinete",
-        category: "TJSC",
-        id: "1765530973006"
     },
     {
         title: "Corretor de Texto",
@@ -521,6 +521,20 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765615840097"
     },
     {
+        title: "Biblioteca RT - Livros",
+        description: "Links para os principais livros da biblioteca RT",
+        url: "https://docs.google.com/spreadsheets/d/15DLpBQ9L7lIg3SQM_E4z8PNLy3zQPgEWKMmQrxMfz70/edit?gid=0#gid=0",
+        category: "TJSC",
+        id: "1765876203435"
+    },
+    {
+        title: "Telefones dos Gabinetes",
+        description: "Contatos dos gabinetes de segundo grau",
+        url: "https://www.tjsc.jus.br/web/judicial/secretarios-juridicos-e-oficiais-de-gabinete",
+        category: "TJSC",
+        id: "1765530973006"
+    },
+    {
         title: "NUGPNAC",
         description: "Núcleo de Gerenciamento de Precedentes e Ações Coletivas",
         url: "https://www.tjsc.jus.br/web/nucleo-de-gerenciamento-de-precedentes-e-acoes-coletivas",
@@ -582,6 +596,27 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://www.tjsc.jus.br/documents/10181/16140/C%C3%B3digo+de+Divis%C3%A3o+e+Organiza%C3%A7%C3%A3o+Judici%C3%A1rias+do+Estado+de+SC/0ccbb8eb-fb2d-402a-b7ed-e1bf3d4e1857",
         category: "TJSC",
         id: "1765616564845"
+    },
+    {
+        title: "Código de Normas da CGJ",
+        description: "Código de Normas da Corregedoria-Geral da Justiça",
+        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/codigo-de-normas-da-cgj",
+        category: "TJSC",
+        id: "1765616617706"
+    },
+    {
+        title: "Regimento de Custas",
+        description: "Regras sobre custas no PJSC",
+        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/regimento-de-custas",
+        category: "TJSC",
+        id: "1765616757718"
+    },
+    {
+        title: "Regimento de Emolumentos",
+        description: "Regras sobre emolumentos no PJSC",
+        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/emolumentos",
+        category: "TJSC",
+        id: "1765616811434"
     }
 ];
 

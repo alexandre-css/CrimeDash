@@ -389,10 +389,24 @@ const DEFAULT_LINKS: LinkCard[] = [
     },
     {
         title: "Biblioteca RT",
-        description: "Biblioteca Digital da editora Revista dos Tribunais",
-        url: "https://signon.thomsonreuters.com/?productid=EREAD&viewproductid=EREAD&returnto=https%3A%2F%2Fproview.thomsonreuters.com%2Flogin&lr=0&bhcp=1",
+        description: "Biblioteca digital da editora Revista dos Tribunais",
+        url: "https://www.tjsc.jus.br/web/biblioteca/revista-dos-tribunais-acesso",
         category: "TJSC",
         id: "1765530754574"
+    },
+    {
+        title: "Biblioteca RT - Livros",
+        description: "Links para os principais livros da biblioteca RT",
+        url: "https://docs.google.com/spreadsheets/d/15DLpBQ9L7lIg3SQM_E4z8PNLy3zQPgEWKMmQrxMfz70/edit?gid=0#gid=0",
+        category: "TJSC",
+        id: "1765876203435"
+    },
+    {
+        title: "Minha Biblioteca",
+        description: "Biblioteca digital ",
+        url: "https://www.tjsc.jus.br/web/biblioteca/minha-biblioteca-acesso",
+        category: "TJSC",
+        id: "1765876085214"
     },
     {
         title: "Central de Atendimento Eletrônico do Segundo Grau",
@@ -400,20 +414,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://cgjweb.tjsc.jus.br/painelatendimentosg/login.action",
         category: "TJSC",
         id: "1765530804359"
-    },
-    {
-        title: "Abertura de Chamados",
-        description: "Abrir chamados diversos para serviços internos",
-        url: "https://portaltjsc.certsys.com.br/portal/default/self-service/#/home",
-        category: "TJSC",
-        id: "1765530898756"
-    },
-    {
-        title: "Telefones dos Gabinetes",
-        description: "Contatos dos gabinetes de segundo grau",
-        url: "https://www.tjsc.jus.br/web/judicial/secretarios-juridicos-e-oficiais-de-gabinete",
-        category: "TJSC",
-        id: "1765530973006"
     },
     {
         title: "Corretor de Texto",
@@ -519,6 +519,20 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://tjscjusbr0-my.sharepoint.com/:x:/g/personal/alexandress_tjsc_jus_br/IQCMbx03FxTWQJWd4yg6fukTATAFCQGEPqhsAN6eJQ5ZtHs?e=SHCMSi&nav=MTVfezAwMDAwMDAwLTAwMDEtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMH0",
         category: "Ferramentas",
         id: "1765615840097"
+    },
+    {
+        title: "Abertura de Chamados",
+        description: "Abrir chamados diversos para serviços internos",
+        url: "https://portaltjsc.certsys.com.br/portal/default/self-service/#/home",
+        category: "TJSC",
+        id: "1765530898756"
+    },
+    {
+        title: "Telefones dos Gabinetes",
+        description: "Contatos dos gabinetes de segundo grau",
+        url: "https://www.tjsc.jus.br/web/judicial/secretarios-juridicos-e-oficiais-de-gabinete",
+        category: "TJSC",
+        id: "1765530973006"
     },
     {
         title: "NUGPNAC",
