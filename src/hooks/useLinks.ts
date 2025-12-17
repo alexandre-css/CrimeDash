@@ -624,6 +624,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://www.planalto.gov.br/ccivil_03/leis/l8038.htm",
         category: "Legislação Penal",
         id: "1765975800676"
+    },
+    {
+        title: "Emenda Regimental - Criação 6ª Câmara Criminal",
+        description: "Emenda Regimental TJ n. 52, de 5 de novembro de 2025",
+        url: "https://busca.tjsc.jus.br/buscatextual/integra.do?cdSistema=1&cdDocumento=188070&cdCategoria=141&q=&frase=&excluir=&qualquer=&prox1=&prox2=&proxc=",
+        category: "Legislação Penal",
+        id: "1765976522767"
     }
 ];
 

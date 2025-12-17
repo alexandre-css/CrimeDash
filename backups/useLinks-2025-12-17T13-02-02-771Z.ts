@@ -395,6 +395,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765530754574"
     },
     {
+        title: "Biblioteca RT - Livros",
+        description: "Links para os principais livros da biblioteca RT",
+        url: "https://docs.google.com/spreadsheets/d/15DLpBQ9L7lIg3SQM_E4z8PNLy3zQPgEWKMmQrxMfz70/edit?gid=0#gid=0",
+        category: "TJSC",
+        id: "1765876203435"
+    },
+    {
         title: "Minha Biblioteca",
         description: "Biblioteca digital ",
         url: "https://www.tjsc.jus.br/web/biblioteca/minha-biblioteca-acesso",
@@ -407,13 +414,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://cgjweb.tjsc.jus.br/painelatendimentosg/login.action",
         category: "TJSC",
         id: "1765530804359"
-    },
-    {
-        title: "Biblioteca RT - Livros",
-        description: "Links para os principais livros da biblioteca RT",
-        url: "https://docs.google.com/spreadsheets/d/15DLpBQ9L7lIg3SQM_E4z8PNLy3zQPgEWKMmQrxMfz70/edit?gid=0#gid=0",
-        category: "TJSC",
-        id: "1765876203435"
     },
     {
         title: "Corretor de Texto",
@@ -617,6 +617,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/emolumentos",
         category: "TJSC",
         id: "1765616811434"
+    },
+    {
+        title: "Procedimento Competência Originária",
+        description: "Lei nª. 8.038/1990",
+        url: "https://www.planalto.gov.br/ccivil_03/leis/l8038.htm",
+        category: "Legislação Penal",
+        id: "1765975800676"
     }
 ];
 
