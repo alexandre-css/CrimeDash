@@ -617,13 +617,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/emolumentos",
         category: "TJSC",
         id: "1765616811434"
-    },
-    {
-        title: "Procedimento Competência Originária",
-        description: "Lei nª. 8.038/1990",
-        url: "https://www.planalto.gov.br/ccivil_03/leis/l8038.htm",
-        category: "Legislação Penal",
-        id: "1765975800676"
     }
 ];
 
