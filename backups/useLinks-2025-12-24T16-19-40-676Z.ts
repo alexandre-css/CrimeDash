@@ -631,13 +631,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://busca.tjsc.jus.br/buscatextual/integra.do?cdSistema=1&cdDocumento=188070&cdCategoria=141&q=&frase=&excluir=&qualquer=&prox1=&prox2=&proxc=",
         category: "Legislação Penal",
         id: "1765976522767"
-    },
-    {
-        title: "Criador de Lembrete",
-        description: "Cria lembrete com resumo do recurso",
-        url: "https://m365.cloud.microsoft:443/chat/?titleId=T_50822cb2-8ddd-66dc-84be-5744cace238a&source=embedded-builder",
-        category: "Copilot",
-        id: "1766593180672"
     }
 ];
 
