@@ -40,7 +40,10 @@ const PowerBIDashboard = () => {
             const timeout = setTimeout(() => {
                 fetchLatestImage();
                 // Depois agenda para se repetir a cada 24h
-                const dailyInterval = setInterval(fetchLatestImage, 24 * 60 * 60 * 1000);
+                const dailyInterval = setInterval(
+                    fetchLatestImage,
+                    24 * 60 * 60 * 1000,
+                );
                 return () => clearInterval(dailyInterval);
             }, timeUntil8am);
 
