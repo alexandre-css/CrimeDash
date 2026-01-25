@@ -112,7 +112,7 @@ const PowerBIDashboard = () => {
     }
 
     return (
-        <div className="fixed inset-0 top-16 left-0 right-0 bottom-0 bg-gray-100 dark:bg-gray-900">
+        <div className="fixed inset-0 top-16 left-0 right-0 bottom-0 bg-white dark:bg-gray-900">
             {/* Header Flutuante Minimalista */}
             <div className="absolute top-4 right-4 z-10 flex items-center gap-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
                 {metadata && (
