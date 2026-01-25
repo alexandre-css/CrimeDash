@@ -6,6 +6,7 @@ import {
     ChevronDownIcon,
     GridIcon,
     HorizontaLDots,
+    PieChartIcon,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
 
@@ -22,6 +23,11 @@ const navItems: NavItem[] = [
         name: "Dashboard",
         path: "/",
     },
+    {
+        icon: <PieChartIcon />,
+        name: "Power BI",
+        path: "/powerbi",
+    },
 ];
 
 const othersItems: NavItem[] = [];
@@ -35,14 +41,14 @@ const AppSidebar: React.FC = () => {
         index: number;
     } | null>(null);
     const [subMenuHeight, setSubMenuHeight] = useState<Record<string, number>>(
-        {}
+        {},
     );
     const subMenuRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
     // const isActive = (path: string) => location.pathname === path;
     const isActive = useCallback(
         (path: string) => location.pathname === path,
-        [location.pathname]
+        [location.pathname],
     );
 
     useEffect(() => {
@@ -83,7 +89,7 @@ const AppSidebar: React.FC = () => {
 
     const handleSubmenuToggle = (
         index: number,
-        menuType: "main" | "others"
+        menuType: "main" | "others",
     ) => {
         setOpenSubmenu((prevOpenSubmenu) => {
             if (
@@ -206,7 +212,7 @@ const AppSidebar: React.FC = () => {
                                                         <span
                                                             className={`ml-auto ${
                                                                 isActive(
-                                                                    subItem.path
+                                                                    subItem.path,
                                                                 )
                                                                     ? "menu-dropdown-badge-active"
                                                                     : "menu-dropdown-badge-inactive"
@@ -219,7 +225,7 @@ const AppSidebar: React.FC = () => {
                                                         <span
                                                             className={`ml-auto ${
                                                                 isActive(
-                                                                    subItem.path
+                                                                    subItem.path,
                                                                 )
                                                                     ? "menu-dropdown-badge-active"
                                                                     : "menu-dropdown-badge-inactive"
@@ -247,8 +253,8 @@ const AppSidebar: React.FC = () => {
             isExpanded || isMobileOpen
                 ? "w-[290px]"
                 : isHovered
-                ? "w-[290px]"
-                : "w-[90px]"
+                  ? "w-[290px]"
+                  : "w-[90px]"
         }
         ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}
         lg:translate-x-0`}

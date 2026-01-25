@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Gmail API credentials (sensitive data)
+server/credentials.json
+server/token.json
+
+# Generated Power BI images
+public/images/powerbi/*.png
+public/images/powerbi/metadata.json

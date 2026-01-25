@@ -1,7 +1,9 @@
 const express = require("express");
 const fs = require("fs").promises;
+const fsSync = require("fs");
 const path = require("path");
 const cors = require("cors");
+const EmailMonitor = require("./email-monitor.cjs");
 
 const app = express();
 const PORT = 3001;
@@ -27,7 +29,7 @@ async function readLinks() {
 
     // Extrair o array DEFAULT_LINKS (mais flexível)
     const match = content.match(
-        /const DEFAULT_LINKS:\s*LinkCard\[\]\s*=\s*(\[[\s\S]*?\n\];)/
+        /const DEFAULT_LINKS:\s*LinkCard\[\]\s*=\s*(\[[\s\S]*?\n\];)/,
     );
     if (!match) {
         throw new Error("Não foi possível encontrar DEFAULT_LINKS no arquivo");
@@ -60,7 +62,7 @@ async function readLinks() {
         console.error("Erro ao fazer parse dos links:", error.message);
         console.error(
             "String problemática (primeiros 500 chars):",
-            linksStr.substring(0, 500)
+            linksStr.substring(0, 500),
         );
         throw new Error("Erro ao fazer parse dos links: " + error.message);
     }
@@ -86,7 +88,7 @@ async function saveLinks(links) {
     // Substituir apenas o array DEFAULT_LINKS
     const newContent = content.replace(
         /const DEFAULT_LINKS:\s*LinkCard\[\]\s*=\s*\[[\s\S]*?\n\];/,
-        `const DEFAULT_LINKS: LinkCard[] = ${linksCode};`
+        `const DEFAULT_LINKS: LinkCard[] = ${linksCode};`,
     );
 
     await fs.writeFile(LINKS_FILE, newContent, "utf-8");
@@ -109,13 +111,13 @@ async function saveCategoryOrder(categoryOrder) {
     // Substituir CATEGORY_ORDER no arquivo
     const newContent = currentContent.replace(
         /export const CATEGORY_ORDER = \[[\s\S]*?\];/,
-        `export const CATEGORY_ORDER = ${orderCode};`
+        `export const CATEGORY_ORDER = ${orderCode};`,
     );
 
     await fs.writeFile(LINKS_FILE, newContent, "utf-8");
 
     console.log(
-        `✓ Ordem de categorias salva! Backup: ${path.basename(backupFile)}`
+        `✓ Ordem de categorias salva! Backup: ${path.basename(backupFile)}`,
     );
     return { success: true, backup: path.basename(backupFile) };
 }
@@ -124,7 +126,7 @@ async function saveCategoryOrder(categoryOrder) {
 async function readCategoryOrder() {
     const content = await fs.readFile(LINKS_FILE, "utf-8");
     const match = content.match(
-        /export const CATEGORY_ORDER = \[([\s\S]*?)\];/
+        /export const CATEGORY_ORDER = \[([\s\S]*?)\];/,
     );
 
     if (!match) {
@@ -216,6 +218,48 @@ app.get("/api/backups", async (req, res) => {
     }
 });
 
+// ===== ROTAS POWER BI =====
+
+// Obter última imagem do Power BI
+app.get("/api/powerbi/latest", async (req, res) => {
+    try {
+        const metadataPath = path.join(
+            __dirname,
+            "../public/images/powerbi/metadata.json",
+        );
+
+        if (!fsSync.existsSync(metadataPath)) {
+            return res.status(404).json({
+                success: false,
+                error: "Nenhuma imagem disponível ainda",
+            });
+        }
+
+        const metadata = JSON.parse(await fs.readFile(metadataPath, "utf-8"));
+        res.json({ success: true, ...metadata });
+    } catch (error) {
+        console.error("Erro ao obter metadata Power BI:", error);
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// Status do monitoramento de emails
+app.get("/api/powerbi/status", (req, res) => {
+    if (!global.emailMonitor) {
+        return res.json({
+            success: true,
+            monitoring: false,
+            message: "Monitoramento não configurado",
+        });
+    }
+
+    res.json({
+        success: true,
+        monitoring: global.emailMonitor.isRunning,
+        lastChecked: global.emailMonitor.lastCheckedMessageId ? "Sim" : "Não",
+    });
+});
+
 // Iniciar servidor
 async function start() {
     await ensureBackupDir();
@@ -231,14 +275,40 @@ async function start() {
         console.log(`  Backups: ${path.relative(process.cwd(), BACKUP_DIR)}`);
         console.log("");
         console.log("  Rotas disponíveis:");
-        console.log("    GET  /api/links     - Listar links");
-        console.log("    POST /api/links     - Salvar links");
-        console.log("    GET  /api/backups   - Listar backups");
+        console.log("    GET  /api/links              - Listar links");
+        console.log("    POST /api/links              - Salvar links");
+        console.log("    GET  /api/backups            - Listar backups");
+        console.log(
+            "    GET  /api/powerbi/latest     - Última imagem Power BI",
+        );
+        console.log("    GET  /api/powerbi/status     - Status monitoramento");
         console.log("");
         console.log("  Pressione Ctrl+C para parar");
         console.log("========================================");
         console.log("");
+
+        // Inicializar monitoramento de emails
+        initializeEmailMonitoring();
     });
+}
+
+async function initializeEmailMonitoring() {
+    try {
+        const monitor = new EmailMonitor();
+        const initialized = await monitor.initialize();
+
+        if (initialized) {
+            // Monitora a cada 5 minutos
+            monitor.startMonitoring(5);
+            global.emailMonitor = monitor;
+            console.log("📧 Monitoramento de emails ativo!");
+        } else {
+            console.log("⚠️  Monitoramento de emails não configurado");
+            console.log("    Execute: node server/gmail-setup.cjs");
+        }
+    } catch (error) {
+        console.log("⚠️  Erro ao inicializar monitoramento:", error.message);
+    }
 }
 
 start().catch(console.error);
