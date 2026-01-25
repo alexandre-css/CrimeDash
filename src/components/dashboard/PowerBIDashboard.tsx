@@ -115,12 +115,11 @@ const PowerBIDashboard = () => {
     }
 
     return (
-        <div className="fixed inset-0 top-16 left-0 right-0 bottom-0 bg-white dark:bg-gray-900">
-            {/* Header Flutuante Minimalista */}
-            <div className="absolute top-4 right-4 z-10 flex items-center gap-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
+        <div className="fixed inset-0 bg-white dark:bg-gray-900">
+            {/* Header Flutuante Minimalista - Posicionamento absoluto */}
+            <div className="absolute top-2 right-2 z-50 flex items-center gap-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm px-3 py-1.5 rounded-md shadow-lg border border-gray-200 dark:border-gray-700">
                 {metadata && (
                     <span className="text-xs text-gray-600 dark:text-gray-400">
-                        Atualizado:{" "}
                         {new Date(metadata.lastUpdate).toLocaleTimeString(
                             "pt-BR",
                             { hour: "2-digit", minute: "2-digit" },
@@ -129,12 +128,12 @@ const PowerBIDashboard = () => {
                 )}
                 <button
                     onClick={handleRefresh}
-                    className="flex items-center gap-1 px-3 py-1.5 text-white rounded-md hover:opacity-90 transition text-xs font-medium"
+                    className="flex items-center gap-1 px-2 py-1 text-white rounded hover:opacity-90 transition text-xs font-medium"
                     style={{ backgroundColor: "#660005" }}
                     title="Atualizar dashboard"
                 >
                     <svg
-                        className="w-3.5 h-3.5"
+                        className="w-3 h-3"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -150,15 +149,22 @@ const PowerBIDashboard = () => {
                 </button>
             </div>
 
-            {/* Dashboard PDF Viewer - Tela Completa */}
-            <div className="w-full h-full">
+            {/* Dashboard PDF Viewer - Tela Completa sem margens */}
+            <div className="w-full h-full overflow-hidden">
                 {metadata && metadata.downloadUrl && (
                     <iframe
                         key={imageKey}
-                        src={`https://drive.google.com/file/d/${extractDriveId(metadata.downloadUrl)}/preview`}
+                        src={`https://drive.google.com/file/d/${extractDriveId(metadata.downloadUrl)}/preview?rm=minimal`}
                         className="w-full h-full border-0"
                         allow="autoplay"
                         title="Dashboard Power BI - Criminais"
+                        style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "100%",
+                        }}
                     />
                 )}
             </div>
