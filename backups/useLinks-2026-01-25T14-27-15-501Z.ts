@@ -655,8 +655,8 @@ export const CATEGORY_ORDER = [
     "Google Drive",
     "Sistemas",
     "Jurisprudência",
-    "NotebookLM",
     "Gemini",
+    "NotebookLM",
     "Copilot",
     "Criminal Player",
     "Ferramentas"

@@ -656,10 +656,8 @@ export const CATEGORY_ORDER = [
     "Sistemas",
     "Jurisprudência",
     "NotebookLM",
-    "Gemini",
     "Copilot",
-    "Criminal Player",
-    "Ferramentas"
+    "Criminal Player"
 ];
 
 export function useLinks() {

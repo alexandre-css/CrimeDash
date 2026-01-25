@@ -638,13 +638,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://m365.cloud.microsoft:443/chat/?titleId=T_50822cb2-8ddd-66dc-84be-5744cace238a&source=embedded-builder",
         category: "Copilot",
         id: "1766593180672"
-    },
-    {
-        title: "Analisador de Aplicação da Pena",
-        description: "Gem do Gemini para análise de dosimetria",
-        url: "https://gemini.google.com/gem/1m140aqbYipfkXRxqYUeLJxcGNZUTq-GR?usp=sharing",
-        category: "Gemini",
-        id: "1769351223177"
     }
 ];
 
@@ -656,10 +649,8 @@ export const CATEGORY_ORDER = [
     "Sistemas",
     "Jurisprudência",
     "NotebookLM",
-    "Gemini",
     "Copilot",
-    "Criminal Player",
-    "Ferramentas"
+    "Criminal Player"
 ];
 
 export function useLinks() {

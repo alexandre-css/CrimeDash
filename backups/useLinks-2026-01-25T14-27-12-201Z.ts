@@ -656,8 +656,8 @@ export const CATEGORY_ORDER = [
     "Sistemas",
     "Jurisprudência",
     "NotebookLM",
-    "Gemini",
     "Copilot",
+    "Gemini",
     "Criminal Player",
     "Ferramentas"
 ];
