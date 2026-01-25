@@ -20,14 +20,35 @@ const PowerBIDashboard = () => {
     const [imageKey, setImageKey] = useState(Date.now());
 
     useEffect(() => {
+        // Busca ao carregar a página
         fetchLatestImage();
 
-        // Verifica por atualizações a cada 2 minutos
-        const interval = setInterval(() => {
-            fetchLatestImage();
-        }, 120000);
+        // Agenda busca automática para às 8h todos os dias
+        const scheduleDaily8amUpdate = () => {
+            const now = new Date();
+            const next8am = new Date();
+            next8am.setHours(8, 0, 0, 0);
 
-        return () => clearInterval(interval);
+            // Se já passou das 8h hoje, agenda para amanhã
+            if (now.getTime() > next8am.getTime()) {
+                next8am.setDate(next8am.getDate() + 1);
+            }
+
+            const timeUntil8am = next8am.getTime() - now.getTime();
+
+            // Agenda primeira execução às 8h
+            const timeout = setTimeout(() => {
+                fetchLatestImage();
+                // Depois agenda para se repetir a cada 24h
+                const dailyInterval = setInterval(fetchLatestImage, 24 * 60 * 60 * 1000);
+                return () => clearInterval(dailyInterval);
+            }, timeUntil8am);
+
+            return () => clearTimeout(timeout);
+        };
+
+        const cleanup = scheduleDaily8amUpdate();
+        return cleanup;
     }, []);
 
     const fetchLatestImage = async () => {
