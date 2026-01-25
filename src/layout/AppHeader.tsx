@@ -2,11 +2,16 @@ import { useEffect, useRef, useState } from "react";
 
 import { Link } from "react-router";
 import { useSidebar } from "../context/SidebarContext";
+import { useLinks, LinkCard } from "../hooks/useLinks";
 
 const AppHeader: React.FC = () => {
     const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [showResults, setShowResults] = useState(false);
+    const [filteredLinks, setFilteredLinks] = useState<LinkCard[]>([]);
 
-    const { isMobileOpen, toggleSidebar, toggleMobileSidebar } = useSidebar();
+    const { isMobileOpen, toggleSidebar, toggleMobileSidebar} = useSidebar();
+    const { links } = useLinks();
 
     const handleToggle = () => {
         if (window.innerWidth >= 1024) {
@@ -21,12 +26,51 @@ const AppHeader: React.FC = () => {
     };
 
     const inputRef = useRef<HTMLInputElement>(null);
+    const searchContainerRef = useRef<HTMLDivElement>(null);
+
+    // Filtrar links baseado no termo de busca
+    useEffect(() => {
+        if (searchTerm.length > 0) {
+            const filtered = links.filter(
+                (link) =>
+                    link.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    link.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    link.category.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            setFilteredLinks(filtered);
+            setShowResults(true);
+        } else {
+            setShowResults(false);
+            setFilteredLinks([]);
+        }
+    }, [searchTerm, links]);
+
+    // Fechar resultados ao clicar fora
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                searchContainerRef.current &&
+                !searchContainerRef.current.contains(event.target as Node)
+            ) {
+                setShowResults(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if ((event.metaKey || event.ctrlKey) && event.key === "k") {
                 event.preventDefault();
                 inputRef.current?.focus();
+            }
+            // Fechar com ESC
+            if (event.key === "Escape") {
+                setShowResults(false);
+                setSearchTerm("");
+                inputRef.current?.blur();
             }
         };
 
@@ -36,6 +80,12 @@ const AppHeader: React.FC = () => {
             document.removeEventListener("keydown", handleKeyDown);
         };
     }, []);
+
+    const handleLinkClick = (url: string) => {
+        window.open(url, "_blank", "noopener,noreferrer");
+        setShowResults(false);
+        setSearchTerm("");
+    };
 
     return (
         <header className="sticky top-0 flex w-full bg-white border-gray-200 z-99999 dark:border-gray-800 dark:bg-gray-900 lg:border-b">
@@ -117,8 +167,8 @@ const AppHeader: React.FC = () => {
                         </svg>
                     </button>
 
-                    <div className="hidden lg:block">
-                        <form>
+                    <div className="hidden lg:block" ref={searchContainerRef}>
+                        <form onSubmit={(e) => e.preventDefault()}>
                             <div className="relative">
                                 <span className="absolute -translate-y-1/2 pointer-events-none left-4 top-1/2">
                                     <svg
@@ -140,14 +190,60 @@ const AppHeader: React.FC = () => {
                                 <input
                                     ref={inputRef}
                                     type="text"
-                                    placeholder="Buscar ou digitar comando..."
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    onFocus={() => searchTerm && setShowResults(true)}
+                                    placeholder="Buscar links úteis..."
                                     className="h-11 w-full rounded-lg border border-gray-200 bg-transparent py-2.5 pl-12 pr-14 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-800 dark:bg-white/[0.03] dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800 xl:w-[430px]"
                                 />
 
-                                <button className="absolute right-2.5 top-1/2 inline-flex -translate-y-1/2 items-center gap-0.5 rounded-lg border border-gray-200 bg-gray-50 px-[7px] py-[4.5px] text-xs -tracking-[0.2px] text-gray-500 dark:border-gray-800 dark:bg-white/[0.03] dark:text-gray-400">
+                                <button type="button" className="absolute right-2.5 top-1/2 inline-flex -translate-y-1/2 items-center gap-0.5 rounded-lg border border-gray-200 bg-gray-50 px-[7px] py-[4.5px] text-xs -tracking-[0.2px] text-gray-500 dark:border-gray-800 dark:bg-white/[0.03] dark:text-gray-400">
                                     <span> ⌘ </span>
                                     <span> K </span>
                                 </button>
+
+                                {/* Dropdown de resultados */}
+                                {showResults && filteredLinks.length > 0 && (
+                                    <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg max-h-96 overflow-y-auto z-50">
+                                        <div className="p-2">
+                                            <div className="text-xs text-gray-500 dark:text-gray-400 px-3 py-2">
+                                                {filteredLinks.length} resultado{filteredLinks.length !== 1 ? 's' : ''} encontrado{filteredLinks.length !== 1 ? 's' : ''}
+                                            </div>
+                                            {filteredLinks.map((link) => (
+                                                <button
+                                                    key={link.id}
+                                                    onClick={() => handleLinkClick(link.url)}
+                                                    className="w-full text-left px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors"
+                                                >
+                                                    <div className="flex items-start gap-3">
+                                                        <svg className="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                        </svg>
+                                                        <div className="flex-1 min-w-0">
+                                                            <div className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                                                                {link.title}
+                                                            </div>
+                                                            <div className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                                                                {link.description}
+                                                            </div>
+                                                            <div className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                                                                {link.category}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {showResults && filteredLinks.length === 0 && searchTerm && (
+                                    <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg z-50">
+                                        <div className="p-4 text-center text-sm text-gray-500 dark:text-gray-400">
+                                            Nenhum link encontrado para "{searchTerm}"
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </form>
                     </div>
