@@ -6,7 +6,7 @@ import {
     ChevronDownIcon,
     GridIcon,
     HorizontaLDots,
-    PieChartIcon,
+    ChartCombinedIcon,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
 
@@ -24,7 +24,7 @@ const navItems: NavItem[] = [
         path: "/",
     },
     {
-        icon: <PieChartIcon />,
+        icon: <ChartCombinedIcon />,
         name: "Power BI",
         path: "/powerbi",
     },
