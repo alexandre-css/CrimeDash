@@ -115,9 +115,9 @@ const PowerBIDashboard = () => {
     }
 
     return (
-        <div className="fixed inset-0 bg-white dark:bg-gray-900">
+        <div className="h-full w-full bg-white dark:bg-gray-900">
             {/* Header Flutuante Minimalista - Posicionamento absoluto */}
-            <div className="absolute top-2 right-2 z-50 flex items-center gap-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm px-3 py-1.5 rounded-md shadow-lg border border-gray-200 dark:border-gray-700">
+            <div className="absolute top-20 right-4 z-50 flex items-center gap-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm px-3 py-1.5 rounded-md shadow-lg border border-gray-200 dark:border-gray-700">
                 {metadata && (
                     <span className="text-xs text-gray-600 dark:text-gray-400">
                         {new Date(metadata.lastUpdate).toLocaleTimeString(
@@ -149,8 +149,8 @@ const PowerBIDashboard = () => {
                 </button>
             </div>
 
-            {/* Dashboard PDF Viewer - Tela Completa sem margens */}
-            <div className="w-full h-full overflow-hidden">
+            {/* Dashboard PDF Viewer - Maximizado */}
+            <div className="w-full h-full">
                 {metadata && metadata.downloadUrl && (
                     <iframe
                         key={imageKey}
@@ -158,13 +158,6 @@ const PowerBIDashboard = () => {
                         className="w-full h-full border-0"
                         allow="autoplay"
                         title="Dashboard Power BI - Criminais"
-                        style={{
-                            position: "absolute",
-                            top: 0,
-                            left: 0,
-                            width: "100%",
-                            height: "100%",
-                        }}
                     />
                 )}
             </div>
