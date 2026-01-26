@@ -395,13 +395,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765530754574"
     },
     {
-        title: "Minha Biblioteca",
-        description: "Biblioteca digital ",
-        url: "https://www.tjsc.jus.br/web/biblioteca/minha-biblioteca-acesso",
-        category: "TJSC",
-        id: "1765876085214"
-    },
-    {
         title: "Biblioteca RT - Livros",
         description: "Links para os principais livros da biblioteca RT",
         url: "https://docs.google.com/spreadsheets/d/15DLpBQ9L7lIg3SQM_E4z8PNLy3zQPgEWKMmQrxMfz70/edit?gid=0#gid=0",
@@ -409,11 +402,18 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765876203435"
     },
     {
-        title: "Central de Atendimento Eletrônico do Segundo Grau",
-        description: "Atendimento de advogados",
-        url: "https://cgjweb.tjsc.jus.br/painelatendimentosg/login.action",
+        title: "Biblioteca de Prompts",
+        description: "Acervo de prompts aplicáveis diretamente ao eproc",
+        url: "https://app.tjsc.jus.br/jud-biblioteca-prompts/",
         category: "TJSC",
-        id: "1765530804359"
+        id: "1769431692980"
+    },
+    {
+        title: "Minha Biblioteca",
+        description: "Biblioteca digital ",
+        url: "https://www.tjsc.jus.br/web/biblioteca/minha-biblioteca-acesso",
+        category: "TJSC",
+        id: "1765876085214"
     },
     {
         title: "Corretor de Texto",
@@ -521,6 +521,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765615840097"
     },
     {
+        title: "Central de Atendimento Eletrônico do Segundo Grau",
+        description: "Atendimento de advogados",
+        url: "https://cgjweb.tjsc.jus.br/painelatendimentosg/login.action",
+        category: "TJSC",
+        id: "1765530804359"
+    },
+    {
         title: "Abertura de Chamados",
         description: "Abrir chamados diversos para serviços internos",
         url: "https://portaltjsc.certsys.com.br/portal/default/self-service/#/home",
@@ -612,6 +619,34 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765616757718"
     },
     {
+        title: "Procedimento Competência Originária",
+        description: "Lei nª. 8.038/1990",
+        url: "https://www.planalto.gov.br/ccivil_03/leis/l8038.htm",
+        category: "Legislação Penal",
+        id: "1765975800676"
+    },
+    {
+        title: "Emenda Regimental - Criação 6ª Câmara Criminal",
+        description: "Emenda Regimental TJ n. 52, de 5 de novembro de 2025",
+        url: "https://busca.tjsc.jus.br/buscatextual/integra.do?cdSistema=1&cdDocumento=188070&cdCategoria=141&q=&frase=&excluir=&qualquer=&prox1=&prox2=&proxc=",
+        category: "Legislação Penal",
+        id: "1765976522767"
+    },
+    {
+        title: "Criador de Lembrete",
+        description: "Cria lembrete com resumo do recurso",
+        url: "https://m365.cloud.microsoft:443/chat/?titleId=T_50822cb2-8ddd-66dc-84be-5744cace238a&source=embedded-builder",
+        category: "Copilot",
+        id: "1766593180672"
+    },
+    {
+        title: "Analisador de Aplicação da Pena",
+        description: "Gem do Gemini para análise de dosimetria",
+        url: "https://gemini.google.com/gem/1m140aqbYipfkXRxqYUeLJxcGNZUTq-GR?usp=sharing",
+        category: "Gemini",
+        id: "1769351223177"
+    },
+    {
         title: "Regimento de Emolumentos",
         description: "Regras sobre emolumentos no PJSC",
         url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/emolumentos",
@@ -628,8 +663,10 @@ export const CATEGORY_ORDER = [
     "Sistemas",
     "Jurisprudência",
     "NotebookLM",
+    "Gemini",
     "Copilot",
-    "Criminal Player"
+    "Criminal Player",
+    "Ferramentas"
 ];
 
 export function useLinks() {

@@ -521,6 +521,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765615840097"
     },
     {
+        title: "Biblioteca de Prompts",
+        description: "Acervo de prompts aplicáveis diretamente ao eproc",
+        url: "https://app.tjsc.jus.br/jud-biblioteca-prompts/",
+        category: "TJSC",
+        id: "1769431692980"
+    },
+    {
         title: "Abertura de Chamados",
         description: "Abrir chamados diversos para serviços internos",
         url: "https://portaltjsc.certsys.com.br/portal/default/self-service/#/home",
@@ -612,13 +619,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765616757718"
     },
     {
-        title: "Regimento de Emolumentos",
-        description: "Regras sobre emolumentos no PJSC",
-        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/emolumentos",
-        category: "TJSC",
-        id: "1765616811434"
-    },
-    {
         title: "Procedimento Competência Originária",
         description: "Lei nª. 8.038/1990",
         url: "https://www.planalto.gov.br/ccivil_03/leis/l8038.htm",
@@ -645,6 +645,13 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://gemini.google.com/gem/1m140aqbYipfkXRxqYUeLJxcGNZUTq-GR?usp=sharing",
         category: "Gemini",
         id: "1769351223177"
+    },
+    {
+        title: "Regimento de Emolumentos",
+        description: "Regras sobre emolumentos no PJSC",
+        url: "https://www.tjsc.jus.br/web/corregedoria-geral-da-justica/normas-e-orientacoes/emolumentos",
+        category: "TJSC",
+        id: "1765616811434"
     }
 ];
 
@@ -656,9 +663,9 @@ export const CATEGORY_ORDER = [
     "Sistemas",
     "Jurisprudência",
     "NotebookLM",
+    "Gemini",
     "Copilot",
     "Criminal Player",
-    "Gemini",
     "Ferramentas"
 ];
 
