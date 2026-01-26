@@ -275,13 +275,15 @@ app.post("/api/git/push", async (req, res) => {
         console.log("\n🔄 Iniciando commit e push...");
 
         // 1. Verificar se há mudanças
-        const { stdout: statusOutput } = await execAsync("git status --porcelain");
-        
+        const { stdout: statusOutput } = await execAsync(
+            "git status --porcelain",
+        );
+
         if (!statusOutput.trim()) {
             return res.json({
                 success: true,
                 message: "✓ Não há mudanças para commitar",
-                hasChanges: false
+                hasChanges: false,
             });
         }
 
@@ -304,12 +306,11 @@ app.post("/api/git/push", async (req, res) => {
             success: true,
             message: "✓ Mudanças enviadas para o GitHub!",
             hasChanges: true,
-            commitMessage: finalMessage
+            commitMessage: finalMessage,
         });
-
     } catch (error) {
         console.error("❌ Erro ao fazer commit/push:", error);
-        
+
         // Mensagens de erro mais amigáveis
         let errorMessage = error.message;
         if (error.message.includes("nothing to commit")) {
@@ -317,13 +318,14 @@ app.post("/api/git/push", async (req, res) => {
         } else if (error.message.includes("not a git repository")) {
             errorMessage = "Diretório não é um repositório Git";
         } else if (error.message.includes("failed to push")) {
-            errorMessage = "Falha ao fazer push. Verifique suas credenciais Git.";
+            errorMessage =
+                "Falha ao fazer push. Verifique suas credenciais Git.";
         }
 
         res.status(500).json({
             success: false,
             error: errorMessage,
-            details: error.stderr || error.stdout
+            details: error.stderr || error.stdout,
         });
     }
 });

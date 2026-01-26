@@ -659,13 +659,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://gemini.google.com/gem/1FGUHsNGutq2PtDmD7b_-sPfQjPdxNG1u?usp=sharing",
         category: "Gemini",
         id: "1769431810912"
-    },
-    {
-        title: "Lei da Identificação Criminal",
-        description: "",
-        url: "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/lei/l12037.htm",
-        category: "Legislação Penal",
-        id: "1769432319048"
     }
 ];
 

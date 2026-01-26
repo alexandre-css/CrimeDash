@@ -14,7 +14,6 @@ import {
     Edit2,
     Check,
     Upload,
-    GitBranch,
 } from "lucide-react";
 
 const API_URL = "http://localhost:3001/api";
@@ -69,7 +68,7 @@ export default function LinksEditor() {
         } catch {
             showMessage(
                 "error",
-                "Servidor API não está rodando! Execute: npm run dev:api"
+                "Servidor API não está rodando! Execute: npm run dev:api",
             );
         } finally {
             setLoading(false);
@@ -116,13 +115,13 @@ export default function LinksEditor() {
 
     // Obter categorias reais (sem "todos")
     const realCategories = Array.from(
-        new Set(links.map((link) => link.category))
+        new Set(links.map((link) => link.category)),
     );
 
     // Combinar categoryOrder com novas categorias que não estão na ordem ainda
     const displayOrder = [
-        ...categoryOrder.filter(cat => realCategories.includes(cat)), // Manter ordem das existentes
-        ...realCategories.filter(cat => !categoryOrder.includes(cat))  // Adicionar novas no final
+        ...categoryOrder.filter((cat) => realCategories.includes(cat)), // Manter ordem das existentes
+        ...realCategories.filter((cat) => !categoryOrder.includes(cat)), // Adicionar novas no final
     ];
 
     // Categorias disponíveis para o select (inclui a categoria atual do form se for nova)
@@ -180,7 +179,7 @@ export default function LinksEditor() {
             updatedLinks = links.map((link) =>
                 link.id === selectedLink.id
                     ? { ...formData, id: selectedLink.id }
-                    : link
+                    : link,
             );
         } else {
             const newLink: LinkCard = {
@@ -198,7 +197,7 @@ export default function LinksEditor() {
     const handleDelete = () => {
         if (selectedLink && confirm("Excluir este link?")) {
             const updatedLinks = links.filter(
-                (link) => link.id !== selectedLink.id
+                (link) => link.id !== selectedLink.id,
             );
             saveAllLinks(updatedLinks);
             setIsEditing(false);
@@ -212,7 +211,11 @@ export default function LinksEditor() {
     };
 
     const handleGitPush = async () => {
-        if (!confirm("Fazer commit e push das mudanças para o GitHub?\n\nIsso irá:\n1. Adicionar todos os arquivos modificados\n2. Fazer commit com mensagem 'Atualiza links'\n3. Fazer push para o repositório\n4. Acionar deploy automático no Vercel")) {
+        if (
+            !confirm(
+                "Fazer commit e push das mudanças para o GitHub?\n\nIsso irá:\n1. Adicionar todos os arquivos modificados\n2. Fazer commit com mensagem 'Atualiza links'\n3. Fazer push para o repositório\n4. Acionar deploy automático no Vercel",
+            )
+        ) {
             return;
         }
 
@@ -228,7 +231,10 @@ export default function LinksEditor() {
 
             if (data.success) {
                 if (data.hasChanges) {
-                    showMessage("success", "✓ Mudanças enviadas para o GitHub! Deploy no Vercel iniciado (~2 min)");
+                    showMessage(
+                        "success",
+                        "✓ Mudanças enviadas para o GitHub! Deploy no Vercel iniciado (~2 min)",
+                    );
                 } else {
                     showMessage("success", "✓ Não há mudanças para commitar");
                 }
@@ -251,10 +257,10 @@ export default function LinksEditor() {
         const targetLink = filteredLinks[newIndex];
 
         const currentIndexInAll = allLinks.findIndex(
-            (l) => l.id === currentLink.id
+            (l) => l.id === currentLink.id,
         );
         const targetIndexInAll = allLinks.findIndex(
-            (l) => l.id === targetLink.id
+            (l) => l.id === targetLink.id,
         );
 
         [allLinks[currentIndexInAll], allLinks[targetIndexInAll]] = [
@@ -328,12 +334,12 @@ export default function LinksEditor() {
             const updatedLinks = links.map((link) =>
                 link.category === oldName
                     ? { ...link, category: newName.trim() }
-                    : link
+                    : link,
             );
 
             // Atualizar ordem das categorias
             const updatedOrder = displayOrder.map((cat) =>
-                cat === oldName ? newName.trim() : cat
+                cat === oldName ? newName.trim() : cat,
             );
 
             // Salvar links
@@ -344,7 +350,7 @@ export default function LinksEditor() {
 
             showMessage(
                 "success",
-                `✓ Categoria renomeada: "${oldName}" → "${newName}"`
+                `✓ Categoria renomeada: "${oldName}" → "${newName}"`,
             );
             cancelEditCategory();
         } catch {
@@ -465,7 +471,8 @@ export default function LinksEditor() {
                             </li>
                         </ol>
                         <p className="mt-2 text-xs text-blue-600 dark:text-blue-400">
-                            💡 O botão faz automaticamente: git add, commit e push!
+                            💡 O botão faz automaticamente: git add, commit e
+                            push!
                         </p>
                     </div>
                 </div>
@@ -587,14 +594,14 @@ export default function LinksEditor() {
                                                     value={newCategoryName}
                                                     onChange={(e) =>
                                                         setNewCategoryName(
-                                                            e.target.value
+                                                            e.target.value,
                                                         )
                                                     }
                                                     onKeyDown={(e) => {
                                                         if (e.key === "Enter") {
                                                             renameCategory(
                                                                 cat,
-                                                                newCategoryName
+                                                                newCategoryName,
                                                             );
                                                         } else if (
                                                             e.key === "Escape"
@@ -609,7 +616,7 @@ export default function LinksEditor() {
                                                     onClick={() =>
                                                         renameCategory(
                                                             cat,
-                                                            newCategoryName
+                                                            newCategoryName,
                                                         )
                                                     }
                                                     disabled={saving}
@@ -639,7 +646,7 @@ export default function LinksEditor() {
                                                             links.filter(
                                                                 (l) =>
                                                                     l.category ===
-                                                                    cat
+                                                                    cat,
                                                             ).length
                                                         }{" "}
                                                         links)
@@ -860,7 +867,7 @@ export default function LinksEditor() {
                                                 setNewCategory("");
                                                 showMessage(
                                                     "success",
-                                                    `Categoria "${trimmedCategory}" adicionada! Será visível após salvar o link.`
+                                                    `Categoria "${trimmedCategory}" adicionada! Será visível após salvar o link.`,
                                                 );
                                             }
                                         }}
