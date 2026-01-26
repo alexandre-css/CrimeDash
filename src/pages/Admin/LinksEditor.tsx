@@ -13,6 +13,8 @@ import {
     ArrowDown,
     Edit2,
     Check,
+    Upload,
+    GitBranch,
 } from "lucide-react";
 
 const API_URL = "http://localhost:3001/api";
@@ -22,6 +24,7 @@ export default function LinksEditor() {
     const [categoryOrder, setCategoryOrder] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
+    const [pushing, setPushing] = useState(false);
     const [selectedLink, setSelectedLink] = useState<LinkCard | null>(null);
     const [isEditing, setIsEditing] = useState(false);
     const [searchText, setSearchText] = useState("");
@@ -208,6 +211,37 @@ export default function LinksEditor() {
         setSelectedLink(null);
     };
 
+    const handleGitPush = async () => {
+        if (!confirm("Fazer commit e push das mudanças para o GitHub?\n\nIsso irá:\n1. Adicionar todos os arquivos modificados\n2. Fazer commit com mensagem 'Atualiza links'\n3. Fazer push para o repositório\n4. Acionar deploy automático no Vercel")) {
+            return;
+        }
+
+        try {
+            setPushing(true);
+            const response = await fetch(`${API_URL}/git/push`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: "Atualiza links" }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                if (data.hasChanges) {
+                    showMessage("success", "✓ Mudanças enviadas para o GitHub! Deploy no Vercel iniciado (~2 min)");
+                } else {
+                    showMessage("success", "✓ Não há mudanças para commitar");
+                }
+            } else {
+                showMessage("error", "Erro: " + data.error);
+            }
+        } catch (error) {
+            showMessage("error", "Erro ao fazer push: " + error);
+        } finally {
+            setPushing(false);
+        }
+    };
+
     const moveLink = (index: number, direction: "up" | "down") => {
         const newIndex = direction === "up" ? index - 1 : index + 1;
         if (newIndex < 0 || newIndex >= filteredLinks.length) return;
@@ -362,18 +396,37 @@ export default function LinksEditor() {
                             Edite os links que todos os usuários verão
                         </p>
                     </div>
-                    <button
-                        onClick={loadLinks}
-                        disabled={loading || saving}
-                        className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 font-semibold flex items-center gap-2"
-                    >
-                        <RefreshCw
-                            className={`h-5 w-5 ${
-                                loading ? "animate-spin" : ""
-                            }`}
-                        />
-                        Recarregar
-                    </button>
+                    <div className="flex gap-3">
+                        <button
+                            onClick={handleGitPush}
+                            disabled={loading || saving || pushing}
+                            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold flex items-center gap-2 disabled:opacity-50"
+                        >
+                            {pushing ? (
+                                <>
+                                    <RefreshCw className="h-5 w-5 animate-spin" />
+                                    Enviando...
+                                </>
+                            ) : (
+                                <>
+                                    <Upload className="h-5 w-5" />
+                                    Commit & Push
+                                </>
+                            )}
+                        </button>
+                        <button
+                            onClick={loadLinks}
+                            disabled={loading || saving || pushing}
+                            className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 font-semibold flex items-center gap-2"
+                        >
+                            <RefreshCw
+                                className={`h-5 w-5 ${
+                                    loading ? "animate-spin" : ""
+                                }`}
+                            />
+                            Recarregar
+                        </button>
+                    </div>
                 </div>
             </header>
 
@@ -397,11 +450,11 @@ export default function LinksEditor() {
                         <ol className="list-decimal ml-4 space-y-1">
                             <li>Salve os links no editor</li>
                             <li>
-                                Execute:{" "}
-                                <code className="bg-blue-100 dark:bg-blue-900/50 px-2 py-0.5 rounded">
-                                    git add . && git commit -m "Atualiza links"
-                                    && git push
-                                </code>
+                                Clique no botão{" "}
+                                <span className="bg-green-600 text-white px-2 py-0.5 rounded font-semibold">
+                                    Commit & Push
+                                </span>{" "}
+                                no canto superior direito
                             </li>
                             <li>Vercel faz deploy automático (~2 min)</li>
                             <li>
@@ -411,6 +464,9 @@ export default function LinksEditor() {
                                 </strong>
                             </li>
                         </ol>
+                        <p className="mt-2 text-xs text-blue-600 dark:text-blue-400">
+                            💡 O botão faz automaticamente: git add, commit e push!
+                        </p>
                     </div>
                 </div>
             </div>

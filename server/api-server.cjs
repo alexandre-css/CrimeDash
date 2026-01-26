@@ -260,6 +260,74 @@ app.get("/api/powerbi/status", (req, res) => {
     });
 });
 
+// ===== GIT COMMIT E PUSH =====
+
+// Fazer commit e push das mudanças
+app.post("/api/git/push", async (req, res) => {
+    try {
+        const { exec } = require("child_process");
+        const { promisify } = require("util");
+        const execAsync = promisify(exec);
+
+        const { message: commitMessage } = req.body;
+        const finalMessage = commitMessage || "Atualiza links";
+
+        console.log("\n🔄 Iniciando commit e push...");
+
+        // 1. Verificar se há mudanças
+        const { stdout: statusOutput } = await execAsync("git status --porcelain");
+        
+        if (!statusOutput.trim()) {
+            return res.json({
+                success: true,
+                message: "✓ Não há mudanças para commitar",
+                hasChanges: false
+            });
+        }
+
+        console.log("📝 Mudanças detectadas:");
+        console.log(statusOutput);
+
+        // 2. Adicionar arquivos
+        await execAsync("git add .");
+        console.log("✓ Arquivos adicionados");
+
+        // 3. Fazer commit
+        await execAsync(`git commit -m "${finalMessage}"`);
+        console.log("✓ Commit realizado");
+
+        // 4. Fazer push
+        await execAsync("git push");
+        console.log("✓ Push realizado");
+
+        res.json({
+            success: true,
+            message: "✓ Mudanças enviadas para o GitHub!",
+            hasChanges: true,
+            commitMessage: finalMessage
+        });
+
+    } catch (error) {
+        console.error("❌ Erro ao fazer commit/push:", error);
+        
+        // Mensagens de erro mais amigáveis
+        let errorMessage = error.message;
+        if (error.message.includes("nothing to commit")) {
+            errorMessage = "Não há mudanças para commitar";
+        } else if (error.message.includes("not a git repository")) {
+            errorMessage = "Diretório não é um repositório Git";
+        } else if (error.message.includes("failed to push")) {
+            errorMessage = "Falha ao fazer push. Verifique suas credenciais Git.";
+        }
+
+        res.status(500).json({
+            success: false,
+            error: errorMessage,
+            details: error.stderr || error.stdout
+        });
+    }
+});
+
 // Iniciar servidor
 async function start() {
     await ensureBackupDir();
@@ -278,6 +346,7 @@ async function start() {
         console.log("    GET  /api/links              - Listar links");
         console.log("    POST /api/links              - Salvar links");
         console.log("    GET  /api/backups            - Listar backups");
+        console.log("    POST /api/git/push           - Commit e push Git");
         console.log(
             "    GET  /api/powerbi/latest     - Última imagem Power BI",
         );
