@@ -673,13 +673,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://docs.google.com/spreadsheets/d/1U5l_2u_HMdvf4uSh076j8-fHeZ6tndc_mWu5pyNBmjc/edit?usp=sharing",
         category: "Google Drive",
         id: "1770209730255"
-    },
-    {
-        title: "Tabela - Decisões Reformadas do TJSC",
-        description: "Lista de decisões criminais do TJSC reformadas pelos tribunais superiores, catalogadas por IA",
-        url: "https://tjscjusbr0-my.sharepoint.com/:x:/r/personal/alexandress_tjsc_jus_br/Documents/%C3%81rea%20de%20Trabalho/TJSC/6%C2%AA%20C%C3%A2mara%20de%20Direito%20Criminal/Reformadas%20TJSC%20-%20Resultado%20Agrupado.xlsx?d=wf1ade2dd44fe4b6ba9a385b11fbe51ff&csf=1&web=1&e=0Bfifs",
-        category: "Ferramentas",
-        id: "1770209971314"
     }
 ];
 
