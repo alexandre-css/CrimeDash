@@ -666,13 +666,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/lei/l12037.htm",
         category: "Legislação Penal",
         id: "1769432319048"
-    },
-    {
-        title: "Composições dos Julgamentos - 6ª Câmara Criminal",
-        description: "Tabela com as composições dos julgamentos da 6ª Câmara Criminal do TJSC",
-        url: "https://docs.google.com/spreadsheets/d/1U5l_2u_HMdvf4uSh076j8-fHeZ6tndc_mWu5pyNBmjc/edit?usp=sharing",
-        category: "Google Drive",
-        id: "1770209730255"
     }
 ];
 
