@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap');
+
+.revista-container {
+    --primary-color: #6a0006;
+    --accent-color: #c5a059;
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --white: #ffffff;
+    --light-gray: #f0f0f0;
+    --section-divider: #e0e0e0;
+
+    font-family: 'Lato', sans-serif;
+    background-color: #dcdcdc;
+    color: var(--text-color);
+    margin: 0;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    scroll-behavior: smooth;
+}
+
+/* Container for each Infographic "Page" */
+.revista-container .infographic-page {
+    background-color: var(--white);
+    width: 1000px;
+    max-width: 100%;
+    min-height: 1200px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    padding: 70px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- CAPA STYLES --- */
+.revista-container .cover-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 20px solid var(--primary-color);
+}
+
+.revista-container .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.revista-container .cover-subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
+}
+
+.revista-container .cover-edition {
+    font-size: 1rem;
+    color: #666;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.revista-container .cover-image-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+    color: #999;
+    font-style: italic;
+    border: 1px dashed #ccc;
+}
+
+.revista-container .cover-highlight {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin: 15px 0;
+    border-bottom: 1px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* --- INDEX (TOC) STYLES --- */
+.revista-container .toc-list {
+    list-style: none;
+    padding: 0;
+    width: 80%;
+    margin: 40px auto;
+}
+
+.revista-container .toc-item {
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    transition: background-color 0.3s;
+}
+
+.revista-container .toc-item:hover {
+    background-color: #fafafa;
+    padding-left: 10px;
+}
+
+.revista-container .toc-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    flex-grow: 1;
+}
+
+.revista-container .toc-desc {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.revista-container .toc-page-num {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+
+/* Typography General */
+.revista-container h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 3.2rem;
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.revista-container h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.revista-container h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.revista-container p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.revista-container .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 20px;
+}
+
+/* Header Design */
+.revista-container .header-bar {
+    border-top: 5px solid var(--primary-color);
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.revista-container .issue-date {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #666;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* Layout Grids */
+.revista-container .grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.revista-container .grid-3-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+/* Concept Boxes */
+.revista-container .concept-box {
+    background-color: var(--light-gray);
+    padding: 30px;
+    border-top: 4px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.revista-container .concept-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Case Law Cards */
+.revista-container .case-law {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 35px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.revista-container .case-law::before {
+    content: "Precedente STJ";
+    position: absolute;
+    top: -12px;
+    left: 30px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* Labels for specific sections */
+.revista-container .case-law.competence::before { content: "Competência Constitucional"; }
+.revista-container .case-law.doctrine::before { content: "Doutrina Essencial"; }
+
+.revista-container .case-law h4 {
+    color: var(--accent-color);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.revista-container .case-law p {
+    font-size: 0.95rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.revista-container .case-law cite {
+    display: block;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+    font-style: normal;
+    text-align: right;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 10px;
+}
+
+/* Diagrams */
+.revista-container .flow-diagram {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+    background: #fff;
+    padding: 20px;
+    border: 1px dashed #ccc;
+}
+
+.revista-container .step {
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+}
+
+.revista-container .step-circle {
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0 auto 15px auto;
+}
+
+.revista-container .arrow {
+    font-size: 2rem;
+    color: #ccc;
+}
+
+/* Footer */
+.revista-container .footer {
+    margin-top: auto;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Theoretical Density Box */
+.revista-container .theory-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 5px 5px 0px var(--light-gray);
+}
+
+.revista-container .theory-tag {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Visual Separator between Articles */
+.revista-container .article-separator {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    color: #666;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.revista-container .article-separator::before,
+.revista-container .article-separator::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 1px;
+    background-color: #999;
+}
+
+/* Highlight Box for Statutory Law */
+.revista-container .statute-box {
+    border: 1px solid var(--accent-color);
+    padding: 20px;
+    margin: 30px 0;
+    background-color: #fffdf5;
+    position: relative;
+}
+
+.revista-container .statute-box::before {
+    content: "Regimento Interno - Turmas Recursais";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background-color: var(--white);
+    color: var(--accent-color);
+    padding: 0 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+    .revista-container {
+        padding: 20px;
+        gap: 40px;
+    }
+    
+    .revista-container .infographic-page {
+        width: 100%;
+        padding: 30px;
+        min-height: auto;
+    }
+    
+    .revista-container .cover-title {
+        font-size: 3rem;
+    }
+    
+    .revista-container .grid-2-col,
+    .revista-container .grid-3-col {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .revista-container .grid-3-col > div[style*="grid-column: span 2"] {
+        grid-column: span 1;
+    }
+    
+    .revista-container h1 {
+        font-size: 2rem;
+    }
+    
+    .revista-container .flow-diagram {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .revista-container .arrow {
+        transform: rotate(90deg);
+    }
+}

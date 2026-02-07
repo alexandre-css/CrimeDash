@@ -22,6 +22,7 @@ import PowerBI from "./pages/Dashboard/PowerBI";
 import AdminLogin from "./pages/Admin/AdminLogin";
 import LinksManager from "./pages/Admin/LinksManager";
 import LinksEditor from "./pages/Admin/LinksEditor";
+import Revista from "./pages/Revista";
 
 export default function App() {
     return (
@@ -33,6 +34,7 @@ export default function App() {
                     <Route element={<AppLayout />}>
                         <Route index path="/" element={<Home />} />
                         <Route path="/powerbi" element={<PowerBI />} />
+                        <Route path="/revista" element={<Revista />} />
 
                         {/* Others Page */}
                         <Route path="/profile" element={<UserProfiles />} />

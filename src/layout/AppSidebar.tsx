@@ -7,6 +7,7 @@ import {
     GridIcon,
     HorizontaLDots,
     ChartCombinedIcon,
+    MenuBookIcon,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
 
@@ -27,6 +28,11 @@ const navItems: NavItem[] = [
         icon: <ChartCombinedIcon />,
         name: "Power BI",
         path: "/powerbi",
+    },
+    {
+        icon: <MenuBookIcon />,
+        name: "Revista",
+        path: "/revista",
     },
 ];
 
