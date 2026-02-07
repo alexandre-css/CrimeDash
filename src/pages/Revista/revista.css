@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap");
 
 .revista-container {
     --primary-color: #6a0006;
@@ -9,7 +9,7 @@
     --light-gray: #f0f0f0;
     --section-divider: #e0e0e0;
 
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     background-color: #dcdcdc;
     color: var(--text-color);
     margin: 0;
@@ -27,7 +27,7 @@
     width: 1000px;
     max-width: 100%;
     min-height: 1200px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     padding: 70px;
     box-sizing: border-box;
     position: relative;
@@ -45,7 +45,7 @@
 }
 
 .revista-container .cover-title {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 5rem;
     font-weight: 900;
     color: var(--primary-color);
@@ -55,7 +55,7 @@
 }
 
 .revista-container .cover-subtitle {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 1.5rem;
     font-weight: 300;
     color: var(--accent-color);
@@ -85,7 +85,7 @@
 }
 
 .revista-container .cover-highlight {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 1.8rem;
     color: var(--text-color);
     margin: 15px 0;
@@ -119,7 +119,7 @@
 .revista-container .toc-link {
     text-decoration: none;
     color: var(--primary-color);
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 1.8rem;
     font-weight: 700;
     flex-grow: 1;
@@ -127,14 +127,14 @@
 
 .revista-container .toc-desc {
     display: block;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 1rem;
     color: #666;
     margin-top: 5px;
 }
 
 .revista-container .toc-page-num {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: bold;
     color: var(--accent-color);
     font-size: 1.2rem;
@@ -145,7 +145,7 @@
 
 /* Typography General */
 .revista-container h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-weight: 900;
     font-size: 3.2rem;
     color: var(--primary-color);
@@ -156,7 +156,7 @@
 }
 
 .revista-container h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 1.8rem;
     color: var(--accent-color);
     margin-top: 10px;
@@ -165,7 +165,7 @@
 }
 
 .revista-container h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 1.4rem;
     color: var(--primary-color);
     border-bottom: 2px solid var(--accent-color);
@@ -231,7 +231,7 @@
 }
 
 .revista-container .concept-title {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-weight: 700;
     font-size: 1.4rem;
     color: var(--primary-color);
@@ -262,12 +262,16 @@
 }
 
 /* Labels for specific sections */
-.revista-container .case-law.competence::before { content: "Competência Constitucional"; }
-.revista-container .case-law.doctrine::before { content: "Doutrina Essencial"; }
+.revista-container .case-law.competence::before {
+    content: "Competência Constitucional";
+}
+.revista-container .case-law.doctrine::before {
+    content: "Doutrina Essencial";
+}
 
 .revista-container .case-law h4 {
     color: var(--accent-color);
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 15px;
@@ -286,7 +290,7 @@
     color: #ccc;
     font-style: normal;
     text-align: right;
-    border-top: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 10px;
 }
 
@@ -363,7 +367,7 @@
     text-align: center;
     margin: 20px 0;
     color: #666;
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-style: italic;
     font-size: 1.2rem;
     display: flex;
@@ -409,36 +413,36 @@
         padding: 20px;
         gap: 40px;
     }
-    
+
     .revista-container .infographic-page {
         width: 100%;
         padding: 30px;
         min-height: auto;
     }
-    
+
     .revista-container .cover-title {
         font-size: 3rem;
     }
-    
+
     .revista-container .grid-2-col,
     .revista-container .grid-3-col {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .revista-container .grid-3-col > div[style*="grid-column: span 2"] {
         grid-column: span 1;
     }
-    
+
     .revista-container h1 {
         font-size: 2rem;
     }
-    
+
     .revista-container .flow-diagram {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .revista-container .arrow {
         transform: rotate(90deg);
     }
