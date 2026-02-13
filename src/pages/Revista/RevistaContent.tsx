@@ -36,9 +36,7 @@ export default function RevistaContent() {
                     <br />
                     GABINETE AMR
                 </div>
-                <div className="cover-subtitle">
-                    Ciências Criminais &amp; Estratégia Processual
-                </div>
+                <div className="cover-subtitle">Ciências Criminais</div>
 
                 <div
                     style={{
@@ -72,13 +70,26 @@ export default function RevistaContent() {
                     </div>
 
                     <div className="cover-highlight">DOLO NO TRÂNSITO</div>
-                    <div style={{ fontFamily: "Lato", color: "#555" }}>
+                    <div
+                        style={{
+                            fontFamily: "Lato",
+                            color: "#555",
+                            marginBottom: "20px",
+                        }}
+                    >
                         Do Psicologismo à Atribuição Normativa
+                    </div>
+
+                    <div className="cover-highlight">
+                        CRIMES CONTRA CRIANÇAS E ADOLESCENTES
+                    </div>
+                    <div style={{ fontFamily: "Lato", color: "#555" }}>
+                        Competência: Juízo das Garantias vs. Juízo Especializado
                     </div>
                 </div>
 
                 <div className="cover-edition">
-                    EDIÇÃO ESPECIAL 2026 &bull; VOLUMES I A III
+                    EDIÇÃO ESPECIAL 2025 &bull; VOLUMES I A IV
                 </div>
             </div>
 
@@ -132,6 +143,20 @@ export default function RevistaContent() {
                             </span>
                         </div>
                         <span className="toc-page-num">Pág. 07</span>
+                    </li>
+                    <li className="toc-item">
+                        <div>
+                            <a href="#artigo4" className="toc-link">
+                                O Dilema da Competência: Garantias vs.
+                                Especialização
+                            </a>
+                            <span className="toc-desc">
+                                Conflito de jurisdição na produção antecipada de
+                                provas em crimes contra crianças e adolescentes
+                                fora do âmbito doméstico.
+                            </span>
+                        </div>
+                        <span className="toc-page-num">Pág. 09</span>
                     </li>
                 </ul>
 
@@ -918,6 +943,227 @@ export default function RevistaContent() {
 
                 <div className="footer">
                     REVISTA GABINETE AMR &bull; CRIMES DE TRÂNSITO
+                </div>
+            </div>
+
+            {/* SEPARADOR VISUAL ENTRE ARTIGOS */}
+            <div className="article-separator">
+                Fim do Artigo III &bull; Início do Artigo IV
+            </div>
+
+            {/* ARTIGO 4 - VOL. I */}
+            <div id="artigo4" className="infographic-page">
+                <div className="header-bar">
+                    <div className="issue-date">
+                        REVISTA GABINETE AMR &bull; ARTIGO IV &bull; VOL. I
+                    </div>
+                    <div style={{ fontWeight: "bold", letterSpacing: "2px" }}>
+                        CONFLITO DE JURISDIÇÃO
+                    </div>
+                </div>
+
+                <h1>
+                    O Dilema da
+                    <br />
+                    Competência
+                </h1>
+                <h2>
+                    Juízo das Garantias vs. Juízo Especializado na Produção
+                    Antecipada de Provas.
+                </h2>
+
+                <p className="lead">
+                    A proteção integral de crianças e adolescentes cria um
+                    microssistema jurídico que, por vezes, colide com a lógica
+                    da divisão funcional de competências. Em crimes sexuais
+                    contra vulneráveis, a quem cabe autorizar o{" "}
+                    <strong>Depoimento Especial</strong> antes da denúncia?
+                </p>
+
+                <div className="grid-2-col">
+                    <div className="theory-box">
+                        <span className="theory-tag">A Regra Geral</span>
+                        <span className="concept-title">
+                            Juízo das Garantias
+                        </span>
+                        <p>
+                            Por força da Lei n. 13.964/2019 e regulamentações
+                            locais (como a Resolução TJ n. 35/2025), o Juiz das
+                            Garantias é, em regra, competente para o controle da
+                            legalidade da investigação e para decidir sobre
+                            requerimentos cautelares (como a produção antecipada
+                            de provas) <strong>antes</strong> do oferecimento da
+                            denúncia.
+                        </p>
+                        <p>
+                            <strong>Foco:</strong> separação entre juízes da
+                            fase inquisitória e processual.
+                        </p>
+                    </div>
+
+                    <div
+                        className="theory-box"
+                        style={{ borderColor: "var(--accent-color)" }}
+                    >
+                        <span className="theory-tag">A Exceção Material</span>
+                        <span className="concept-title">
+                            Juízo Especializado
+                        </span>
+                        <p>
+                            Varas especializadas (ex: Varas Criminais com
+                            atribuição privativa para crimes praticados contra
+                            criança e adolescente) atraem a jurisdição em razão
+                            da <strong>matéria</strong> e da{" "}
+                            <strong>pessoa</strong> da vítima, independentemente
+                            da fase da persecução penal.
+                        </p>
+                        <p>
+                            <strong>Foco:</strong> Natureza do crime e proteção
+                            da vítima.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    style={{
+                        marginTop: "40px",
+                        padding: "20px",
+                        backgroundColor: "var(--light-gray)",
+                    }}
+                >
+                    <h3 style={{ border: "none", marginBottom: "10px" }}>
+                        O Ponto de Tensão
+                    </h3>
+                    <p>
+                        O conflito surge quando a necessidade de ouvir a vítima
+                        vulnerável (Depoimento Especial) ocorre na fase de
+                        inquérito. A competência funcional do Juiz das Garantias
+                        cede ou prevalece diante da competência material
+                        absoluta da Vara Especializada?
+                    </p>
+                </div>
+
+                <div className="case-law jurisdiction">
+                    <h4>Decisão Paradigma</h4>
+                    <p>
+                        Em recente acórdão (Conflito de Jurisdição n.
+                        5000874-46.2026.8.24.0000), o Tribunal de Justiça
+                        reafirmou que a competência especializada para crimes
+                        contra a dignidade sexual de vulneráveis prepondera
+                        sobre a competência funcional do Juiz das Garantias,
+                        mesmo na fase pré-processual.
+                    </p>
+                    <cite>Relator Des. Alexandre Morais da Rosa</cite>
+                </div>
+
+                <div className="footer">
+                    REVISTA GABINETE AMR &bull; COMPETÊNCIA E PROCESSO
+                </div>
+            </div>
+
+            {/* ARTIGO 4 - VOL. II */}
+            <div className="infographic-page">
+                <div className="header-bar">
+                    <div className="issue-date">
+                        REVISTA GABINETE AMR &bull; ARTIGO IV &bull; VOL. II
+                    </div>
+                    <div style={{ fontWeight: "bold", letterSpacing: "2px" }}>
+                        FUNDAMENTAÇÃO JURÍDICA
+                    </div>
+                </div>
+
+                <h1>
+                    Especialização como
+                    <br />
+                    Garantia
+                </h1>
+                <h2>
+                    Por que a proteção integral desloca a competência
+                    investigativa.
+                </h2>
+
+                <p className="lead">
+                    A <em>ratio</em> da decisão reside na compreensão de que a
+                    especialização não é mero capricho organizacional, mas uma
+                    garantia de atendimento qualificado. O Juízo Especializado
+                    possui a estrutura multidisciplinar (psicólogos, assistentes
+                    sociais) necessária para o Depoimento Especial, algo que o
+                    Juízo das Garantias, focado na legalidade estrita, muitas
+                    vezes não detém.
+                </p>
+
+                <div className="grid-2-col">
+                    <div className="concept-box">
+                        <span className="concept-title">
+                            Princípio da Especialidade
+                        </span>
+                        <p>
+                            Normas de organização judiciária que fixam
+                            competência em razão da <strong>matéria</strong>{" "}
+                            (natureza da infração) prevalecem sobre normas que
+                            fixam competência em razão da <strong>fase</strong>{" "}
+                            (inquérito vs. ação). A especialização visa um
+                            julgamento mais técnico e sensível às peculiaridades
+                            da vítima.
+                        </p>
+                    </div>
+
+                    <div className="concept-box">
+                        <span className="concept-title">
+                            Evitar a Revitimização
+                        </span>
+                        <p>
+                            Centralizar a competência no Juízo Especializado
+                            desde a investigação evita a fragmentação da prova e
+                            a necessidade de a vítima interagir com múltiplos
+                            atores judiciais. O juiz que colhe o depoimento
+                            antecipado é o mesmo que julgará a causa, garantindo
+                            coerência e acolhimento.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="flow-diagram">
+                    <div className="step">
+                        <strong>Fato</strong>
+                        <br />
+                        Crime contra Criança ou Adolescente
+                    </div>
+                    <div className="arrow">&rarr;</div>
+                    <div className="step">
+                        <strong>Conflito</strong>
+                        <br />
+                        Juiz das Garantias (Fase) vs. Juiz Especializado
+                        (Matéria)
+                    </div>
+                    <div className="arrow">&rarr;</div>
+                    <div
+                        className="step"
+                        style={{
+                            border: "2px solid var(--accent-color)",
+                            padding: "15px",
+                        }}
+                    >
+                        <strong>Solução</strong>
+                        <br />
+                        Prevalência da Especializada (Proteção Integral)
+                    </div>
+                </div>
+
+                <div className="case-law competence">
+                    <h4>Analogia com a Violência Doméstica</h4>
+                    <p>
+                        Assim como ocorre na Lei Maria da Penha, que demanda
+                        dinamismo procedimental e concentração em um mesmo
+                        juízo, a necessidade de garantir a proteção integral de
+                        crianças e adolescentes impõe a tramitação dos feitos
+                        desde a investigação na vara especializada.
+                    </p>
+                    <cite>Fundamento: Art. 227 da CR e Lei n. 13.431/2017</cite>
+                </div>
+
+                <div className="footer">
+                    REVISTA GABINETE AMR &bull; COMPETÊNCIA E PROCESSO
                 </div>
             </div>
         </div>

@@ -268,6 +268,9 @@
 .revista-container .case-law.doctrine::before {
     content: "Doutrina Essencial";
 }
+.revista-container .case-law.jurisdiction::before {
+    content: "Jurisprudência Estadual";
+}
 
 .revista-container .case-law h4 {
     color: var(--accent-color);
