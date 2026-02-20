@@ -423,7 +423,7 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765531058439"
     },
     {
-        title: "Gerador de Ementas (Cível)",
+        title: "Gerador de Ementas",
         description: "Gera ementas a partir do conteúdo do voto",
         url: "https://m365.cloud.microsoft:443/chat/?titleId=T_ee3c4689-b3a5-44c8-c371-c702d18a8d29&source=embedded-builder",
         category: "Copilot",
@@ -714,15 +714,15 @@ const DEFAULT_LINKS: LinkCard[] = [
 // Ordem de exibição das categorias
 export const CATEGORY_ORDER = [
     "Legislação Penal",
-    "Ferramentas",
+    "TJSC",
     "Google Drive",
+    "Sistemas",
+    "Jurisprudência",
     "NotebookLM",
     "Gemini",
     "Copilot",
-    "TJSC",
-    "Sistemas",
-    "Jurisprudência",
-    "Criminal Player"
+    "Criminal Player",
+    "Ferramentas"
 ];
 
 export function useLinks() {

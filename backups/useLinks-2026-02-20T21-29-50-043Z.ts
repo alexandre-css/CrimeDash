@@ -714,15 +714,15 @@ const DEFAULT_LINKS: LinkCard[] = [
 // Ordem de exibição das categorias
 export const CATEGORY_ORDER = [
     "Legislação Penal",
-    "Ferramentas",
-    "Google Drive",
-    "NotebookLM",
-    "Gemini",
-    "Copilot",
     "TJSC",
+    "NotebookLM",
+    "Google Drive",
     "Sistemas",
+    "Gemini",
     "Jurisprudência",
-    "Criminal Player"
+    "Copilot",
+    "Criminal Player",
+    "Ferramentas"
 ];
 
 export function useLinks() {

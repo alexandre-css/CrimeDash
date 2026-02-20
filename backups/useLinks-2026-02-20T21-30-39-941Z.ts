@@ -717,9 +717,9 @@ export const CATEGORY_ORDER = [
     "Ferramentas",
     "Google Drive",
     "NotebookLM",
+    "TJSC",
     "Gemini",
     "Copilot",
-    "TJSC",
     "Sistemas",
     "Jurisprudência",
     "Criminal Player"

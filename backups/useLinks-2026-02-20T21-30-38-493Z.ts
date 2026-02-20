@@ -716,10 +716,10 @@ export const CATEGORY_ORDER = [
     "Legislação Penal",
     "Ferramentas",
     "Google Drive",
+    "TJSC",
     "NotebookLM",
     "Gemini",
     "Copilot",
-    "TJSC",
     "Sistemas",
     "Jurisprudência",
     "Criminal Player"
