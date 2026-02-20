@@ -682,11 +682,11 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1770209971314"
     },
     {
-        title: "Copiador de PDF",
-        description: "Extrai o texto \"limpo\" do PDF, sem quebras de linha, cabeçalhos, rodapés, etc.",
-        url: "https://gemini.google.com/gem/1dVV-Omj6Cfm2b59snU1VWKRT4OPnTgLk?usp=sharing",
+        title: "Analisador de Aplicação da Pena",
+        description: "Gem do Gemini para análise de dosimetria",
+        url: "https://gemini.google.com/gem/1m140aqbYipfkXRxqYUeLJxcGNZUTq-GR?usp=sharing",
         category: "Gemini",
-        id: "1771620868639"
+        id: "1769351223177"
     },
     {
         title: "Calculadora Penal FEU",
@@ -696,18 +696,11 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765535000259"
     },
     {
-        title: "Analisador de Aplicação da Pena",
-        description: "Gem do Gemini para análise de dosimetria",
-        url: "https://gemini.google.com/gem/1m140aqbYipfkXRxqYUeLJxcGNZUTq-GR?usp=sharing",
+        title: "Copiador de PDF",
+        description: "Extrai o texto \"limpo\" do PDF, sem quebras de linha, cabeçalhos, rodapés, etc.",
+        url: "https://gemini.google.com/gem/1dVV-Omj6Cfm2b59snU1VWKRT4OPnTgLk?usp=sharing",
         category: "Gemini",
-        id: "1769351223177"
-    },
-    {
-        title: "Gerador de Ementa (Criminal)",
-        description: "Gera ementas no novo padrão (criminal)",
-        url: "https://gemini.google.com/gem/1zUb_EBrAHLGcFt98IQhjihipqiI8vZq9?usp=sharing",
-        category: "Gemini",
-        id: "1771620944966"
+        id: "1771620868639"
     }
 ];
 

@@ -701,13 +701,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://gemini.google.com/gem/1m140aqbYipfkXRxqYUeLJxcGNZUTq-GR?usp=sharing",
         category: "Gemini",
         id: "1769351223177"
-    },
-    {
-        title: "Gerador de Ementa (Criminal)",
-        description: "Gera ementas no novo padrão (criminal)",
-        url: "https://gemini.google.com/gem/1zUb_EBrAHLGcFt98IQhjihipqiI8vZq9?usp=sharing",
-        category: "Gemini",
-        id: "1771620944966"
     }
 ];
 

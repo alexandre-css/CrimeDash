@@ -493,11 +493,11 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765534869363"
     },
     {
-        title: "Calculadora de Pena (Quantum)",
-        description: "Meu projeto de calculadora de pena",
-        url: "https://quantum-calc-rho.vercel.app/",
+        title: "Calculadora Penal FEU",
+        description: "Calculadora para aplicação da pena",
+        url: "https://calculadora.feu.com.br/download",
         category: "Ferramentas",
-        id: "1771620781089"
+        id: "1765535000259"
     },
     {
         title: "Lightshot",
@@ -640,11 +640,11 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1766593180672"
     },
     {
-        title: "Transcrição de Depoimentos",
-        description: "Transcreve depoimentos e gera resumo em voz ativa",
-        url: "https://ai.studio/apps/drive/1Q4Zvy2q2rWPuJHR7kaTYXugVTkSOWgUc?fullscreenApplet=true",
+        title: "Analisador de Aplicação da Pena",
+        description: "Gem do Gemini para análise de dosimetria",
+        url: "https://gemini.google.com/gem/1m140aqbYipfkXRxqYUeLJxcGNZUTq-GR?usp=sharing",
         category: "Gemini",
-        id: "1771620667410"
+        id: "1769351223177"
     },
     {
         title: "Regimento de Emolumentos",
@@ -680,34 +680,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         url: "https://tjscjusbr0-my.sharepoint.com/:x:/r/personal/alexandress_tjsc_jus_br/Documents/%C3%81rea%20de%20Trabalho/TJSC/6%C2%AA%20C%C3%A2mara%20de%20Direito%20Criminal/Reformadas%20TJSC%20-%20Resultado%20Agrupado.xlsx?d=wf1ade2dd44fe4b6ba9a385b11fbe51ff&csf=1&web=1&e=0Bfifs",
         category: "Ferramentas",
         id: "1770209971314"
-    },
-    {
-        title: "Copiador de PDF",
-        description: "Extrai o texto \"limpo\" do PDF, sem quebras de linha, cabeçalhos, rodapés, etc.",
-        url: "https://gemini.google.com/gem/1dVV-Omj6Cfm2b59snU1VWKRT4OPnTgLk?usp=sharing",
-        category: "Gemini",
-        id: "1771620868639"
-    },
-    {
-        title: "Calculadora Penal FEU",
-        description: "Calculadora para aplicação da pena",
-        url: "https://calculadora.feu.com.br/download",
-        category: "Ferramentas",
-        id: "1765535000259"
-    },
-    {
-        title: "Analisador de Aplicação da Pena",
-        description: "Gem do Gemini para análise de dosimetria",
-        url: "https://gemini.google.com/gem/1m140aqbYipfkXRxqYUeLJxcGNZUTq-GR?usp=sharing",
-        category: "Gemini",
-        id: "1769351223177"
-    },
-    {
-        title: "Gerador de Ementa (Criminal)",
-        description: "Gera ementas no novo padrão (criminal)",
-        url: "https://gemini.google.com/gem/1zUb_EBrAHLGcFt98IQhjihipqiI8vZq9?usp=sharing",
-        category: "Gemini",
-        id: "1771620944966"
     }
 ];
 

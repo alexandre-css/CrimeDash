@@ -493,11 +493,11 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765534869363"
     },
     {
-        title: "Calculadora de Pena (Quantum)",
-        description: "Meu projeto de calculadora de pena",
-        url: "https://quantum-calc-rho.vercel.app/",
+        title: "Calculadora Penal FEU",
+        description: "Calculadora para aplicação da pena",
+        url: "https://calculadora.feu.com.br/download",
         category: "Ferramentas",
-        id: "1771620781089"
+        id: "1765535000259"
     },
     {
         title: "Lightshot",
@@ -682,20 +682,6 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1770209971314"
     },
     {
-        title: "Copiador de PDF",
-        description: "Extrai o texto \"limpo\" do PDF, sem quebras de linha, cabeçalhos, rodapés, etc.",
-        url: "https://gemini.google.com/gem/1dVV-Omj6Cfm2b59snU1VWKRT4OPnTgLk?usp=sharing",
-        category: "Gemini",
-        id: "1771620868639"
-    },
-    {
-        title: "Calculadora Penal FEU",
-        description: "Calculadora para aplicação da pena",
-        url: "https://calculadora.feu.com.br/download",
-        category: "Ferramentas",
-        id: "1765535000259"
-    },
-    {
         title: "Analisador de Aplicação da Pena",
         description: "Gem do Gemini para análise de dosimetria",
         url: "https://gemini.google.com/gem/1m140aqbYipfkXRxqYUeLJxcGNZUTq-GR?usp=sharing",
@@ -703,11 +689,11 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1769351223177"
     },
     {
-        title: "Gerador de Ementa (Criminal)",
-        description: "Gera ementas no novo padrão (criminal)",
-        url: "https://gemini.google.com/gem/1zUb_EBrAHLGcFt98IQhjihipqiI8vZq9?usp=sharing",
-        category: "Gemini",
-        id: "1771620944966"
+        title: "Calculadora de Pena (Quantum)",
+        description: "Meu projeto de calculadora de pena",
+        url: "https://quantum-calc-rho.vercel.app/",
+        category: "Ferramentas",
+        id: "1771620781089"
     }
 ];
 

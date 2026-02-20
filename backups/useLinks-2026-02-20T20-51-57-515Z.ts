@@ -493,11 +493,11 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1765534869363"
     },
     {
-        title: "Calculadora de Pena (Quantum)",
-        description: "Meu projeto de calculadora de pena",
-        url: "https://quantum-calc-rho.vercel.app/",
+        title: "Calculadora Penal FEU",
+        description: "Calculadora para aplicação da pena",
+        url: "https://calculadora.feu.com.br/download",
         category: "Ferramentas",
-        id: "1771620781089"
+        id: "1765535000259"
     },
     {
         title: "Lightshot",
@@ -640,11 +640,11 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1766593180672"
     },
     {
-        title: "Transcrição de Depoimentos",
-        description: "Transcreve depoimentos e gera resumo em voz ativa",
-        url: "https://ai.studio/apps/drive/1Q4Zvy2q2rWPuJHR7kaTYXugVTkSOWgUc?fullscreenApplet=true",
+        title: "Analisador de Aplicação da Pena",
+        description: "Gem do Gemini para análise de dosimetria",
+        url: "https://gemini.google.com/gem/1m140aqbYipfkXRxqYUeLJxcGNZUTq-GR?usp=sharing",
         category: "Gemini",
-        id: "1771620667410"
+        id: "1769351223177"
     },
     {
         title: "Regimento de Emolumentos",
@@ -682,32 +682,11 @@ const DEFAULT_LINKS: LinkCard[] = [
         id: "1770209971314"
     },
     {
-        title: "Copiador de PDF",
-        description: "Extrai o texto \"limpo\" do PDF, sem quebras de linha, cabeçalhos, rodapés, etc.",
-        url: "https://gemini.google.com/gem/1dVV-Omj6Cfm2b59snU1VWKRT4OPnTgLk?usp=sharing",
+        title: "Transcrição de Depoimentos",
+        description: "Transcreve depoimentos e gera resumo em voz ativa",
+        url: "https://ai.studio/apps/drive/1Q4Zvy2q2rWPuJHR7kaTYXugVTkSOWgUc?fullscreenApplet=true",
         category: "Gemini",
-        id: "1771620868639"
-    },
-    {
-        title: "Calculadora Penal FEU",
-        description: "Calculadora para aplicação da pena",
-        url: "https://calculadora.feu.com.br/download",
-        category: "Ferramentas",
-        id: "1765535000259"
-    },
-    {
-        title: "Analisador de Aplicação da Pena",
-        description: "Gem do Gemini para análise de dosimetria",
-        url: "https://gemini.google.com/gem/1m140aqbYipfkXRxqYUeLJxcGNZUTq-GR?usp=sharing",
-        category: "Gemini",
-        id: "1769351223177"
-    },
-    {
-        title: "Gerador de Ementa (Criminal)",
-        description: "Gera ementas no novo padrão (criminal)",
-        url: "https://gemini.google.com/gem/1zUb_EBrAHLGcFt98IQhjihipqiI8vZq9?usp=sharing",
-        category: "Gemini",
-        id: "1771620944966"
+        id: "1771620667410"
     }
 ];
 
